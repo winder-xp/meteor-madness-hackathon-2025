@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bye6kva20bbor"]
+
+[ext_resource type="Script" uid="uid://mio4lk3xi7b6" path="res://scripts/camera_3d.gd" id="1_opvqn"]
+
+[node name="MovableCamera3D" type="Camera3D"]
+script = ExtResource("1_opvqn")
+radius = 3.985
+movement_speed = 0.025

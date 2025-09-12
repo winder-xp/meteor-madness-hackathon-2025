@@ -1,16 +1,26 @@
 extends Camera3D
 
+## La posición del objeto en el que la cámara va a centrarse
 @export var camera_lookat: Vector3 = Vector3.ZERO
 
 # parámetros en esféricas de la posición de la cámara (mirar position para convenio)
-var radius := (position - camera_lookat).length()
+## El radio en esféricas inicial de la cámara al objeto al que enfoca
+@export var radius := (global_position - camera_lookat).length()
 var theta := PI / 2
 var phi := PI / 2
 
+## Velocidad al moverte con WASD Espacio Shift con la cámara por el mapa
+@export var movement_speed := 1.0
+
 var rotating := false
 var last_mouse_pos := Vector2.ZERO
-var sensitivity := 0.01
-var zoom_sensitivity := 0.5
+
+## Sensibilidad del ratón al arrastrar la cámara
+@export var mouse_sensitivity := 0.01
+## Sensibilidad de la rueda del ratón al hacer zoom
+@export var zoom_sensitivity := 0.5
+## Activa el movimiento de la cámara con WASD Espacio Shift (para testear)
+@export var test_movement := true
 
 func _ready():
 	pass
@@ -36,8 +46,8 @@ func _process(delta):
 		last_mouse_pos = mouse_pos
 		
 		# Se transforma el movimiento de mouse en rotación angular 
-		phi -= delta_mouse.x * sensitivity
-		theta -= delta_mouse.y * sensitivity
+		phi += delta_mouse.x * mouse_sensitivity
+		theta -= delta_mouse.y * mouse_sensitivity
 		
 		theta = clamp(theta, 0.01, PI - 0.01) # se limita el valor para que no de problemas
 		
@@ -51,5 +61,21 @@ func _process(delta):
 		radius -= zoom_sensitivity
 	if Input.is_action_just_pressed("scrollDown"):
 		radius += zoom_sensitivity
-	radius = clamp(radius, 0.0, INF)
+	radius = clamp(radius, 0.5, INF)
+	'''
+	MOVIMIENTO PARA TESTEAR
+	'''
+	if test_movement:
+		if Input.is_action_pressed("keyW"):
+			camera_lookat.z -= movement_speed
+		if Input.is_action_pressed("keyS"):
+			camera_lookat.z += movement_speed
+		if Input.is_action_pressed("keyA"):
+			camera_lookat.x -= movement_speed
+		if Input.is_action_pressed("keyD"):
+			camera_lookat.x += movement_speed
+		if Input.is_action_pressed("keySpace"):
+			camera_lookat.y += movement_speed
+		if Input.is_action_pressed("keyShift"):
+			camera_lookat.y -= movement_speed
 	
