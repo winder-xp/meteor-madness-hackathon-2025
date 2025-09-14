@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4ddh0ykygtu3"]
+[gd_scene load_steps=7 format=3 uid="uid://d4ddh0ykygtu3"]
 
 [ext_resource type="PackedScene" uid="uid://bye6kva20bbor" path="res://scenes/movable_camera_3d.tscn" id="1_g7g4h"]
 [ext_resource type="PackedScene" uid="uid://b3decofh4d3lq" path="res://scenes/asteroid.tscn" id="2_j8ivh"]
@@ -8,6 +8,8 @@
 [sub_resource type="BoxMesh" id="BoxMesh_j8ivh"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_a5oyu"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j8ivh"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -23,6 +25,11 @@ skeleton = NodePath("../MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_a5oyu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("SphereShape3D_j8ivh")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.95841)
@@ -44,11 +51,22 @@ light_color = Color(0.0901961, 1, 1, 1)
 
 [node name="AsteroidSet" type="Node3D" parent="."]
 
+[node name="Asteroid5" parent="AsteroidSet" instance=ExtResource("2_j8ivh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83939, 19.1735, -29.647)
+mass = 98.637
+
+[node name="Asteroid4" parent="AsteroidSet" instance=ExtResource("2_j8ivh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.16169, 10.2966, 12.2582)
+mass = 98.637
+
 [node name="Asteroid3" parent="AsteroidSet" instance=ExtResource("2_j8ivh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07025, -1.58436, 6.12911)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07025, 5.14828, 6.12911)
+mass = 98.637
 
 [node name="Asteroid2" parent="AsteroidSet" instance=ExtResource("2_j8ivh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.51643, 5.33366, -11.0508)
+mass = 4.635
 
 [node name="Asteroid" parent="AsteroidSet" instance=ExtResource("2_j8ivh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2353, 5.29604, -6.2371)
+mass = 1000.0

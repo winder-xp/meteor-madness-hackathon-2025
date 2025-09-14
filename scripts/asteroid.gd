@@ -6,6 +6,7 @@ que contenga los demás asteroides, pues se recorren con un bucle
 const UA_TO_METERS := 149597828677.28
 const YEARS_TO_SECONDS := 31556952
 const GRAVITATIONAL_CONSTANT := 1.0#6.67430e-11
+const SUN_MASS := 1.989e3
 
 var applied_force = Vector3.ZERO
 
@@ -28,4 +29,8 @@ func _physics_process(delta):
 			continue
 		#applied_force += - R * (mass * asteroid.mass * GRAVITATIONAL_CONSTANT * YEARS_TO_SECONDS ** 2) / ((UA_TO_METERS ** 3) * R.length()**3)
 		applied_force += - R * (mass * asteroid.mass * GRAVITATIONAL_CONSTANT) / (R.length()**3)
+	if global_position.length() > 0.001:
+		applied_force = - global_position * (mass * SUN_MASS * GRAVITATIONAL_CONSTANT) / (global_position.length()**3)
 	apply_central_force(applied_force)
+	applied_force = Vector3.ZERO
+	
