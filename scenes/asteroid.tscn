@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3decofh4d3lq"]
+
+[ext_resource type="Script" uid="uid://dps2p0jg3fm2g" path="res://scripts/asteroid.gd" id="1_akfqu"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0md28"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_akfqu"]
+
+[sub_resource type="Gradient" id="Gradient_akfqu"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6mo6b"]
+gradient = SubResource("Gradient_akfqu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4se3"]
+albedo_texture = SubResource("GradientTexture1D_6mo6b")
+
+[node name="Asteroid" type="RigidBody3D"]
+gravity_scale = 0.0
+script = ExtResource("1_akfqu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_0md28")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_akfqu")
+surface_material_override/0 = SubResource("StandardMaterial3D_t4se3")
