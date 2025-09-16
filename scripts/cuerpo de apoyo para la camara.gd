@@ -1,3 +1,5 @@
+"este script va sobre un mesh MeshInstance3D transaprente que sirve como apoyo de la camara"
+
 extends MeshInstance3D
 
 @export var pan_speed := 0.01

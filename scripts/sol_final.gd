@@ -1,4 +1,4 @@
-extends Node3D  # o MeshInstance3D si tu esfera es un MeshInstance3D
+extends MeshInstance3D3D  #rotación del sol
 
 var velocidad_rotacion = 10.0  # grados por segundo
 
