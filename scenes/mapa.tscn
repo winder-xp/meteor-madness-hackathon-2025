@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ftjl8t0ip5pd"]
+
+[ext_resource type="Texture2D" uid="uid://bppbsk6srevm7" path="res://solarsystemscopemap.jpg" id="1_ekubr"]
+[ext_resource type="Script" uid="uid://dlxpt4kgi4d2" path="res://scenes/sprite_2d.gd" id="2_tfnl5"]
+[ext_resource type="Script" uid="uid://qbkvf36oq1v7" path="res://scenes/punto.gd" id="3_nrd35"]
+
+[node name="Mapa" type="Node2D"]
+
+[node name="punto" type="Node2D" parent="."]
+script = ExtResource("3_nrd35")
+
+[node name="MapaMundo" type="Sprite2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(1024, -512)
+texture = ExtResource("1_ekubr")
+script = ExtResource("2_tfnl5")
