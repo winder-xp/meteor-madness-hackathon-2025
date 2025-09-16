@@ -11,6 +11,5 @@ script = ExtResource("3_nrd35")
 
 [node name="MapaMundo" type="Sprite2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(1021, -1022)
 texture = ExtResource("2_nrd35")
 script = ExtResource("2_tfnl5")
