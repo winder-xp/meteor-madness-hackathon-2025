@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8gd2t4wp02kp"
-path.s3tc="res://.godot/imported/2k_earth_clouds.jpg-1ddf75a37e4f09b0dc4e7df3f00814ae.s3tc.ctex"
+path.s3tc="res://.godot/imported/2k_earth_clouds.jpg-0f6c47c6f6a342aa2563b5254e1c0341.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://recursos para el sistema solar/Imagenes de texturas/2k_earth_clouds.jpg"
-dest_files=["res://.godot/imported/2k_earth_clouds.jpg-1ddf75a37e4f09b0dc4e7df3f00814ae.s3tc.ctex"]
+source_file="res://Recursos de godot/recursos para el sistema solar/Imagenes de texturas/2k_earth_clouds.jpg"
+dest_files=["res://.godot/imported/2k_earth_clouds.jpg-0f6c47c6f6a342aa2563b5254e1c0341.s3tc.ctex"]
 
 [params]
 

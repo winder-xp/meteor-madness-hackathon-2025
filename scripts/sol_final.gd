@@ -1,4 +1,4 @@
-extends MeshInstance3D3D  #rotación del sol
+extends MeshInstance3D  #rotación del sol
 
 var velocidad_rotacion = 10.0  # grados por segundo
 
