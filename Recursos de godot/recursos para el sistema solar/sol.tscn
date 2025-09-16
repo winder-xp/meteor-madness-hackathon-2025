@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://j1n8jvl7rfkp"]
+
+[ext_resource type="Script" uid="uid://cktp0vbklq3n3" path="res://character_body_3d.gd" id="1_3nore"]
+[ext_resource type="Texture2D" uid="uid://cpl0ry3f4a4e0" path="res://recursos para el sistema solar/8k_sun.jpg" id="2_31nu3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kgaeg"]
+albedo_texture = ExtResource("2_31nu3")
+
+[sub_resource type="SphereMesh" id="SphereMesh_jp4fc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nore"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_r05ry"]
+
+[node name="SOL" type="CharacterBody3D"]
+script = ExtResource("1_3nore")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_kgaeg")
+mesh = SubResource("SphereMesh_jp4fc")
+surface_material_override/0 = SubResource("StandardMaterial3D_3nore")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_r05ry")

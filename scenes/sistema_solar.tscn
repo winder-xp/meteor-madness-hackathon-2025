@@ -1,0 +1,55 @@
+[gd_scene load_steps=14 format=3 uid="uid://cxhhwgjn62vs7"]
+
+[ext_resource type="PackedScene" uid="uid://co5mwyhwg3m4x" path="res://recursos para el sistema solar/sol_final.tscn" id="1_awk3h"]
+[ext_resource type="Script" uid="uid://cre1fybf4yjct" path="res://cuerpo de apoyo para la camara.gd" id="3_j4hda"]
+[ext_resource type="Texture2D" uid="uid://cuy8erxw1ii1p" path="res://recursos para el sistema solar/2k_stars.jpg" id="3_pdnvj"]
+[ext_resource type="Script" uid="uid://6883h6tx470u" path="res://recursos para el sistema solar/camera_3d.gd" id="4_pdnvj"]
+[ext_resource type="Texture2D" uid="uid://bmy6d5k0sn62g" path="res://recursos para el sistema solar/2k_earth_daymap.jpg" id="5_n82ve"]
+[ext_resource type="Texture2D" uid="uid://8gd2t4wp02kp" path="res://recursos para el sistema solar/2k_earth_clouds.jpg" id="6_gstne"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_awk3h"]
+panorama = ExtResource("3_pdnvj")
+
+[sub_resource type="Sky" id="Sky_j4hda"]
+sky_material = SubResource("PanoramaSkyMaterial_awk3h")
+
+[sub_resource type="Environment" id="Environment_pdnvj"]
+background_mode = 2
+sky = SubResource("Sky_j4hda")
+
+[sub_resource type="SphereMesh" id="SphereMesh_n82ve"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4hda"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_hp45p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ks0l7"]
+albedo_texture = ExtResource("5_n82ve")
+emission_enabled = true
+emission = Color(0, 0, 0.133333, 1)
+emission_energy_multiplier = 1.1
+emission_texture = ExtResource("6_gstne")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="sol final" parent="." instance=ExtResource("1_awk3h")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pdnvj")
+
+[node name="cuerpo de apoyo de camara" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0219157, 0, 0)
+mesh = SubResource("SphereMesh_n82ve")
+surface_material_override/0 = SubResource("StandardMaterial3D_j4hda")
+script = ExtResource("3_j4hda")
+
+[node name="Camera3D" type="Camera3D" parent="cuerpo de apoyo de camara"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.023168, 0.0302959, 3.03442)
+script = ExtResource("4_pdnvj")
+
+[node name="Tierra" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.5812)
+mesh = SubResource("SphereMesh_hp45p")
+surface_material_override/0 = SubResource("StandardMaterial3D_ks0l7")
