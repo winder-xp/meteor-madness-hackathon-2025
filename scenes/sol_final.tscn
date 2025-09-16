@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://co5mwyhwg3m4x"]
+
+[ext_resource type="Texture2D" uid="uid://bslelttr1rhoe" path="res://assets/2k_sun.jpg" id="1_13u3x"]
+[ext_resource type="Script" path="res://scripts/sol_final.gd" id="2_jlxvi"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ltoda"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkb8g"]
+albedo_color = Color(1, 0.239216, 0, 1)
+albedo_texture = ExtResource("1_13u3x")
+emission_enabled = true
+emission = Color(0.313247, 2.07564e-06, 0.0130765, 1)
+emission_energy_multiplier = 10.43
+emission_texture = ExtResource("1_13u3x")
+
+[node name="sol final" type="MeshInstance3D"]
+mesh = SubResource("SphereMesh_ltoda")
+surface_material_override/0 = SubResource("StandardMaterial3D_jkb8g")
+script = ExtResource("2_jlxvi")
