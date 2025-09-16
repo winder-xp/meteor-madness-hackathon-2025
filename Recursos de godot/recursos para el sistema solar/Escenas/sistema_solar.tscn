@@ -36,6 +36,8 @@ emission_texture = ExtResource("6_gstne")
 
 [node name="sol final" parent="." instance=ExtResource("1_awk3h")]
 
+[node name="OmniLight3D" type="DirectionalLight3D" parent="sol final"]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pdnvj")
 
@@ -50,6 +52,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.023168, 0.0302959, 3.03442
 script = ExtResource("4_n82ve")
 
 [node name="Tierra" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.5812)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.315)
 mesh = SubResource("SphereMesh_hp45p")
 surface_material_override/0 = SubResource("StandardMaterial3D_ks0l7")

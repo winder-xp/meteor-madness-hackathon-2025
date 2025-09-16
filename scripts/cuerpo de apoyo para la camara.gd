@@ -26,4 +26,4 @@ func _input(event):
 	elif event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		# Girar el pivot según el movimiento del ratón
 		rotation.y -= event.relative.x * velocidad_orbita  # yaw
-		rotation.x -= event.relative.y * velocidad_orbita  # pitch
+		rotation.x = clamp(rotation.x - event.relative.y * velocidad_orbita,deg_to_rad(-89),deg_to_rad(89))    # máximo (miras casi hacia arriba)
