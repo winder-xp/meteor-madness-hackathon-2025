@@ -47,7 +47,6 @@ func _unhandled_input(event):
 
 func _process(delta):
 	var viewport_size := Vector2(1152,648)
-	print(viewport_size)
 	var half_viewport := viewport_size / 2 / zoom
 
 	var limit_left := -map_width/2 + half_viewport.x
