@@ -17,7 +17,7 @@ func _process(delta):
 	
 func _input(event):
 	# Mouse in viewport coordinates.
-	if event is InputEventMouseButton:
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		print("Mouse Click/Unclick at: ", event.position)
 	
 	#if event.is_action_pressed("keyQ"):

@@ -14,3 +14,7 @@ func _ready():
 	## Mouse in viewport coordinates.
 	#if event is InputEventMouseButton:
 		#print("Mouse Click/Unclick at: ", event.position)
+	var map_size = Vector2()
+	map_size.x = texture.get_width() * scale.x
+	map_size.y = texture.get_height() * scale.y
+	print("Tamaño del mapa:", map_size)
