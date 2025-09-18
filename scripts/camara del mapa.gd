@@ -1,19 +1,19 @@
 extends Camera2D
 
 # Configuración de zoom
-var zoom_speed := 0.1
+## Velocidad del zoom de la cámara
+@export var zoom_speed := 0.1
 var min_zoom := 0.6
 var max_zoom := 4.0
-var zoom_smooth := 8.0
+## Lo 'fácil' que es hacer zoom (menos = más suave, más = menos suave)
+@export var zoom_smooth := 8.0
 
 # Configuración de pan
-var pan_smooth := 5.0
+# He aumentado el pan_smooth porque se siente mejor así
+## Lo 'fácil' que es arrastrar la cámara (menos = más suave, más = menos suave)
+@export var pan_smooth := 50.0
 var dragging := false
 var last_mouse_pos := Vector2()
-
-# Tamaño del mapa
-var map_width := 2058
-var map_height := 2058
 
 # Variables objetivo
 var target_position := Vector2()
@@ -48,11 +48,13 @@ func _unhandled_input(event):
 func _process(delta):
 	var viewport_size := Vector2(1152,648)
 	var half_viewport := viewport_size / 2 / zoom
-
-	var limit_left := -map_width/2 + half_viewport.x
-	var limit_right := map_width/2 - half_viewport.x
-	var limit_top := -map_height/2 + half_viewport.y
-	var limit_bottom := map_height/2 - half_viewport.y
+	# Tamaño del mapa
+	var map_width = get_parent().get_node('MapaMundo').get_rect().size.x
+	var map_height = get_parent().get_node('MapaMundo').get_rect().size.y
+	var limit_left = -map_width/2 + half_viewport.x
+	var limit_right = map_width/2 - half_viewport.x
+	var limit_top = -map_height/2 + half_viewport.y
+	var limit_bottom = map_height/2 - half_viewport.y
 	
 	# Movimiento de pan
 	if dragging:
