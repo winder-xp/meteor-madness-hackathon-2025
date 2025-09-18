@@ -8,11 +8,11 @@
 
 [sub_resource type="Gradient" id="Gradient_akfqu"]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_6mo6b"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6mo6b"]
 gradient = SubResource("Gradient_akfqu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4se3"]
-albedo_texture = SubResource("GradientTexture1D_6mo6b")
+albedo_texture = SubResource("GradientTexture2D_6mo6b")
 
 [node name="Asteroid" type="RigidBody3D"]
 gravity_scale = 0.0
