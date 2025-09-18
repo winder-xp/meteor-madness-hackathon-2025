@@ -1,13 +1,18 @@
 extends Camera3D
-
+@onready var earth_mesh: MeshInstance3D = $"../Tierra"
+@onready var sun_mesh: MeshInstance3D = $"../sol final" 
 ## La posición del objeto en el que la cámara va a centrarse
 @export var camera_lookat: Vector3 = Vector3.ZERO
-
+var scale_factor_earth := 1.0
+var scale_factor_sun := 1.0
 # parámetros en esféricas de la posición de la cámara (mirar position para convenio)
 ## El radio en esféricas inicial de la cámara al objeto al que enfoca
 @export var radius := (global_position - camera_lookat).length()
 var theta := PI / 2
 var phi := PI / 2
+
+## Si se activa, se centra siempre en un nodo llamado "Tierra"
+@export var is_on_earth := false
 
 ## Velocidad al moverte con WASD Espacio Shift con la cámara por el mapa
 @export var movement_speed := 1.0
@@ -18,7 +23,7 @@ var last_mouse_pos := Vector2.ZERO
 ## Sensibilidad del ratón al arrastrar la cámara
 @export var mouse_sensitivity := 0.01
 ## Sensibilidad de la rueda del ratón al hacer zoom
-@export var zoom_sensitivity := 0.5
+@export var zoom_sensitivity := 0.001
 ## Activa el movimiento de la cámara con WASD Espacio Shift (para testear)
 @export var test_movement := true
 
@@ -57,11 +62,29 @@ func _process(delta):
 	'''
 	ZOOM
 	'''
-	if Input.is_action_just_pressed("scrollUp"):
-		radius -= zoom_sensitivity
-	if Input.is_action_just_pressed("scrollDown"):
-		radius += zoom_sensitivity
-	radius = clamp(radius, 0.5, INF)
+	if radius <= 0.5:
+		scale_factor_earth = 1.0
+		scale_factor_sun = 1.0
+		if Input.is_action_just_pressed("scrollUp"):
+			radius -= zoom_sensitivity
+			print("sun: " + str(sun_mesh.scale))
+		if Input.is_action_just_pressed("scrollDown"):
+			radius += zoom_sensitivity
+			print("sun: " + str(sun_mesh.scale))
+	else:
+		if Input.is_action_just_pressed("scrollUp"):
+			radius -= radius * 0.5
+			scale_factor_earth -= 5.0
+			scale_factor_sun -= 0.5
+			print("radius: " + str(radius))
+			print("sun: " + str(sun_mesh.scale))
+		if Input.is_action_just_pressed("scrollDown"):
+			radius += radius * 0.5
+			scale_factor_earth += 5.0
+			scale_factor_sun += 0.5
+			print("radius: " + str(radius))
+			print("sun: " + str(sun_mesh.scale))
+	radius = clamp(radius, 0.009, INF)
 	'''
 	MOVIMIENTO PARA TESTEAR
 	'''
@@ -78,4 +101,10 @@ func _process(delta):
 			camera_lookat.y += movement_speed
 		if Input.is_action_pressed("keyShift"):
 			camera_lookat.y -= movement_speed
-	
+	'''
+	CENTRADO EN TIERRA (solo sistema_solar.tscn)
+	'''
+	if is_on_earth:
+		camera_lookat = get_parent().get_node("Tierra").global_position
+		earth_mesh.scale = Vector3.ONE * 1.0 * scale_factor_earth
+		sun_mesh.scale   = Vector3.ONE * 1.0 * scale_factor_sun

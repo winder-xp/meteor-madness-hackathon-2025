@@ -24,6 +24,7 @@ shape = SubResource("SphereShape3D_j8ivh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.681875, 19.157772)
 radius = 50.0
 mouse_sensitivity = 0.008
+zoom_sensitivity = 0.5
 
 [node name="AsteroidSet" type="Node3D" parent="."]
 
