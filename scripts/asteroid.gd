@@ -6,7 +6,7 @@ que contenga los demás asteroides, pues se recorren con un bucle
 const UA_TO_METERS := 149597828677.28
 const YEARS_TO_SECONDS := 31556952
 const GRAVITATIONAL_CONSTANT := 1.0#6.67430e-11
-const SUN_MASS := 1.989e3
+const SUN_MASS := 1.989e2
 
 var applied_force = Vector3.ZERO
 

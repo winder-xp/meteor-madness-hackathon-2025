@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d4ddh0ykygtu3"]
+[gd_scene load_steps=9 format=3 uid="uid://d4ddh0ykygtu3"]
 
 [ext_resource type="PackedScene" uid="uid://bye6kva20bbor" path="res://scenes/movable_camera_3d.tscn" id="1_g7g4h"]
 [ext_resource type="PackedScene" uid="uid://b3decofh4d3lq" path="res://scenes/asteroid.tscn" id="2_j8ivh"]
@@ -10,6 +10,10 @@
 [sub_resource type="SphereMesh" id="SphereMesh_a5oyu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j8ivh"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_j8ivh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nd71p"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -70,3 +74,12 @@ mass = 4.635
 [node name="Asteroid" parent="AsteroidSet" instance=ExtResource("2_j8ivh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2353, 5.29604, -6.2371)
 mass = 1000.0
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 2.94101, 0.591997, 0, -0.591997, 2.94101, -3, 0, 0)
+mesh = SubResource("CapsuleMesh_j8ivh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D4/StaticBody3D"]
+shape = SubResource("CapsuleShape3D_nd71p")
