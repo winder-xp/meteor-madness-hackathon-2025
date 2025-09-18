@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dagxkrcv0upmv"]
+
+[ext_resource type="PackedScene" uid="uid://djxhklrccvua4" path="res://recursos3d/vintage_office_interior_scene.glb" id="1_li3bk"]
+[ext_resource type="Script" uid="uid://dptrg53aonld3" path="res://camera_3d.gd" id="2_s82km"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_li3bk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.041572377, -1.2728733, 0.36165625)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.99706334, -0.054224722, 0.05407877, 0.010925856, 0.7996506, 0.60036623, -0.07579881, -0.5980122, 0.7978948, 0.13499323, 0.18801239, 0.02138818)
+script = ExtResource("2_s82km")
