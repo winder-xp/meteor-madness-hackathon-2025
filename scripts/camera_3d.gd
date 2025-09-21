@@ -62,29 +62,35 @@ func _process(delta):
 	'''
 	ZOOM
 	'''
-	if radius <= 0.5:
-		scale_factor_earth = 1.0
-		scale_factor_sun = 1.0
-		if Input.is_action_just_pressed("scrollUp"):
-			radius -= zoom_sensitivity
-			print("sun: " + str(sun_mesh.scale))
-		if Input.is_action_just_pressed("scrollDown"):
-			radius += zoom_sensitivity
-			print("sun: " + str(sun_mesh.scale))
+	if is_on_earth:
+		if radius <= 0.5:
+			scale_factor_earth = 1.0
+			scale_factor_sun = 1.0
+			if Input.is_action_just_pressed("scrollUp"):
+				radius -= zoom_sensitivity
+				print("sun: " + str(sun_mesh.scale))
+			if Input.is_action_just_pressed("scrollDown"):
+				radius += zoom_sensitivity
+				print("sun: " + str(sun_mesh.scale))
+		else:
+			if Input.is_action_just_pressed("scrollUp"):
+				radius -= radius * 0.5
+				scale_factor_earth -= 5.0
+				scale_factor_sun -= 0.5
+				print("radius: " + str(radius))
+				print("sun: " + str(sun_mesh.scale))
+			if Input.is_action_just_pressed("scrollDown"):
+				radius += radius * 0.5
+				scale_factor_earth += 5.0
+				scale_factor_sun += 0.5
+				print("radius: " + str(radius))
+				print("sun: " + str(sun_mesh.scale))
+		radius = clamp(radius, 0.009, INF)
 	else:
 		if Input.is_action_just_pressed("scrollUp"):
-			radius -= radius * 0.5
-			scale_factor_earth -= 5.0
-			scale_factor_sun -= 0.5
-			print("radius: " + str(radius))
-			print("sun: " + str(sun_mesh.scale))
+			radius -= zoom_sensitivity
 		if Input.is_action_just_pressed("scrollDown"):
-			radius += radius * 0.5
-			scale_factor_earth += 5.0
-			scale_factor_sun += 0.5
-			print("radius: " + str(radius))
-			print("sun: " + str(sun_mesh.scale))
-	radius = clamp(radius, 0.009, INF)
+			radius += zoom_sensitivity
 	'''
 	MOVIMIENTO PARA TESTEAR
 	'''

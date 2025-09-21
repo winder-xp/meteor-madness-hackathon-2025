@@ -2,8 +2,8 @@ extends MeshInstance3D
 const MAJOR_AXIS_A = 429.782952422 / 2
 const MINOR_AXIS_B = 215.032
 # 1 mes = 30 días
-const YEAR_TO_DAY = 365.0
-const OMEGA = 2*PI/YEAR_TO_DAY
+const YEAR_TO_UNIT = 365.0*24*3600
+const OMEGA = 2*PI/YEAR_TO_UNIT
 
 
 # Called when the node enters the scene tree for the first time.
