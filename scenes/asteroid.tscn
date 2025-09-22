@@ -8,11 +8,15 @@
 
 [sub_resource type="Gradient" id="Gradient_akfqu"]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_6mo6b"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6mo6b"]
 gradient = SubResource("Gradient_akfqu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4se3"]
-albedo_texture = SubResource("GradientTexture1D_6mo6b")
+albedo_color = Color(0.8309514, 0, 0.25618938, 1)
+albedo_texture = SubResource("GradientTexture2D_6mo6b")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 11.25
 
 [node name="Asteroid" type="RigidBody3D"]
 gravity_scale = 0.0
@@ -22,5 +26,6 @@ script = ExtResource("1_akfqu")
 shape = SubResource("SphereShape3D_0md28")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(16.495, 0, 0, 0, 16.495, 0, 0, 0, 16.495, 0, 0, 0)
 mesh = SubResource("SphereMesh_akfqu")
 surface_material_override/0 = SubResource("StandardMaterial3D_t4se3")
