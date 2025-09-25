@@ -17,3 +17,10 @@ emission_texture = ExtResource("1_13u3x")
 mesh = SubResource("SphereMesh_ltoda")
 surface_material_override/0 = SubResource("StandardMaterial3D_jkb8g")
 script = ExtResource("2_jlxvi")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83169925, 0)
+pixel_size = 0.001
+billboard = 1
+fixed_size = true
+text = "Sun"

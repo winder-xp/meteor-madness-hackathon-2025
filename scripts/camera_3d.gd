@@ -1,6 +1,7 @@
 extends Camera3D
 @onready var earth_mesh: MeshInstance3D = $"../Tierra"
-@onready var sun_mesh: MeshInstance3D = $"../sol final" 
+@onready var sun_mesh: MeshInstance3D = $"../sol final"
+@onready var slider: HSlider = $"../HSlider"
 ## La posición del objeto en el que la cámara va a centrarse
 @export var camera_lookat: Vector3 = Vector3.ZERO
 var scale_factor_earth := 1.0
@@ -35,12 +36,18 @@ func _process(delta):
 	ROTACIÓN DE LA CÁMARA
 	'''
 	# Inicio de la rotación, clic pulsado
-	if Input.is_action_just_pressed("leftClick"):
-		rotating = true
-		last_mouse_pos = get_viewport().get_mouse_position()
-	
+	if not is_on_earth:
+		if Input.is_action_just_pressed("leftClick"):
+			rotating = true
+			last_mouse_pos = get_viewport().get_mouse_position()
+	if is_on_earth and (get_viewport().get_mouse_position().x < slider.position.x or get_viewport().get_mouse_position().x > slider.position.x + slider.size.x or get_viewport().get_mouse_position().y < slider.position.y or get_viewport().get_mouse_position().y > slider.position.y + slider.size.y):
+		if Input.is_action_just_pressed("leftClick"):
+			rotating = true
+			print("rotating")
+			last_mouse_pos = get_viewport().get_mouse_position()
 	# Fin de la rotación, clic soltado
-	elif Input.is_action_just_released("leftClick"):
+	if Input.is_action_just_released("leftClick"):
+		print("stop")
 		rotating = false
 	
 	# Bloque de código durante la rotación
@@ -112,5 +119,5 @@ func _process(delta):
 	'''
 	if is_on_earth:
 		camera_lookat = get_parent().get_node("Tierra").global_position
-		earth_mesh.scale = Vector3.ONE * 1.0 * scale_factor_earth
-		sun_mesh.scale   = Vector3.ONE * 1.0 * scale_factor_sun
+		#earth_mesh.scale = Vector3.ONE * 1.0 * scale_factor_earth
+		#sun_mesh.scale   = Vector3.ONE * 1.0 * scale_factor_sun

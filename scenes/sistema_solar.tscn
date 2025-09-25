@@ -71,26 +71,33 @@ mesh = SubResource("SphereMesh_hp45p")
 surface_material_override/0 = SubResource("StandardMaterial3D_ks0l7")
 script = ExtResource("8_2kqfg")
 
+[node name="Label3D" type="Label3D" parent="Tierra"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01854454, 0)
+pixel_size = 0.001
+billboard = 1
+fixed_size = true
+text = "Earth"
+
 [node name="AsteroidSet" type="Node3D" parent="."]
 
-[node name="Asteroid2" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.957733, 0, 129.91293)
-asteroid_test_color = Color(0.919281, 3.008172e-06, 7.70092e-07, 1)
+[node name="Asteroid4" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.91547, 0, 259.82587)
+freeze_mode = 1
+asteroid_id = 2
+asteroid_test_color = Color(0.85130346, 0.71048594, 0, 1)
 is_on_solar_scene = true
 
 [node name="Asteroid3" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.957733, 0, 303.85602)
-asteroid_test_color = Color(0.7805911, 0.00068480434, 0.81882, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.91547, 0, 259.82587)
+freeze_mode = 1
+asteroid_id = 1
+asteroid_test_color = Color(0, 0.7264807, 0.78313535, 1)
 is_on_solar_scene = true
 
-[node name="Asteroid4" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.05315, 0, 129.91293)
-asteroid_test_color = Color(0, 0.47218388, 0.94208205, 1)
-is_on_solar_scene = true
-
-[node name="Asteroid5" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.64508, 101.33423, 129.91293)
-asteroid_test_color = Color(0.44208193, 0.8688488, 1.1551381e-06, 1)
+[node name="Asteroid2" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.957733, 0, 129.91293)
+freeze_mode = 1
+asteroid_test_color = Color(0.85148835, 2.5990605e-05, 0.60378706, 1)
 is_on_solar_scene = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -101,9 +108,11 @@ offset_left = 105.0
 offset_top = 17.0
 offset_right = 969.0
 offset_bottom = 33.0
-min_value = 1.0
-max_value = 86400.0
+tooltip_text = "Escala de tiempo de la simulación (mínimo 1.0 máximo 1 día)"
+min_value = -31557600.0
+max_value = 31557600.0
 value = 1.0
 script = ExtResource("10_x88eu")
 
+[connection signal="parameters_ready" from="AsteroidSet/Asteroid2" to="sol final" method="_on_asteroid_2_parameters_ready"]
 [connection signal="value_changed" from="HSlider" to="HSlider" method="_on_value_changed"]
