@@ -17,41 +17,46 @@ extends Control
 
 # Texto del correo con el desplegable en [url=id]_____[/url]
 var text: String = """
-The [b]kinetic impactor[/b] is an asteroid deflecting technique that involves deliberately crashing an
-object, like a spacecraft, into an asteroid to change its hazardous trajectory so that its new
-orbit misses the Earth. 
-The theoretical approach relies on the concept of an inelastic collision: when the spacecraft
-impacts the asteroid, it transfers a certain momentum to it, slightly altering its orbital speed 
-and therefore its trajectory. The result is that, over time, the asteroid no longer poses a 
-threat of impact with our planet.
+The [b]kinetic impactor[/b] is an asteroid deflecting technique that involves deliberately 
+crashing an object, like a spacecraft, into an asteroid to change its hazardous trajectory 
+so that its new orbit misses the Earth. 
 
-•	Kinetic impactors are most effective for targeting objects ranging from several hundred 
-meters up to about one kilometer in [u]diameter[/u].
-•	Their effectiveness also depends on the object’s [u]mass, composition and structure[/u]. For instance, if the asteroid is made of a hard rocky 
-material, a kinetic impact would be less likely to break it into smaller potentially hazardous pieces than if it was made by a less dense material. 
+The theoretical approach relies on the concept of an inelastic collision: when the 
+spacecraft impacts the asteroid, it transfers a certain momentum to it, slightly altering 
+its orbital speed and therefore its trajectory. The result is that, over time, the asteroid 
+no longer poses a threat of impact with our planet.
+
+
+
+•	Kinetic impactors are most effective for targeting objects ranging from several hundred meters up to about one kilometer in 
+[u]diameter[/u].
+
+•	Their effectiveness also depends on the object’s [u]mass, composition and structure[/u]. For instance, if the asteroid is made of a hard 
+rocky material, a kinetic impact would be less likely to break it into smaller potentially hazardous pieces than if it was made by a 
+less dense material. 
+
 •	It is the only deflection method that has been tried out and [u]proved to work[/u]. 
-•	Furthermore, the spacecraft required for this method wouldn’t be so different from a conventional spacecraft, meaning that less time would 
-be needed for its design and development. However, the whole mission would take a [u]minimum of 5 years[/u].
+
+•	Furthermore, the spacecraft required for this method wouldn’t be so different from a conventional spacecraft, meaning that less 
+time would be needed for its design and development. However, the whole mission would take a [u]minimum of 5 years[/u].
+
 •	Another key factor to consider is [u]distance[/u]: the farther away from Earth the asteroid is at the time of impact, the smaller the 
 deflection required for it to miss our planet, so therefore the less speed needed by the spacecraft and the less propellent needed.
 
-Given warning times in the decade-scale, velocity changes on the order of a few millimeters per second are enough to successfully perturb 
-the orbit from a collision course with the Earth. 
-
-
-Furthermore, the kinetic impactor is the only asteroid deflecting technique that has been tested to date, with NASA’s Double Asteroid 
-Redirection Test (DART) in 2022. The mission targeted a binary asteroid composed of a smaller body, known as moonlet, called Dimorphos,
-orbiting a larger one, called Didymos. The goal was to crash the spacecraft into Dimorphos in order to study how much its orbit around 
-Didymos would change as a result of the impact. 
-
-The spacecraft was around 19 meters across, while Dimporphos was approximately 160 meters in diameter. For comparison, planetary 
-scientist and astrobiologist Jorge Nuñez from the Johns Hopkins Applied Physics Laboratory described the event as being “like crashing a car 
-into the Great Pyramid of Giza.” 
+Given warning times in the decade-scale, velocity changes on the order of a few millimeters per second are enough to successfully 
+perturb the orbit from a collision course with the Earth. 
 
 
 
 
+Furthermore, the kinetic impactor is the only asteroid deflecting technique that has been tested to date, with NASA’s Double 
+Asteroid Redirection Test (DART) in 2022. The mission targeted a binary asteroid composed of a smaller body, known as moonlet, 
+called Dimorphos, orbiting a larger one, called Didymos. The goal was to crash the spacecraft into Dimorphos in order to study 
+how much its orbit around Didymos would change as a result of the impact. 
 
+The spacecraft was around 19 meters across, while Dimporphos was approximately 160 meters in diameter. For comparison, 
+planetary scientist and astrobiologist Jorge Nuñez from the Johns Hopkins Applied Physics Laboratory described the event as being 
+“like crashing a car into the Great Pyramid of Giza.” 
 
 
 
@@ -60,17 +65,24 @@ into the Great Pyramid of Giza.”
 
 
 
-The whole process, from the design to the end of the mission lasted around 8 years. DART was launched on November 24, 2021 from 
-Vandenberg Space Force Base in California. 61 days before the impact, the onboard Didymos Reconnaissance and Asteroid Camera for Optical 
-navigation (DRACO) first identified Didymos, and 30 days before the impact it began capturing images of the asteroid every five hours. 
-Finally, 4 hours and 5 minutes before collision, the spacecraft’s Small-body Manouvering Autonomus Real Time Navigation system (SMART Nav) 
-took control of DART, switching from ground-directed to autonomous mode, processing DRACO’s images onboard to identify Dimorphos and 
-precisely crash into it. The last full image of Dimorphos was acquired 1.818 seconds before the impact on September 26, 2022, nearly one 
-year after the launch of the spaceship.
 
-The results were extraordinary, exceeding expectations. Scientists concluded that the impact shortened Dimorphos’s orbital period by 
-32 minutes from its original 11 hours and 50 minutes. This was 22 minutes more than anticipated. Beyond its technical success, DART 
-demonstrated that planetary defense is not just a theoretical concept but a practical capability.
+
+
+
+
+
+The whole process, from the design to the end of the mission lasted around 8 years. DART was launched on November 24, 2021 
+from Vandenberg Space Force Base in California. 61 days before the impact, the onboard Didymos Reconnaissance and Asteroid 
+Camera for Optical navigation (DRACO) first identified Didymos, and 30 days before the impact it began capturing images of the 
+asteroid every five hours. 
+Finally, 4 hours and 5 minutes before collision, the spacecraft’s Small-body Manouvering Autonomus Real Time Navigation system 
+(SMART Nav) took control of DART, switching from ground-directed to autonomous mode, processing DRACO’s images onboard to 
+identify Dimorphos and precisely crash into it. The last full image of Dimorphos was acquired 1.818 seconds before the impact on 
+September 26, 2022, nearly one year after the launch of the spaceship.
+
+The results were extraordinary, exceeding expectations. Scientists concluded that the impact shortened Dimorphos’s orbital period 
+by 32 minutes from its original 11 hours and 50 minutes. This was 22 minutes more than anticipated. Beyond its technical success, 
+DART demonstrated that planetary defense is not just a theoretical concept but a practical capability.
 
 """
 
