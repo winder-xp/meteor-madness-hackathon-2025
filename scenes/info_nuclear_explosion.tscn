@@ -1,120 +1,88 @@
-[gd_scene load_steps=31 format=3 uid="uid://37uc4onmggs4"]
+[gd_scene load_steps=21 format=3 uid="uid://37uc4onmggs4"]
 
-[ext_resource type="Script" uid="uid://dn78x2mvm3wh2" path="res://scripts/info_kinetic_impact.gd" id="1_wewwh"]
+[ext_resource type="Script" uid="uid://dtl55p4fawg6h" path="res://scripts/info_nuclear_explosion.gd" id="1_xnpvi"]
 [ext_resource type="Texture2D" uid="uid://daw1p1v6x4vj4" path="res://assets/CORREO_nuclear.jpg" id="2_acvht"]
 [ext_resource type="Texture2D" uid="uid://gfe3fiekry2e" path="res://assets/fondo blanco.png" id="2_bnapc"]
 [ext_resource type="Texture2D" uid="uid://ymctg4adov88" path="res://assets/beige.png" id="3_4okau"]
-[ext_resource type="Texture2D" uid="uid://d0fwlq8dof6qo" path="res://assets/titulo kinetic impactor.png" id="5_3q4lg"]
-[ext_resource type="Texture2D" uid="uid://f0ar1as1b71j" path="res://assets/animacion kinetic impactor/frame1.png" id="6_3hcwf"]
-[ext_resource type="Texture2D" uid="uid://bslioj762blyx" path="res://assets/animacion kinetic impactor/frame2.png" id="7_g1rnr"]
-[ext_resource type="Texture2D" uid="uid://by4v2vmp7drfn" path="res://assets/animacion kinetic impactor/frame3.png" id="8_58i0i"]
-[ext_resource type="Texture2D" uid="uid://n868giu8iejb" path="res://assets/animacion kinetic impactor/frame4.png" id="9_4822y"]
-[ext_resource type="Texture2D" uid="uid://dil8wdnfrqgre" path="res://assets/animacion kinetic impactor/frame5.png" id="10_go8s3"]
-[ext_resource type="Texture2D" uid="uid://bojqcn4lujve" path="res://assets/animacion kinetic impactor/frame6.png" id="11_5ng1p"]
-[ext_resource type="Texture2D" uid="uid://bxdm3ge2e7fa0" path="res://assets/animacion kinetic impactor/frame7.png" id="12_p7ncm"]
-[ext_resource type="Texture2D" uid="uid://decbpvpepfl32" path="res://assets/animacion kinetic impactor/frame8.png" id="13_eqhi5"]
-[ext_resource type="Texture2D" uid="uid://ds5me4e7yssaa" path="res://assets/animacion kinetic impactor/frame9.png" id="14_kjxk6"]
-[ext_resource type="Texture2D" uid="uid://cyrvxsdeabcf0" path="res://assets/animacion kinetic impactor/frame10.png" id="15_ecnhg"]
-[ext_resource type="Texture2D" uid="uid://cgtql2euqn2gs" path="res://assets/animacion kinetic impactor/frame11.png" id="16_r0waq"]
-[ext_resource type="Texture2D" uid="uid://higbp564bx3e" path="res://assets/animacion kinetic impactor/frame12.png" id="17_rrjx4"]
-[ext_resource type="Texture2D" uid="uid://b3eogugo2mo0h" path="res://assets/animacion kinetic impactor/frame13.png" id="18_ku7ff"]
-[ext_resource type="Texture2D" uid="uid://c6sypdtlg48nb" path="res://assets/animacion kinetic impactor/frame15.png" id="19_m4fth"]
-[ext_resource type="Texture2D" uid="uid://oo2s0lejati0" path="res://assets/animacion kinetic impactor/frame17.png" id="20_46odc"]
-[ext_resource type="Texture2D" uid="uid://wvskkcmwvk8f" path="res://assets/animacion kinetic impactor/frame18.png" id="21_s1e58"]
-[ext_resource type="Texture2D" uid="uid://bcudm8kkn08j1" path="res://assets/animacion kinetic impactor/frame19.png" id="22_3xy12"]
-[ext_resource type="Texture2D" uid="uid://diabjl3g17h1a" path="res://assets/animacion kinetic impactor/frame20.png" id="23_wsnp5"]
-[ext_resource type="Texture2D" uid="uid://dfj6hufmf48kb" path="res://assets/animacion kinetic impactor/frame22.png" id="24_sbh3d"]
-[ext_resource type="Texture2D" uid="uid://jpdsmhi5qb6h" path="res://assets/animacion kinetic impactor/frame24.png" id="25_0komf"]
-[ext_resource type="Texture2D" uid="uid://clmykop42wslr" path="res://assets/animacion kinetic impactor/frame25.png" id="26_cr6a3"]
-[ext_resource type="Texture2D" uid="uid://bp0c5batieiek" path="res://assets/animacion kinetic impactor/frame26.png" id="27_rkyjp"]
-[ext_resource type="Texture2D" uid="uid://blfuy1xughtrl" path="res://assets/animacion kinetic impactor/frame27.png" id="28_omidn"]
-[ext_resource type="Texture2D" uid="uid://bmi0g33i0k6rm" path="res://assets/kinetic impactor picture.jpg" id="29_wxfhm"]
+[ext_resource type="Texture2D" uid="uid://d2ahcwagtmhnp" path="res://assets/titulo nuclear interceptor.png" id="5_xnpvi"]
+[ext_resource type="Texture2D" uid="uid://b16blbpsqx7ym" path="res://assets/nuclear standoff explosion/fr1.png" id="6_a0n02"]
+[ext_resource type="Texture2D" uid="uid://rior4t4vldcn" path="res://assets/nuclear standoff explosion/fr2.png" id="7_1mtg0"]
+[ext_resource type="Texture2D" uid="uid://c4sonn6xs1luh" path="res://assets/nuclear standoff explosion/fr3.png" id="8_w8iox"]
+[ext_resource type="Texture2D" uid="uid://b0akwx82x605f" path="res://assets/nuclear standoff explosion/fr4.png" id="9_ueupt"]
+[ext_resource type="Texture2D" uid="uid://gcmxelqo8thb" path="res://assets/nuclear standoff explosion/fr5.png" id="10_mx5ct"]
+[ext_resource type="Texture2D" uid="uid://l561aomph47y" path="res://assets/nuclear standoff explosion/fr6.png" id="11_43efc"]
+[ext_resource type="Texture2D" uid="uid://brpmvxm3osgsk" path="res://assets/nuclear standoff explosion/fr7.png" id="12_vwa2w"]
+[ext_resource type="Texture2D" uid="uid://x2wnu8cs10gy" path="res://assets/nuclear surface explosion/fra1.png" id="13_nhkf6"]
+[ext_resource type="Texture2D" uid="uid://dmb5g8rr04ysw" path="res://assets/nuclear surface explosion/fra2.png" id="14_po63p"]
+[ext_resource type="Texture2D" uid="uid://bxuj5jtf3rai0" path="res://assets/nuclear surface explosion/fra3.png" id="15_wewwh"]
+[ext_resource type="Texture2D" uid="uid://dcsru6fkiqpo7" path="res://assets/nuclear surface explosion/fra4.png" id="16_bnapc"]
+[ext_resource type="Texture2D" uid="uid://d2hdhbmq1qhgl" path="res://assets/nuclear surface explosion/fra5.png" id="17_vren0"]
+[ext_resource type="Texture2D" uid="uid://t58kx2yd2qp8" path="res://assets/nuclear surface explosion/fra6.png" id="18_3q4lg"]
+[ext_resource type="Texture2D" uid="uid://djaaf5iwek80f" path="res://assets/nuclear surface explosion/fra7.png" id="19_3hcwf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8pygu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_3hcwf")
+"texture": ExtResource("6_a0n02")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_g1rnr")
+"texture": ExtResource("7_1mtg0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_58i0i")
+"texture": ExtResource("8_w8iox")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_4822y")
+"texture": ExtResource("9_ueupt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_go8s3")
+"texture": ExtResource("10_mx5ct")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_5ng1p")
+"texture": ExtResource("11_43efc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_p7ncm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_eqhi5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_kjxk6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_ecnhg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_r0waq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_rrjx4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_ku7ff")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_m4fth")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_46odc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_s1e58")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_3xy12")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_wsnp5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_sbh3d")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_0komf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_cr6a3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_rkyjp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_omidn")
+"texture": ExtResource("12_vwa2w")
 }],
 "loop": true,
 "name": &"kinetic_impact_animation",
-"speed": 7.0
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_nhkf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_po63p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_wewwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_bnapc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_vren0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_3q4lg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_3hcwf")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 3.0
 }]
 
-[node name="Kinetic impactor" type="Control"]
+[node name="Nuclear explosion" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_wewwh")
+script = ExtResource("1_xnpvi")
 
 [node name="fondo2" type="TextureRect" parent="."]
 layout_mode = 0
@@ -176,37 +144,36 @@ vertical_scroll_mode = 2
 custom_minimum_size = Vector2(1309, 3000)
 layout_mode = 2
 
-[node name="titulo_(kinetic_impactor)" type="TextureRect" parent="ScrollContainer/Contenedor"]
+[node name="titulo_(nuclear_explosion)" type="TextureRect" parent="ScrollContainer/Contenedor"]
 layout_mode = 0
 offset_left = 339.0
 offset_top = 11.0
 offset_right = 839.0
 offset_bottom = 78.0
-texture = ExtResource("5_3q4lg")
+texture = ExtResource("5_xnpvi")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/Contenedor"]
-position = Vector2(950.00006, 191)
-scale = Vector2(0.42590365, 0.35957643)
+[node name="standoff_explosion" type="AnimatedSprite2D" parent="ScrollContainer/Contenedor"]
+position = Vector2(421.3197, 506.00867)
+scale = Vector2(0.69793254, 0.5639539)
 sprite_frames = SubResource("SpriteFrames_8pygu")
 animation = &"kinetic_impact_animation"
 autoplay = "kinetic_impact_animation"
-frame = 6
-frame_progress = 0.89828175
+frame_progress = 0.82347035
 
-[node name="imagen1" type="TextureRect" parent="ScrollContainer/Contenedor"]
-layout_mode = 0
-offset_left = 351.0
-offset_top = 1024.0
-offset_right = 851.0
-offset_bottom = 1305.0
-texture = ExtResource("29_wxfhm")
+[node name="surface_explosion" type="AnimatedSprite2D" parent="ScrollContainer/Contenedor"]
+position = Vector2(751.55707, 504.99997)
+scale = Vector2(0.67595625, 0.5714287)
+sprite_frames = SubResource("SpriteFrames_8pygu")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.8697168
 
 [node name="info" type="RichTextLabel" parent="ScrollContainer/Contenedor"]
 layout_mode = 0
-offset_left = 76.0
-offset_top = 65.0
-offset_right = 1086.0
-offset_bottom = 1865.0
+offset_left = 70.0
+offset_top = 70.0
+offset_right = 1080.0
+offset_bottom = 1870.0
 theme_override_colors/default_color = Color(0.18717614, 0.18717614, 0.18717614, 1)
 bbcode_enabled = true
 text = "

@@ -28,7 +28,7 @@ The best mitigation strategy in this case is: [url=b1]_____[/url].
 
 # Opciones para el desplegable (estrategias de mitigación)
 var blank_options: Dictionary = {
-	"b1": ["kinetic impactor", "gravity tractor", "ion beam shepheard", "nuclear explosion", "protection and evacuation"]}
+	"b1": ["kinetic impactor", "gravity tractor", "ion beam shepherd", "nuclear interceptor", "protection and evacuation"]}
 
 # Información proporcionada por el usuario
 var current_blank_id: String = ""        # id del hueco

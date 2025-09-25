@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bguwf448xeqvo"]
 
-[ext_resource type="Script" uid="uid://dtl55p4fawg6h" path="res://scripts/info_nuclear_explosion.gd" id="1_hj84u"]
+[ext_resource type="Script" uid="uid://dl805p1cdjvaw" path="res://scripts/info_ion_beam.gd" id="1_hj84u"]
 [ext_resource type="Texture2D" uid="uid://gfe3fiekry2e" path="res://assets/fondo blanco.png" id="2_opxf6"]
 [ext_resource type="Texture2D" uid="uid://dybecma0j1uxp" path="res://assets/CORREO_ion.png" id="2_ta6tw"]
 [ext_resource type="Texture2D" uid="uid://ymctg4adov88" path="res://assets/beige.png" id="3_kvkga"]
