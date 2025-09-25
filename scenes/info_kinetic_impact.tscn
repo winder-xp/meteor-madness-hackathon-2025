@@ -1,10 +1,113 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4ieydo5aeklq"]
+[gd_scene load_steps=31 format=3 uid="uid://c4ieydo5aeklq"]
 
 [ext_resource type="Texture2D" uid="uid://bl5d556vlgoge" path="res://assets/CORREO_kinetic.jpg" id="1_0f8fs"]
 [ext_resource type="Script" uid="uid://dn78x2mvm3wh2" path="res://scripts/info_kinetic_impact.gd" id="1_qf01j"]
+[ext_resource type="Texture2D" uid="uid://gfe3fiekry2e" path="res://assets/fondo blanco.png" id="2_gunxn"]
 [ext_resource type="Texture2D" uid="uid://ymctg4adov88" path="res://assets/beige.png" id="2_qf01j"]
+[ext_resource type="Texture2D" uid="uid://d0fwlq8dof6qo" path="res://assets/titulo kinetic impactor.png" id="4_u8dbp"]
+[ext_resource type="Texture2D" uid="uid://f0ar1as1b71j" path="res://assets/animacion kinetic impactor/frame1.png" id="5_kxiuy"]
+[ext_resource type="Texture2D" uid="uid://bmi0g33i0k6rm" path="res://assets/kinetic impactor picture.jpg" id="5_lc6n2"]
+[ext_resource type="Texture2D" uid="uid://bslioj762blyx" path="res://assets/animacion kinetic impactor/frame2.png" id="6_1rgfn"]
+[ext_resource type="Texture2D" uid="uid://by4v2vmp7drfn" path="res://assets/animacion kinetic impactor/frame3.png" id="7_digru"]
+[ext_resource type="Texture2D" uid="uid://n868giu8iejb" path="res://assets/animacion kinetic impactor/frame4.png" id="8_1eay6"]
+[ext_resource type="Texture2D" uid="uid://dil8wdnfrqgre" path="res://assets/animacion kinetic impactor/frame5.png" id="9_6p5l6"]
+[ext_resource type="Texture2D" uid="uid://bojqcn4lujve" path="res://assets/animacion kinetic impactor/frame6.png" id="10_231ic"]
+[ext_resource type="Texture2D" uid="uid://bxdm3ge2e7fa0" path="res://assets/animacion kinetic impactor/frame7.png" id="11_xf4h8"]
+[ext_resource type="Texture2D" uid="uid://decbpvpepfl32" path="res://assets/animacion kinetic impactor/frame8.png" id="12_xdyv5"]
+[ext_resource type="Texture2D" uid="uid://ds5me4e7yssaa" path="res://assets/animacion kinetic impactor/frame9.png" id="13_5l0sc"]
+[ext_resource type="Texture2D" uid="uid://cyrvxsdeabcf0" path="res://assets/animacion kinetic impactor/frame10.png" id="14_3j534"]
+[ext_resource type="Texture2D" uid="uid://cgtql2euqn2gs" path="res://assets/animacion kinetic impactor/frame11.png" id="15_21aul"]
+[ext_resource type="Texture2D" uid="uid://higbp564bx3e" path="res://assets/animacion kinetic impactor/frame12.png" id="16_8wmqw"]
+[ext_resource type="Texture2D" uid="uid://b3eogugo2mo0h" path="res://assets/animacion kinetic impactor/frame13.png" id="17_y36fe"]
+[ext_resource type="Texture2D" uid="uid://c6sypdtlg48nb" path="res://assets/animacion kinetic impactor/frame15.png" id="18_iim4o"]
+[ext_resource type="Texture2D" uid="uid://oo2s0lejati0" path="res://assets/animacion kinetic impactor/frame17.png" id="21_e8cho"]
+[ext_resource type="Texture2D" uid="uid://wvskkcmwvk8f" path="res://assets/animacion kinetic impactor/frame18.png" id="22_ec7ms"]
+[ext_resource type="Texture2D" uid="uid://bcudm8kkn08j1" path="res://assets/animacion kinetic impactor/frame19.png" id="23_p67o3"]
+[ext_resource type="Texture2D" uid="uid://diabjl3g17h1a" path="res://assets/animacion kinetic impactor/frame20.png" id="24_moye6"]
+[ext_resource type="Texture2D" uid="uid://dfj6hufmf48kb" path="res://assets/animacion kinetic impactor/frame22.png" id="25_p858d"]
+[ext_resource type="Texture2D" uid="uid://jpdsmhi5qb6h" path="res://assets/animacion kinetic impactor/frame24.png" id="28_7cs14"]
+[ext_resource type="Texture2D" uid="uid://clmykop42wslr" path="res://assets/animacion kinetic impactor/frame25.png" id="29_14qpu"]
+[ext_resource type="Texture2D" uid="uid://bp0c5batieiek" path="res://assets/animacion kinetic impactor/frame26.png" id="30_shi6j"]
+[ext_resource type="Texture2D" uid="uid://blfuy1xughtrl" path="res://assets/animacion kinetic impactor/frame27.png" id="31_0ng7w"]
 
-[node name="Control" type="Control"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_8pygu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kxiuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1rgfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_digru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1eay6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6p5l6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_231ic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xf4h8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xdyv5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_5l0sc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_3j534")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_21aul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8wmqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_y36fe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_iim4o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_e8cho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ec7ms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_p67o3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_moye6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_p858d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_7cs14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_14qpu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_shi6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_0ng7w")
+}],
+"loop": true,
+"name": &"kinetic_impact_animation",
+"speed": 7.0
+}]
+
+[node name="Kinetic impactor" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +115,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qf01j")
+
+[node name="fondo2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 635.0
+offset_right = 1153.0
+offset_bottom = 1283.0
+texture = ExtResource("2_gunxn")
+
+[node name="fondo3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1283.0
+offset_right = 1155.0
+offset_bottom = 1931.0
+texture = ExtResource("2_gunxn")
 
 [node name="fondo" type="TextureRect" parent="."]
 layout_mode = 0
@@ -22,22 +140,78 @@ texture = ExtResource("1_0f8fs")
 [node name="atenuacion_del_blanco" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.24313726)
 layout_mode = 0
-offset_left = -7.0
-offset_top = -9.0
-offset_right = 1156.0
-offset_bottom = 653.0
+offset_left = -11.0
+offset_top = 1301.0
+offset_right = 1152.0
+offset_bottom = 1963.0
 texture = ExtResource("2_qf01j")
 
-[node name="info" type="RichTextLabel" parent="."]
+[node name="atenuacion_del_blanco3" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.24313726)
 layout_mode = 0
-offset_left = 25.0
-offset_top = 163.0
-offset_right = 1127.0
-offset_bottom = 617.0
+offset_left = -2.0
+offset_top = 657.0
+offset_right = 1161.0
+offset_bottom = 1319.0
+texture = ExtResource("2_qf01j")
+
+[node name="atenuacion_del_blanco2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.24313726)
+layout_mode = 0
+offset_left = -12.0
+offset_top = -3.0
+offset_right = 1151.0
+offset_bottom = 659.0
+texture = ExtResource("2_qf01j")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 1267.0
+offset_bottom = 1953.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="Contenedor" type="Control" parent="ScrollContainer"]
+custom_minimum_size = Vector2(1309, 3000)
+layout_mode = 2
+
+[node name="titulo_(kinetic_impactor)" type="TextureRect" parent="ScrollContainer/Contenedor"]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 11.0
+offset_right = 839.0
+offset_bottom = 78.0
+texture = ExtResource("4_u8dbp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/Contenedor"]
+position = Vector2(950.00006, 191)
+scale = Vector2(0.42590365, 0.35957643)
+sprite_frames = SubResource("SpriteFrames_8pygu")
+animation = &"kinetic_impact_animation"
+autoplay = "kinetic_impact_animation"
+frame = 6
+frame_progress = 0.89828175
+
+[node name="imagen1" type="TextureRect" parent="ScrollContainer/Contenedor"]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 784.0
+offset_right = 841.0
+offset_bottom = 1065.0
+texture = ExtResource("5_lc6n2")
+
+[node name="info" type="RichTextLabel" parent="ScrollContainer/Contenedor"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 66.0
+offset_right = 1132.0
+offset_bottom = 1871.0
 theme_override_colors/default_color = Color(0.18717614, 0.18717614, 0.18717614, 1)
 bbcode_enabled = true
 text = "
 "
+autowrap_mode = 0
 
 [node name="kinetic_impactor" type="Button" parent="."]
 modulate = Color(0, 0, 0, 1)

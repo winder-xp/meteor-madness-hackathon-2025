@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dybecma0j1uxp" path="res://assets/CORREO_ion.png" id="2_ta6tw"]
 [ext_resource type="Texture2D" uid="uid://ymctg4adov88" path="res://assets/beige.png" id="3_kvkga"]
 
-[node name="Control" type="Control"]
+[node name="Ion_beam" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

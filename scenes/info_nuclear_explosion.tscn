@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6tlqe1lsdo52" path="res://assets/CORREO_gravity.jpg" id="2_ccpoy"]
 [ext_resource type="Texture2D" uid="uid://ymctg4adov88" path="res://assets/beige.png" id="3_4okau"]
 
-[node name="Control" type="Control"]
+[node name="Nuclear_explosion" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

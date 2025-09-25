@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ci0h6bgxhk7rn" path="res://assets/CORREO.jpg" id="2_lv8uj"]
 [ext_resource type="Texture2D" uid="uid://ymctg4adov88" path="res://assets/beige.png" id="3_kb7jq"]
 
-[node name="Control" type="Control"]
+[node name="Correo_eleccion_estrategia" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -95,4 +95,15 @@ offset_right = 161.0
 offset_bottom = 28.0
 theme_override_font_sizes/font_size = 13
 text = "Email"
+flat = true
+
+[node name="send" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1016.0
+offset_top = 598.0
+offset_right = 1135.0
+offset_bottom = 624.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "	SEND"
 flat = true

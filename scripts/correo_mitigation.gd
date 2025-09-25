@@ -8,10 +8,13 @@ extends Control
 @onready var ion_beam: Button = $ion_beam
 @onready var nuc_inter: Button = $nuclear_interceptor
 @onready var email: Button = $email
+@onready var send: Button = $send
 
 # EL BOTÓN DE ENVIAR ES UN BOTÓN QUE TE PASA A LA SIGUIENTE ESCENA, CUANDO YA ESTÉ LA INFO
 # COMPLETADA (HABRÁ QUE INCLUIR ALGO QUE COMPUEBE QUE TODOS LOS CAMPOS, EL MAPA Y LA ESTRATEGIA
-# SE HAN MARCADO Y SI NO SE HAN HECHO SE MOSGRARÁ UN MENSJAE POR PANTALLA QUE LO DIGA)
+# SE HAN MARCADO Y SI NO SE HAN HECHO SE MOSGRARÁ UN MENSJAE POR PANTALLA QUE LO DIGA
+
+# ANIMAR EL TEXTO DEL CORREO PARA QUE SE VAYA ESCRIBIENDO POCO A POCO
 
 # Texto del correo con el desplegable en [url=id]_____[/url]
 var text: String = """
@@ -89,6 +92,9 @@ func _on_nuclear_pressed() -> void:
 func _on_email_pressed() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/correo_mitigation.tscn")
 
+func _on_send_pressed() -> void:
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/correo_mitigation.tscn")     # CAMBIAR A LA SIGUIENTE ESCENA
+
 
 
 func _ready() -> void:
@@ -109,6 +115,7 @@ func _ready() -> void:
 	ion_beam.pressed.connect(_on_ion_pressed)
 	nuc_inter.pressed.connect(_on_nuclear_pressed)
 	email.pressed.connect(_on_email_pressed)
+	send.pressed.connect(_on_send_pressed)
 
 	# Cerrar el popup cuando el usuario elija la estrategia de mitigación
 	popup.clear()
