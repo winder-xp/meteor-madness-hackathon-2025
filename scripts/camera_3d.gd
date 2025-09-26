@@ -2,6 +2,13 @@ extends Camera3D
 @onready var earth_mesh: MeshInstance3D = $"../Tierra"
 @onready var sun_mesh: MeshInstance3D = $"../sol final"
 @onready var slider: HSlider = $"../HSlider"
+
+@onready var ryugu = $"../AsteroidSet/Ryugu"
+@onready var a_2000_dp_107 = $"../AsteroidSet/2000Dp107"
+@onready var dinkinesh = $"../AsteroidSet/Dinkinesh"
+@onready var bennu = $"../AsteroidSet/Bennu"
+@onready var itokawa = $"../AsteroidSet/Itokawa"
+
 ## La posición del objeto en el que la cámara va a centrarse
 @export var camera_lookat: Vector3 = Vector3.ZERO
 var scale_factor_earth := 1.0
@@ -18,6 +25,7 @@ var phi := PI / 2
 ## Velocidad al moverte con WASD Espacio Shift con la cámara por el mapa
 @export var movement_speed := 1.0
 
+@onready var camera_look_at_object = earth_mesh
 var rotating := false
 var last_mouse_pos := Vector2.ZERO
 
@@ -43,11 +51,9 @@ func _process(delta):
 	if is_on_earth and (get_viewport().get_mouse_position().x < slider.position.x or get_viewport().get_mouse_position().x > slider.position.x + slider.size.x or get_viewport().get_mouse_position().y < slider.position.y or get_viewport().get_mouse_position().y > slider.position.y + slider.size.y):
 		if Input.is_action_just_pressed("leftClick"):
 			rotating = true
-			print("rotating")
 			last_mouse_pos = get_viewport().get_mouse_position()
 	# Fin de la rotación, clic soltado
 	if Input.is_action_just_released("leftClick"):
-		print("stop")
 		rotating = false
 	
 	# Bloque de código durante la rotación
@@ -75,23 +81,17 @@ func _process(delta):
 			scale_factor_sun = 1.0
 			if Input.is_action_just_pressed("scrollUp"):
 				radius -= zoom_sensitivity
-				print("sun: " + str(sun_mesh.scale))
 			if Input.is_action_just_pressed("scrollDown"):
 				radius += zoom_sensitivity
-				print("sun: " + str(sun_mesh.scale))
 		else:
 			if Input.is_action_just_pressed("scrollUp"):
 				radius -= radius * 0.5
 				scale_factor_earth -= 5.0
 				scale_factor_sun -= 0.5
-				print("radius: " + str(radius))
-				print("sun: " + str(sun_mesh.scale))
 			if Input.is_action_just_pressed("scrollDown"):
 				radius += radius * 0.5
 				scale_factor_earth += 5.0
 				scale_factor_sun += 0.5
-				print("radius: " + str(radius))
-				print("sun: " + str(sun_mesh.scale))
 		radius = clamp(radius, 0.009, INF)
 	else:
 		if Input.is_action_just_pressed("scrollUp"):
@@ -118,6 +118,35 @@ func _process(delta):
 	CENTRADO EN TIERRA (solo sistema_solar.tscn)
 	'''
 	if is_on_earth:
-		camera_lookat = get_parent().get_node("Tierra").global_position
+		camera_lookat = camera_look_at_object.global_position
 		#earth_mesh.scale = Vector3.ONE * 1.0 * scale_factor_earth
 		#sun_mesh.scale   = Vector3.ONE * 1.0 * scale_factor_sun
+
+
+func _on_ryugu_input_event(camera, event, event_position, normal, shape_idx):
+	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
+		camera_look_at_object = ryugu
+
+func _on_itokawa_input_event(camera, event, event_position, normal, shape_idx):
+	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
+		camera_look_at_object = itokawa
+
+func _on_bennu_input_event(camera, event, event_position, normal, shape_idx):
+	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
+		camera_look_at_object = bennu
+
+func _on_dinkinesh_input_event(camera, event, event_position, normal, shape_idx):
+	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
+		camera_look_at_object = dinkinesh
+
+func _on_dp_107_input_event(camera, event, event_position, normal, shape_idx):
+	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
+		camera_look_at_object = a_2000_dp_107
+
+func _on_earth_collider_input_event(camera, event, event_position, normal, shape_idx):
+	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
+		camera_look_at_object = earth_mesh
+
+func _on_sun_collider_input_event(camera, event, event_position, normal, shape_idx):
+	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
+		camera_look_at_object = sun_mesh

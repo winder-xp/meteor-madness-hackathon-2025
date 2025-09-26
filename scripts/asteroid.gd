@@ -8,7 +8,8 @@ enum Asteroids {
 	Itokawa,
 	Bennu,
 	Dinkinesh,
-	Ryugu
+	Ryugu,
+	_2000_DP107,
 }
 
 signal parameters_ready
@@ -54,7 +55,7 @@ func _ready():
 	var mat := StandardMaterial3D.new()
 	mat.emission_enabled = true
 	mat.emission = asteroid_test_color
-	mat.albedo_color = asteroid_test_color # Azul clarito (R,G,B)
+	mat.albedo_color = asteroid_test_color
 	$MeshInstance3D.set_surface_override_material(0, mat)
 	'''
 	Propiedades del asteroide según el tipo
@@ -79,7 +80,7 @@ func _ready():
 		Omega = 2.06086619569642 * DEGREES
 		i = 6.03494377024794 * DEGREES
 	
-	if asteroid_id == Asteroids.Dinkinesh:
+	if asteroid_id == Asteroids.Ryugu:
 		e = 0.1910626231558206
 		a = 1.190921090916117 * UA_TO_SUN
 		b = a*sqrt(1-e**2)
@@ -87,6 +88,24 @@ func _ready():
 		omega = 2*PI/period
 		Omega = 251.2915331553314 * DEGREES
 		i = 5.866551865769142 * DEGREES
+		
+	if asteroid_id == Asteroids.Dinkinesh:
+		e = 0.1124284065862418
+		a = 2.191191485816249 * UA_TO_SUN
+		b = a*sqrt(1-e**2)
+		period = 1184.728741267934 * DAYS
+		omega = 2*PI/period
+		Omega = 21.36622643061029 * DEGREES
+		i = 2.093263841326789 * DEGREES
+		
+	if asteroid_id == Asteroids._2000_DP107:
+		e = 0.3766974919175901
+		a = 1.365050355029763 * UA_TO_SUN
+		b = a*sqrt(1-e**2)
+		period = 582.5342104930165 * DAYS
+		omega = 2*PI/period
+		Omega = 358.6173858501047 * DEGREES
+		i = 8.67167565580244 * DEGREES
 	
 	emit_signal("parameters_ready")
 	

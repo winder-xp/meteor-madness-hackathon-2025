@@ -25,6 +25,7 @@ freeze = true
 script = ExtResource("1_akfqu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(12.555, 0, 0, 0, 12.555, 0, 0, 0, 12.555, 0, 0, 0)
 shape = SubResource("SphereShape3D_0md28")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

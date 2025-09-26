@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://co5mwyhwg3m4x"]
 
 [ext_resource type="Texture2D" uid="uid://bslelttr1rhoe" path="res://assets/2k_sun.jpg" id="1_13u3x"]
-[ext_resource type="Script" path="res://scripts/sol_final.gd" id="2_jlxvi"]
+[ext_resource type="Script" uid="uid://dqpv50clli8gp" path="res://scripts/sol_final.gd" id="2_jlxvi"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ltoda"]
 
