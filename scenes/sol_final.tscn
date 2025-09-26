@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://co5mwyhwg3m4x"]
 
 [ext_resource type="Texture2D" uid="uid://bslelttr1rhoe" path="res://assets/2k_sun.jpg" id="1_13u3x"]
-[ext_resource type="Script" path="res://scripts/sol_final.gd" id="2_jlxvi"]
+[ext_resource type="Script" uid="uid://dqpv50clli8gp" path="res://scripts/sol_final.gd" id="2_jlxvi"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ltoda"]
 
@@ -17,3 +17,10 @@ emission_texture = ExtResource("1_13u3x")
 mesh = SubResource("SphereMesh_ltoda")
 surface_material_override/0 = SubResource("StandardMaterial3D_jkb8g")
 script = ExtResource("2_jlxvi")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83169925, 0)
+pixel_size = 0.001
+billboard = 1
+fixed_size = true
+text = "Sun"

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3hjxoevkl5ur"]
+
+[ext_resource type="Script" uid="uid://q144po1d1rsk" path="res://scripts/get_api.gd" id="1_rbupo"]
+
+[node name="GetApi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rbupo")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
