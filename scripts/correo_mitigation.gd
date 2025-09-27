@@ -13,6 +13,10 @@ extends Control
 @onready var email: Button = $email
 @onready var send: Button = $send
 
+var asteroide_elegido := 'Itokawa'   #CAMBIAR
+var datos := []
+var text := ''
+
 # EL BOTÓN DE ENVIAR ES UN BOTÓN QUE TE PASA A LA SIGUIENTE ESCENA, CUANDO YA ESTÉ LA INFO
 # COMPLETADA (HABRÁ QUE INCLUIR ALGO QUE COMPUEBE QUE TODOS LOS CAMPOS, EL MAPA Y LA ESTRATEGIA
 # SE HAN MARCADO Y SI NO SE HAN HECHO SE MOSGRARÁ UN MENSJAE POR PANTALLA QUE LO DIGA
@@ -23,13 +27,27 @@ extends Control
 var from_email: String = '  [font_size=14]From[/font_size]     [color=#545454]archives@jpl.nasa.gov[/color]'
 var for_email: String = '    [font_size=14]To[/font_size]      [color=#545454]obs@cfa.harvard.edu[/color]'
 var asunto_correo: String = '    Subject:  [color=#3b3b3b]R.E: IMMINENT CATASTROPHE[/color]'
-var text: String = """Oh no, this can’t be true… it is unbelievable!
+
+# VOY A TENER ESTE MODELO DE TEXTO. DEPENDIENDO DE QUÉ ASTEROIDE ELIJA EL USUARIO, POR EJEMPLO A MI ME VA A 
+# LLEGAR: HA ELEGIDO ITOKAWA, PUES YO ME TENGO QUE CREAR EN GLOBAL UN DICCIONARIO CON CLAVES LOS NOMBRES DE 
+# LOS ASTEROIDES Y VALORES UNA LISTA CON LOS DATOS DE MASA, DIAMETRO... ORDENADOS DE MAENRA QUE ME ACUERDE Y
+# SIMPLEMENTE TENER UN IF COMPROBANDO QUÉ NOMBRE DE ASTEROIDE ME HA LLEGADO Y ASIGNANDO A UNA VARIABLE LA LISTA
+# CON LOS DATOS
+
+func texto_que_mostrar() ->void:
+	if asteroide_elegido == 'Itokawa':
+		datos = Global.datos_asteroides['Itokawa']
+		print(datos)
+	elif asteroide_elegido == 'Bennu':
+		datos = Global.datos_asteroides['Bennu']
+		
+	text = """Oh no, this can’t be true… it is unbelievable!
 
 The situation is extremely serious and could have catastrophic consequences for humanity. I am deeply concerned and hope we proceed with speed, precision, and efficiency in avoiding this calamity.
 
 Here is a summary of our current situation:
 	
-The recently discovered asteroid --------, with a mass of ------- kg and a diameter of ------ m poses an enormous threat to our planet. It has an approximate density of ----- kg/m^3 and is primarily composed of --------------, a very ------(descripcion del material, porosidad, dureza…)----- material. From now, the time until the impact is about ------years ----------- months ---------- days.
+The recently discovered asteroid %s, with a mass of %s kg and a diameter of %s km poses an enormous threat to our planet. It has an approximate density of %s kg/m^3 and is primarily composed of %s a very %s material. From now, the time until the impact is about %s years %s months %s days.
 
 Considering all this data, I believe that the most effective mitigation strategy in this case would be [b][url=b1]_________[/url][/b].
 
@@ -39,7 +57,8 @@ The fate of millions depends on us; failure is not an option.
 
 Jet Propulsion Laboratory
 
-"""
+""" %[datos[0], datos[1], datos[2],datos[3], datos[4], datos[5], datos[6], datos[7], datos[8]]
+
 
 # Opciones para el desplegable (estrategias de mitigación)
 var blank_options: Dictionary = {
@@ -114,7 +133,9 @@ func _on_send_pressed() -> void:
 
 func _ready() -> void:
 	popup.hide()
-
+	# Dependiendo del asteroide que haya elegido el usuario, asigno los datos y escribo el correo correspondiente
+	texto_que_mostrar()
+		
 	# Activo BBcode para escribir 
 	rich.bbcode_enabled = true
 	from.bbcode_enabled = true
