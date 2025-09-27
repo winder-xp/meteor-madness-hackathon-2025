@@ -21,7 +21,7 @@ extends Control
 
 # Texto del correo con el desplegable en [url=id]_____[/url]
 var from_email: String = '  [font_size=14]From[/font_size]     [color=#545454]archives@jpl.nasa.gov[/color]'
-var for_email: String = '   [font_size=14]For[/font_size]      [color=#545454]obs@cfa.harvard.edu[/color]'
+var for_email: String = '    [font_size=14]To[/font_size]      [color=#545454]obs@cfa.harvard.edu[/color]'
 var asunto_correo: String = '    Subject:  [color=#3b3b3b]R.E: IMMINENT CATASTROPHE[/color]'
 var text: String = """Oh no, this can’t be true… it is unbelievable!
 
@@ -89,8 +89,8 @@ func _apply_selection_to_blank(blank_id: String, selection: String) -> void:
 
 	# Actualizo la etiqueta para que lo muestre en pantalla
 	rich.bbcode_text = text
-
-
+	
+	
 # Camabiar a las pestañas de Google con más info de las estrategias de mitigación [HACER]
 func _on_kin_pressed() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/info_kinetic_impact.tscn")
@@ -108,12 +108,13 @@ func _on_email_pressed() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/correo_mitigation.tscn")
 
 func _on_send_pressed() -> void:
-	get_tree().call_deferred("change_scene_to_file", "res://scenes/correo_mitigation.tscn")     # CAMBIAR A LA SIGUIENTE ESCENA
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/post_correo_mitigacion.tscn")     # CAMBIAR A LA SIGUIENTE ESCENA
 
 
 
 func _ready() -> void:
 	popup.hide()
+
 	# Activo BBcode para escribir 
 	rich.bbcode_enabled = true
 	from.bbcode_enabled = true
@@ -124,7 +125,7 @@ func _ready() -> void:
 	from.bbcode_text = from_email
 	forr.bbcode_text = for_email
 	asunto.bbcode_text = asunto_correo
-
+	
 	# Activo que reciba eventos del ratón
 	rich.mouse_filter = Control.MOUSE_FILTER_STOP
 
