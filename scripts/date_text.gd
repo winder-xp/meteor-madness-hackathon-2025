@@ -10,6 +10,12 @@ func _ready():
 func es_bisiesto(year):
 	return year % 400 == 0 or (year % 4 == 0 and year % 100 != 0)
 
+func doble_cifra(number):
+	if len(str(number)) == 1:
+		return "0" + str(number)
+	else:
+		return str(number)
+
 func segundos_a_fecha(segundos):
 	var dias = int(segundos / 86400)
 
@@ -34,7 +40,7 @@ func segundos_a_fecha(segundos):
 		else:
 			break
 	var day = dias + 1  # porque los días empiezan en 1
-	return str(year) + "-" + str(month) + "-" + str(day)
+	return str(year) + "-" + doble_cifra(month) + "-" + doble_cifra(day)
 
 	# Ejemplo: 86400 segundos = 1 día -> 0000-01-02
 	print(segundos_a_fecha(86400))  # (0, 1, 2)
@@ -43,4 +49,4 @@ func _process(delta):
 	seconds = 63925977600 + int(itokawa.time)
 	minutes = int(seconds / 60)
 	hours = int(minutes / 60)
-	text = segundos_a_fecha(seconds) + "  " + str(hours%24) + ":" + str(minutes%60) + ":" + str(seconds%60)
+	text = segundos_a_fecha(seconds) + "  " + doble_cifra(hours%24) + ":" + doble_cifra(minutes%60) + ":" + doble_cifra(seconds%60)
