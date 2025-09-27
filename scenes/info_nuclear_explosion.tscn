@@ -1,0 +1,236 @@
+[gd_scene load_steps=21 format=3 uid="uid://37uc4onmggs4"]
+
+[ext_resource type="Script" uid="uid://dtl55p4fawg6h" path="res://scripts/info_nuclear_explosion.gd" id="1_xnpvi"]
+[ext_resource type="Texture2D" uid="uid://daw1p1v6x4vj4" path="res://assets/CORREO_nuclear.jpg" id="2_acvht"]
+[ext_resource type="Texture2D" uid="uid://gfe3fiekry2e" path="res://assets/fondo blanco.png" id="2_bnapc"]
+[ext_resource type="Texture2D" uid="uid://ymctg4adov88" path="res://assets/beige.png" id="3_4okau"]
+[ext_resource type="Texture2D" uid="uid://d2ahcwagtmhnp" path="res://assets/titulo nuclear interceptor.png" id="5_xnpvi"]
+[ext_resource type="Texture2D" uid="uid://b16blbpsqx7ym" path="res://assets/nuclear standoff explosion/fr1.png" id="6_a0n02"]
+[ext_resource type="Texture2D" uid="uid://rior4t4vldcn" path="res://assets/nuclear standoff explosion/fr2.png" id="7_1mtg0"]
+[ext_resource type="Texture2D" uid="uid://c4sonn6xs1luh" path="res://assets/nuclear standoff explosion/fr3.png" id="8_w8iox"]
+[ext_resource type="Texture2D" uid="uid://b0akwx82x605f" path="res://assets/nuclear standoff explosion/fr4.png" id="9_ueupt"]
+[ext_resource type="Texture2D" uid="uid://gcmxelqo8thb" path="res://assets/nuclear standoff explosion/fr5.png" id="10_mx5ct"]
+[ext_resource type="Texture2D" uid="uid://l561aomph47y" path="res://assets/nuclear standoff explosion/fr6.png" id="11_43efc"]
+[ext_resource type="Texture2D" uid="uid://brpmvxm3osgsk" path="res://assets/nuclear standoff explosion/fr7.png" id="12_vwa2w"]
+[ext_resource type="Texture2D" uid="uid://x2wnu8cs10gy" path="res://assets/nuclear surface explosion/fra1.png" id="13_nhkf6"]
+[ext_resource type="Texture2D" uid="uid://dmb5g8rr04ysw" path="res://assets/nuclear surface explosion/fra2.png" id="14_po63p"]
+[ext_resource type="Texture2D" uid="uid://bxuj5jtf3rai0" path="res://assets/nuclear surface explosion/fra3.png" id="15_wewwh"]
+[ext_resource type="Texture2D" uid="uid://dcsru6fkiqpo7" path="res://assets/nuclear surface explosion/fra4.png" id="16_bnapc"]
+[ext_resource type="Texture2D" uid="uid://d2hdhbmq1qhgl" path="res://assets/nuclear surface explosion/fra5.png" id="17_vren0"]
+[ext_resource type="Texture2D" uid="uid://t58kx2yd2qp8" path="res://assets/nuclear surface explosion/fra6.png" id="18_3q4lg"]
+[ext_resource type="Texture2D" uid="uid://djaaf5iwek80f" path="res://assets/nuclear surface explosion/fra7.png" id="19_3hcwf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8pygu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_a0n02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1mtg0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w8iox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ueupt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mx5ct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_43efc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vwa2w")
+}],
+"loop": true,
+"name": &"kinetic_impact_animation",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_nhkf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_po63p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_wewwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_bnapc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_vren0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_3q4lg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_3hcwf")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 3.0
+}]
+
+[node name="Nuclear explosion" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xnpvi")
+
+[node name="fondo2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 635.0
+offset_right = 1153.0
+offset_bottom = 1283.0
+texture = ExtResource("2_bnapc")
+
+[node name="fondo3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1283.0
+offset_right = 1155.0
+offset_bottom = 1931.0
+texture = ExtResource("2_bnapc")
+
+[node name="fondo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+texture = ExtResource("2_acvht")
+
+[node name="atenuacion_del_blanco" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.24313726)
+layout_mode = 0
+offset_left = -11.0
+offset_top = 1301.0
+offset_right = 1152.0
+offset_bottom = 1963.0
+texture = ExtResource("3_4okau")
+
+[node name="atenuacion_del_blanco3" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.24313726)
+layout_mode = 0
+offset_left = -2.0
+offset_top = 657.0
+offset_right = 1161.0
+offset_bottom = 1319.0
+texture = ExtResource("3_4okau")
+
+[node name="atenuacion_del_blanco2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.24313726)
+layout_mode = 0
+offset_left = -12.0
+offset_top = -3.0
+offset_right = 1151.0
+offset_bottom = 659.0
+texture = ExtResource("3_4okau")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 1267.0
+offset_bottom = 1953.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="Contenedor" type="Control" parent="ScrollContainer"]
+custom_minimum_size = Vector2(1309, 3000)
+layout_mode = 2
+
+[node name="titulo_(nuclear_explosion)" type="TextureRect" parent="ScrollContainer/Contenedor"]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 11.0
+offset_right = 839.0
+offset_bottom = 78.0
+texture = ExtResource("5_xnpvi")
+
+[node name="standoff_explosion" type="AnimatedSprite2D" parent="ScrollContainer/Contenedor"]
+position = Vector2(421.3197, 506.00867)
+scale = Vector2(0.69793254, 0.5639539)
+sprite_frames = SubResource("SpriteFrames_8pygu")
+animation = &"kinetic_impact_animation"
+autoplay = "kinetic_impact_animation"
+frame_progress = 0.82347035
+
+[node name="surface_explosion" type="AnimatedSprite2D" parent="ScrollContainer/Contenedor"]
+position = Vector2(751.55707, 504.99997)
+scale = Vector2(0.67595625, 0.5714287)
+sprite_frames = SubResource("SpriteFrames_8pygu")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.8697168
+
+[node name="info" type="RichTextLabel" parent="ScrollContainer/Contenedor"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 70.0
+offset_right = 1080.0
+offset_bottom = 1870.0
+theme_override_colors/default_color = Color(0.18717614, 0.18717614, 0.18717614, 1)
+bbcode_enabled = true
+text = "
+"
+autowrap_mode = 0
+
+[node name="kinetic_impactor" type="Button" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 202.0
+offset_top = -1.0
+offset_right = 336.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 13
+text = "kinetic impactor"
+flat = true
+
+[node name="gravity_tractor" type="Button" parent="."]
+modulate = Color(0.16078432, 0.16078432, 0.16078432, 1)
+layout_mode = 0
+offset_left = 375.0
+offset_top = -1.0
+offset_right = 477.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 13
+text = "gravity tractor"
+flat = true
+
+[node name="ion_beam" type="Button" parent="."]
+modulate = Color(0.16078432, 0.16078432, 0.16078432, 1)
+layout_mode = 0
+offset_left = 534.0
+offset_top = 2.0
+offset_right = 640.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 13
+text = "ion beam "
+flat = true
+
+[node name="nuclear_interceptor" type="Button" parent="."]
+modulate = Color(0.16078432, 0.16078432, 0.16078432, 1)
+layout_mode = 0
+offset_left = 677.0
+offset_top = 2.0
+offset_right = 810.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 13
+text = "nuclear interceptor"
+flat = true
+
+[node name="email" type="Button" parent="."]
+modulate = Color(0.16078432, 0.16078432, 0.16078432, 1)
+layout_mode = 0
+offset_left = 65.0
+offset_top = 2.0
+offset_right = 161.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 13
+text = "Email"
+flat = true
