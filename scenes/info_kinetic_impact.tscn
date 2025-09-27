@@ -185,8 +185,8 @@ offset_bottom = 78.0
 texture = ExtResource("4_u8dbp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/Contenedor"]
-position = Vector2(950.00006, 191)
-scale = Vector2(0.42590365, 0.35957643)
+position = Vector2(939.125, 191)
+scale = Vector2(0.3996987, 0.35957643)
 sprite_frames = SubResource("SpriteFrames_8pygu")
 animation = &"kinetic_impact_animation"
 autoplay = "kinetic_impact_animation"

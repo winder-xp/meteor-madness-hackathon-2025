@@ -22,7 +22,7 @@ the asteroid’s trajectory over time using their mutual gravitational attractio
 In essence, the spacecraft would act as if it were “towing” the asteroid using gravity as an 
 invisible towline.
 
-In its basic form, a gravity tractor uses a [u]pair of thrusters[/u] that are canted relative to the 
+In its basic form, a gravity tractor uses a [color=#c73232][u]pair of thrusters[/u][/color] that are canted relative to the 
 direction of the force to be applied on the asteroid. This is necessary to prevent exhaust 
 plumes from directly striking the asteroid, which would counteract the gravitational 
 tugging effect. 
@@ -30,7 +30,7 @@ However, the canting of the thrusters means that a considerable amount of thrust
 deflection, making the gravity tractor relatively inefficient in terms of fuel use. 
 
 
-There are [u]two main types of gravity tractors [/u]: stationary and dynamic. 
+There are [color=#c73232][b]two main types of gravity tractors[/b][/color]: stationary and dynamic. 
 The [b]stationary gravity tractor[/b] is positioned at a fixed location relative to the asteroid, allowing the gravitational force it exerts on 
 the asteroid to be constant over time and gradually shift its trajectory. The main disadvantage of this approach is that it requires 
 continuous propellant consumption to maintain the spacecraft’s position. In contrast, a [b]dynamic gravity tractor[/b] follows what is 
@@ -41,26 +41,27 @@ to achieve the same magnitude of gravitational force.
 
 
 
-•	One of the key advantages of this method is that [u]it does not depend on the asteroid’s composition[/u]. It would therefore be 
+•	One of the key advantages of this method is that [color=#c73232][u]it does not depend on the asteroid’s composition[/u][/color]. It would therefore be 
 especially useful in cases where a direct impact might risk breaking the asteroid into smaller fragments, something we would want 
 to avoid. 
 
-•	Gravity tractors would be generally more effective for [u]smaller asteroids[/u], since the larger the asteroid, the more massive the 
+•	Gravity tractors would be generally more effective for [color=#c73232][u]smaller asteroids[/u][/color], since the larger the asteroid, the more massive the 
 spacecraft must be to produce a significant gravitational force to deflect its trajectory.
 
-•	In addition, since the force exerted by a gravity tractor is smaller than that of a kinetic impact, it allows a [u]greater control[/u] over 
+•	In addition, since the force exerted by a gravity tractor is smaller than that of a kinetic impact, it allows a [color=#c73232][u]greater control[/u][/color] over 
 the amount by which the asteroid’s trajectory is modified. 
 
-•	However, unlike with other deflection methods like the kinetic impactor, [u]the result is not instantaneous[/u]. It would take a certain 
+•	However, unlike with other deflection methods like the kinetic impactor, [color=#c73232][u]the result is not instantaneous[/u][/color]. It would take a certain 
 amount of time for the asteroid to start shifting its movement due to the gravitational force exerted by the spacecraft, so this 
 approach would only be viable if there is enough time between the detection of the asteroid and a potential collision with Earth. 
 
-•	Another drawback of this method is that [u]extremely precise navigation control[/u] would be needed, since in order for the spacecraft 
+•	Another drawback of this method is that [color=#c73232][u]extremely precise navigation control[/u][/color] would be needed, since in order for the spacecraft 
 to exert a measurable gravitational force on the asteroid, the distance between them must be minimized, and therefore the risk of 
 collision if something goes wrong is very high.
 
 
-However, gravity tractors have not yet been tested experimentally, and their effectiveness remains theoretical.
+
+However, gravity tractors [u]have not yet been tested experimentally[/u], and their effectiveness remains theoretical.
 
 In conclusion, while gravity tractors require longer timescales and significant fuel resources, they provide a safe option when the 
 asteroid’s composition or structure makes other techniques less desirable.

@@ -2,6 +2,9 @@ extends Control
 
 # Referencias a los nodos hijos del nodo de Control (interfaz grafica)
 @onready var rich: RichTextLabel = $correo
+@onready var from: RichTextLabel = $from
+@onready var forr: RichTextLabel = $for
+@onready var asunto: RichTextLabel = $asunto
 @onready var popup: PopupMenu = $opciones_estrategias
 @onready var kin_imp: Button = $kinetic_impactor
 @onready var grav_trac: Button = $gravity_tractor
@@ -17,18 +20,30 @@ extends Control
 # ANIMAR EL TEXTO DEL CORREO PARA QUE SE VAYA ESCRIBIENDO POCO A POCO
 
 # Texto del correo con el desplegable en [url=id]_____[/url]
-var text: String = """
-bla
-bla
-bla asetroides bla
-bla
-bla
-The best mitigation strategy in this case is: [url=b1]_____[/url].
+var from_email: String = '  [font_size=14]From[/font_size]     [color=#545454]archives@jpl.nasa.gov[/color]'
+var for_email: String = '   [font_size=14]For[/font_size]      [color=#545454]obs@cfa.harvard.edu[/color]'
+var asunto_correo: String = '    Subject:  [color=#3b3b3b]R.E: IMMINENT CATASTROPHE[/color]'
+var text: String = """Oh no, this can’t be true… it is unbelievable!
+
+The situation is extremely serious and could have catastrophic consequences for humanity. I am deeply concerned and hope we proceed with speed, precision, and efficiency in avoiding this calamity.
+
+Here is a summary of our current situation:
+	
+The recently discovered asteroid --------, with a mass of ------- kg and a diameter of ------ m poses an enormous threat to our planet. It has an approximate density of ----- kg/m^3 and is primarily composed of --------------, a very ------(descripcion del material, porosidad, dureza…)----- material. From now, the time until the impact is about ------years ----------- months ---------- days.
+
+Considering all this data, I believe that the most effective mitigation strategy in this case would be [b][url=b1]_________[/url][/b].
+
+I recommend that we begin immediate planning and coordination to implement this strategy, every passing minute increases the risk of devastating consequences. 
+
+The fate of millions depends on us; failure is not an option.
+
+Jet Propulsion Laboratory
+
 """
 
 # Opciones para el desplegable (estrategias de mitigación)
 var blank_options: Dictionary = {
-	"b1": ["kinetic impactor", "gravity tractor", "ion beam shepherd", "nuclear interceptor", "protection and evacuation"]}
+	"b1": ["the kinetic impactor", "the gravity tractor", "the ion beam shepherd", "the nuclear interceptor", "protection and evacuation"]}
 
 # Información proporcionada por el usuario
 var current_blank_id: String = ""        # id del hueco
@@ -64,7 +79,7 @@ func _on_popup_id_pressed(id_popup_opcion: int) -> void:
 
 # Reemplazo sólo la primera aparición exacta del placeholder por la selección
 func _apply_selection_to_blank(blank_id: String, selection: String) -> void:
-	var placeholder: String = "[url=%s]_____[/url]" % blank_id
+	var placeholder: String = "[url=%s]_________[/url]" % blank_id
 	var idx: int = text.find(placeholder)
 
 	# Reconstruyo el texto reemplazando el hueco por la selección
@@ -101,8 +116,14 @@ func _ready() -> void:
 	popup.hide()
 	# Activo BBcode para escribir 
 	rich.bbcode_enabled = true
+	from.bbcode_enabled = true
+	forr.bbcode_enabled = true
+	asunto.bbcode_enabled = true
 	# Muestro el texto del correo
 	rich.bbcode_text = text
+	from.bbcode_text = from_email
+	forr.bbcode_text = for_email
+	asunto.bbcode_text = asunto_correo
 
 	# Activo que reciba eventos del ratón
 	rich.mouse_filter = Control.MOUSE_FILTER_STOP

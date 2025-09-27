@@ -28,10 +28,44 @@ texture = ExtResource("3_kb7jq")
 
 [node name="correo" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 163.0
+offset_left = 26.0
+offset_top = 186.0
 offset_right = 1127.0
-offset_bottom = 617.0
+offset_bottom = 637.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "
+"
+scroll_active = false
+
+[node name="from" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 78.0
+offset_right = 1127.0
+offset_bottom = 103.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "
+"
+
+[node name="for" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 112.0
+offset_right = 1127.0
+offset_bottom = 138.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "
+"
+
+[node name="asunto" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 146.0
+offset_right = 1127.0
+offset_bottom = 173.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 text = "

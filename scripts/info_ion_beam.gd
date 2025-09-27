@@ -16,7 +16,7 @@ extends Control
 
 # Texto del correo con el desplegable en [url=id]_____[/url]
 var text: String = """
-The ion beam shepherd is a theoretical asteroid deflection technique in which a spacecraft equipped with ion engines continuously 
+The [b]ion beam shepherd[/b] is a theoretical asteroid deflection technique in which a spacecraft equipped with ion engines continuously 
 bombards the surface of an asteroid. The impact of these high-velocity ions creates a pressure on the asteroid’s surface by 
 transferring their momentum through inelastic collisions, which would ‘’push the asteroid” changing its orbital velocity and, 
 consequently, its trajectory.
@@ -34,28 +34,28 @@ consequently, its trajectory.
 
 
 
-•	One of the key advantages of this method is that, like other deflection techniques such as the gravity tractor, it does not depend 
-on the asteroid’s composition. It would therefore be particularly useful when a direct impact might risk fragmenting the asteroid, 
+•	One of the key advantages of this method is that, like other deflection techniques such as the gravity tractor, [color=#248215]it does not depend 
+on the asteroid’s composition[/color]. It would therefore be particularly useful when a direct impact might risk fragmenting the asteroid, 
 which is generally undesirable. 
 
-•	Furthermore, this method is less sensitive to asteroid size, because the magnitude of the force exerted by the spacecraft only 
+•	Furthermore, this method is [color=#248215]less sensitive to asteroid size[/color], because the magnitude of the force exerted by the spacecraft only 
 depends on the capability of the electric propulsion system.
 
-•	This method significantly reduces the required spacecraft’s mass compared to a gravity tractor, as much less propellant is 
+•	This method significantly [color=#248215]reduces the required spacecraft’s mass[/color] compared to a gravity tractor, as much less propellant is 
 needed to achieve the same deflection.
 
-•	Moreover, since an ion beam exerts a smaller force than a kinetic impact, it allows more precise control over how the asteroid’s 
+•	Moreover, since an ion beam exerts a smaller force than a kinetic impact, it allows more [color=#248215]precise control[/color] over how the asteroid’s 
 trajectory is altered. 
 
-•	In addition, the ability to target different specific areas on the asteroid’s surface for optimized momentum transfer is possible.
+•	In addition, the ability to target different specific areas on the asteroid’s surface for [color=#248215]optimized momentum transfer[/color] is possible.
 
-•	However, as with other non-impact methods, the effect is not instantaneous. The asteroid’s motion shifts gradually in response 
+•	However, as with other non-impact methods, [color=#248215]the effect is not instantaneous[/color]. The asteroid’s motion shifts gradually in response 
 to the applied force, meaning this approach would only be viable if there is enough lead time between the detection of the 
 asteroid and a potential collision with Earth.
 
 
 
-For comparison, the ion beam shepherd can deflect a typical 200-meter asteroid given a 20-year lead time, resulting in more than 
+[color=#248215][b]For comparison[/b][/color], the ion beam shepherd can deflect a typical 200-meter asteroid given a 20-year lead time, resulting in more than 
 an order of magnitude of mass savings compared to the gravity tractor, with the difference increasing the smaller the asteroid 
 diameter.
 
