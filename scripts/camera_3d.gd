@@ -120,7 +120,7 @@ func _process(delta):
 	if is_on_earth:
 		camera_lookat = camera_look_at_object.global_position
 		#earth_mesh.scale = Vector3.ONE * 1.0 * scale_factor_earth
-		#sun_mesh.scale   = Vector3.ONE * 1.0 * scale_factor_sun
+		#sun_mesh.scale   = Vector3.ONE * 1.0 * scale_factor_sun#
 
 
 func _on_ryugu_input_event(camera, event, event_position, normal, shape_idx):
