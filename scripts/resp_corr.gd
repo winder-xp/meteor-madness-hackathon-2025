@@ -1,11 +1,12 @@
 extends Control
 
 @onready var rich: RichTextLabel = $"texto respuesta correcta"
+@onready var what: RichTextLabel = $"what would have happened"
+@onready var boton: Button = $"que hubiera pasado sí"
 
 var asteroide := 'Bennu'   # CAMBIAR, DATO DEL USUARIO --------------------------------------------
 var text := ''
 
-# BOTÓN O ALGO DE QUÉ PASARIA SI...
 
 # Un texto correcto para cada uno de los asteroides (se supone que si el juego ha cambiado a esta escena
 # es porque el usuario ha acertado con la estrategia de mitigación)
@@ -35,13 +36,30 @@ Since the warning period was long, approximately 15 years, the best option was a
 [b]Great work! You just beat space at its own game.[/b][/font_size]'
 
 
+# Texto encima del botón de simular impacto
+var what_would_have_happened = '[b][font_size=14][color=#ba0707]What would have happened if the asteroid had impacted?[/color][/font_size][/b]'
+
+# Si el usuario pulsa el botón de simular impacto empieza la animación del asteroide impactando
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/pre_impacto.tscn")
+	
+	
 func _ready() -> void:
 	# Activo BBcode para escribir 
 	rich.bbcode_enabled = true
 	rich.scroll_active = false
+
+	what.bbcode_enabled = true
+	what.scroll_active = false
 	# Muestro el texto del correo
 	if asteroide == 'Itokawa':
 		text = text_correcto_itokawa
 	elif asteroide == 'Bennu':
 		text = text_correcto_bennu
+
+	# Muestro los textos
 	rich.bbcode_text = text
+	what.bbcode_text = what_would_have_happened
+	# Respuesta al botón
+	boton.pressed.connect(_on_button_pressed)
+	

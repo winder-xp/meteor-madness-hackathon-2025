@@ -1,5 +1,7 @@
 extends Node
 
+# Script global, asccesible desde todas las escenas
+
 # Su contenido se actualiza cuando el usuario selecciona en la escena de correo_mitiga ion
 var selections: Dictionary = {} 
 # Datos de los asteroides, las claves son sus nombres y el orden es: NOMBRE, MASA, DIAMETRO, DENSIDAD, COMPOSICIÓN, DESCRIPCIÓN, AÑOS, DIAS MESES [IMPACTO], RESPUESTA CORRECTA

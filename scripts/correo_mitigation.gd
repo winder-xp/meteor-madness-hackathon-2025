@@ -14,14 +14,12 @@ extends Control
 @onready var email: Button = $email
 @onready var send: Button = $send
 
+
 var asteroide_elegido := 'Bennu'   #CAMBIAR ----------------------------------------
 var datos := []
 var text := ''
 
 
-# EL BOTÓN DE ENVIAR ES UN BOTÓN QUE TE PASA A LA SIGUIENTE ESCENA, CUANDO YA ESTÉ LA INFO
-# COMPLETADA (HABRÁ QUE INCLUIR ALGO QUE COMPUEBE QUE TODOS LOS CAMPOS, EL MAPA Y LA ESTRATEGIA
-# SE HAN MARCADO Y SI NO SE HAN HECHO SE MOSGRARÁ UN MENSJAE POR PANTALLA QUE LO DIGA -------------
 
 # ANIMAR EL TEXTO DEL CORREO PARA QUE SE VAYA ESCRIBIENDO POCO A POCO ----------------------------
 

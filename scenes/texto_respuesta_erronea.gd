@@ -1,6 +1,7 @@
 extends Control
 
 @onready var richi: RichTextLabel = $"texto respuesta erronea"
+@onready var impact: Button = $"impact consequences"
 
 var asteroide := 'Bennu'   # CAMBIAR, DATO DEL USUARIO --------------------------------------------
 var texto := ''
@@ -105,6 +106,11 @@ For this reason, since the warning period was long, approximately 15 years, the 
 
 [b]Earth tried to survive… you clearly had other plans.[/b][/font_size]'
 
+# Si el usuario pulsa el botón de simular impacto empieza la animación del asteroide impactando
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/pre_impacto.tscn")
+	
+
 func _ready() -> void:
 	# Activo BBcode para escribir 
 	richi.bbcode_enabled = true
@@ -132,3 +138,6 @@ func _ready() -> void:
 	
 	# Muestro el texto del correo
 	richi.bbcode_text = texto
+
+	# Respuesta al botón
+	impact.pressed.connect(_on_button_pressed)
