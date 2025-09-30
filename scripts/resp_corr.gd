@@ -4,7 +4,7 @@ extends Control
 @onready var what: RichTextLabel = $"what would have happened"
 @onready var boton: Button = $"que hubiera pasado sí"
 
-var asteroide := 'Bennu'   # CAMBIAR, DATO DEL USUARIO --------------------------------------------
+var asteroide := 'Rame-127'   # CAMBIAR, DATO DEL USUARIO --------------------------------------------
 var text := ''
 
 
@@ -36,6 +36,17 @@ Since the warning period was long, approximately 15 years, the best option was a
 [b]Great work! You just beat space at its own game.[/b][/font_size]'
 
 
+var text_correcto_rame:= '                                                                       [b][font_size=30]CONGRATULATIONS[/font_size] [/b]
+[font_size=14]The nuclear interceptor was indeed the most effective way to deflect this asteroid.
+
+Rame-127 is a massive medium sized asteroid, with an exceptionally high density due to its composition of iron- and magnesium-rich silicates. This makes it extremely compact and rocky, meaning it is not likely to break apart easily.
+
+An asteroid with such a large mass would be nearly impossible to deflect using a gravity tractor or an ion beam shepherd, especially with such a short warning time. For the same reasons, a kinetic impactor would also have to be ruled out: more than one impact would be needed to deflect an asteroid of this size, and with the short distance between the asteroid and the Earth due to the short warning time, a higher force would be needed to shift its trajectory than if the asteroid was farther away.
+
+Given these factors, the nuclear interceptor was the most suitable strategy. It provided the immense force needed to alter the asteroid’s course within the short warning period, making it the only realistic option against an object of such enormous mass.
+
+[b]Asteroid? Not today, buddy.[/b][/font_size]'
+
 # Texto encima del botón de simular impacto
 var what_would_have_happened = '[b][font_size=14][color=#ba0707]What would have happened if the asteroid had impacted?[/color][/font_size][/b]'
 
@@ -56,6 +67,8 @@ func _ready() -> void:
 		text = text_correcto_itokawa
 	elif asteroide == 'Bennu':
 		text = text_correcto_bennu
+	elif asteroide == 'Rame-127':
+		text = text_correcto_rame
 
 	# Muestro los textos
 	rich.bbcode_text = text

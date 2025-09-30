@@ -3,7 +3,7 @@ extends Control
 @onready var richi: RichTextLabel = $"texto respuesta erronea"
 @onready var impact: Button = $"impact consequences"
 
-var asteroide := 'Bennu'   # CAMBIAR, DATO DEL USUARIO --------------------------------------------
+var asteroide := 'Rame-127'   # CAMBIAR, DATO DEL USUARIO --------------------------------------------
 var texto := ''
 
 # Un texto  para cada uno de los asteroides y cada una de las respuestas incorrectas
@@ -106,6 +106,58 @@ For this reason, since the warning period was long, approximately 15 years, the 
 
 [b]Earth tried to survive… you clearly had other plans.[/b][/font_size]'
 
+
+# ---------------------------------- RAME-127 ----------------------------------------------------
+var text_kinetic_rame := '                                               [b][font_size=30]Dinosaurs: part II, featuring you.[/font_size] [/b]
+
+[font_size=14]The kinetic impactor was not the best way to act against this upcoming asteroid.
+
+Rame-127 is a massive medium sized asteroid, with an exceptionally high density due to its composition of iron- and magnesium-rich silicates. This makes it extremely compact and rocky, meaning it is not likely to break apart easily.
+
+For this reason, a single kinetic impactor didn’t have enough energy to produce a measurable deflection. Multiple spacecrafts impacting the asteroid would have been required to transfer sufficient momentum to alter the asteroid’s trajectory, which would have been unfeasible given such a short warning period.
+
+Instead, a standoff nuclear explosion could have provided enough energy to deflect the asteroid without carrying a high risk of breaking it, thanks to its compact composition. With six years of lead time, there would have been enough time to plan and execute the entire mission.
+
+[b]This is not a drill… actually, drills won’t help either[/b][/font_size].
+'
+
+var text_ion_rame := '                                               [b][font_size=30]Dinosaurs: part II, featuring you.[/font_size] [/b]
+
+[font_size=14]The ion beam shepherd was not the best way to act against this upcoming asteroid.
+
+Rame-127 is a massive medium sized asteroid, with an exceptionally high density due to its composition of iron- and magnesium-rich silicates. This makes it extremely compact and rocky, meaning it is not likely to break apart easily.
+
+Due to its enormous mass, an ion beam shepherd would have needed a few decades to make a measurable deflection, not to mention that the technology needed for such a complex mission is still very inmature. 
+
+Instead, a standoff nuclear explosion could have provided enough energy to deflect the asteroid without carrying a high risk of breaking it, thanks to its compact composition. With six years of lead time, there would have been enough time to plan and execute the entire mission.
+
+[b]Asteroid: 1. Humanity: 0.[/b][/font_size]
+'
+
+
+var text_gravity_rame := '[b][font_size=30]Good evening, Earth. Tonight’s forecast: 100% chance of asteroid showers.[/font_size] [/b]
+[font_size=14]The gravity tractor was not the best way to act against this approaching asteroid.
+
+Rame-127 is a massive medium sized asteroid, with an exceptionally high density due to its composition of iron- and magnesium-rich silicates. This makes it extremely compact and rocky, meaning it is not likely to break apart easily.
+
+Due to its enormous mass, a gravity tractor would have needed a few decades to make a measurable deflection, and an enormous mass to exert a significant gravitational force in the asteroid, which would have been unfeasible with the technology available today. 
+
+Instead, a standoff nuclear explosion could have provided enough energy to deflect the asteroid without carrying a high risk of breaking it, thanks to its compact composition. With six years of lead time, there would have been enough time to plan and execute the entire mission.
+
+[b]Earth update: patch 2.0 includes one giant hole.[/b][/font_size]
+'
+
+var text_evacuation_rame := '[b][font_size=30]Mission accomplished… if the goal was Earth’s destruction.[/font_size] [/b]
+
+[font_size=14]Protection and evacuation was not the best way to act against this upcoming asteroid. Due to its magnitude, the damages done by the impact were terrible, and with a seven-year lead, they could have certainly be avoided.
+
+Rame-127 is a massive medium sized asteroid, with an exceptionally high density due to its composition of iron- and magnesium-rich silicates. This makes it extremely compact and rocky, meaning it is not likely to break apart easily.
+
+Given these factors, the nuclear interceptor was the most suitable strategy. It provided the immense force needed to alter the asteroid’s course within the short warning period, making it the only realistic option against an object of such enormous mass.
+
+[b]Earth tried to survive… you clearly had other plans.[/b][/font_size]
+'
+
 # Si el usuario pulsa el botón de simular impacto empieza la animación del asteroide impactando
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/pre_impacto.tscn")
@@ -135,7 +187,16 @@ func _ready() -> void:
 			texto = text_nuclear_bennu
 		elif Global.selections["b1"] == 'protection and evacuation':
 			texto = text_evacuation_bennu
-	
+	# Rame-127
+	elif asteroide == 'Rame-127':
+		if Global.selections["b1"] == 'the kinetic impactor':
+			texto = text_kinetic_rame
+		elif Global.selections["b1"] == 'the ion beam shepherd': 
+			texto = text_ion_rame
+		elif Global.selections["b1"] == 'the gravity tractor':
+			texto = text_gravity_rame
+		elif Global.selections["b1"] == 'protection and evacuation':
+			texto = text_evacuation_rame
 	# Muestro el texto del correo
 	richi.bbcode_text = texto
 

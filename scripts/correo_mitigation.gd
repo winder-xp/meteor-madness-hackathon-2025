@@ -15,7 +15,7 @@ extends Control
 @onready var send: Button = $send
 
 
-var asteroide_elegido := 'Bennu'   #CAMBIAR ----------------------------------------
+var asteroide_elegido := 'Rame-127'   #CAMBIAR ----------------------------------------
 var datos := []
 var text := ''
 
@@ -38,6 +38,8 @@ func texto_que_mostrar() ->void:
 		print(datos)
 	elif asteroide_elegido == 'Bennu':
 		datos = Global.datos_asteroides['Bennu']
+	elif asteroide_elegido == 'Rame-127':
+		datos = Global.datos_asteroides['Rame-127']
 		
 
 

@@ -2,7 +2,7 @@ extends Control
 
 @onready var video = $VideoStreamPlayer
 
-var asteroide = 'Bennu'   # CAMBIAR POR EL DATO QUE ME LLEGUE -----------------------
+var asteroide = 'Rame-127'   # CAMBIAR POR EL DATO QUE ME LLEGUE -----------------------
 
 # Si la respuesta del usuario coincide con la respuesta correcta (almacenada en el diccionario de Global)
 # se cambia la escena a la de las respuestas correctas, si no, se cambia a la de las erroneas
