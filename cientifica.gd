@@ -23,6 +23,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("keyD"):
 		direction += global_transform.basis.x
 
+
 	direction = direction.normalized()
 
 	# usamos la propiedad 'velocity' que ya trae CharacterBody3D

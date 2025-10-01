@@ -5,7 +5,7 @@ extends Node3D
 @export var bolapoyo2 = true
 
 func _process(delta):
+	if Input.is_action_pressed("P"):
+		animation_player2.play("sentarse")
 	if Input.is_action_pressed("keyW"):
 		animation_player2.play("mixamo_com",-1,0.7,false)
-	else:
-		animation_player2.play("Take 001")
