@@ -34,9 +34,7 @@ func lat_lon_conversion_inversa(x,y):
 	
 	return Vector2(2*PI*x/a,2*atan(exp(-2*PI*y/b))-PI/2)
 
-var radio_rojo = 400:
-		set(value):
-			radio_rojo = value*METROS_PIXELES
+var radio_rojo = 697.8
 
 func _draw():
 	
@@ -72,6 +70,8 @@ var parallax = ParallaxBackground.new()
 var layer = ParallaxLayer.new()
 
 func _process(delta):
+	radio_rojo = 3000*METROS_PIXELES*10
+	queue_redraw()
 	if activateDelta:
 		tiempo += delta
 	if tiempo > 0.5:
