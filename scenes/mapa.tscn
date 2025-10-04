@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dlxpt4kgi4d2" path="res://scripts/MapaMundo.gd" id="2_tfnl5"]
 [ext_resource type="Script" uid="uid://qbkvf36oq1v7" path="res://scripts/punto.gd" id="3_nrd35"]
 [ext_resource type="Script" uid="uid://dvsyx8p0cjqng" path="res://scripts/camara del mapa.gd" id="4_nrd35"]
-[ext_resource type="Script" uid="uid://kkblxnig0b4v" path="res://scripts/area_raton.gd" id="5_atgyb"]
+[ext_resource type="Script" path="res://scripts/area_raton.gd" id="5_atgyb"]
 
 [sub_resource type="GDScript" id="GDScript_nrd35"]
 script/source = "extends RichTextLabel

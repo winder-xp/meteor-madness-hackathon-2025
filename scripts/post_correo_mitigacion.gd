@@ -3,7 +3,7 @@ extends Control
 @onready var video = $VideoStreamPlayer
 @onready var ia = $ia
 
-var asteroide = 'Rame-127'   # CAMBIAR POR EL DATO QUE ME LLEGUE -----------------------
+var asteroide = Global.selected_asteroid_name 
 
 var texto = 'AI generated'
 # Si la respuesta del usuario coincide con la respuesta correcta (almacenada en el diccionario de Global)

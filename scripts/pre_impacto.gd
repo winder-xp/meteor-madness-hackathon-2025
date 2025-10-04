@@ -7,7 +7,7 @@ extends Control
 var texto = 'AI generated'
 
 func _on_video_finished():
-	pass
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/mapa.tscn")
 
 # Simplemente ejecuta el video
 func _ready() -> void:

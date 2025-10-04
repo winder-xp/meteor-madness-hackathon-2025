@@ -15,7 +15,7 @@ extends Control
 @onready var send: Button = $send
 
 
-var asteroide_elegido := 'Rame-127'   #CAMBIAR ----------------------------------------
+var asteroide_elegido := Global.selected_asteroid_name  
 var datos := []
 var text := ''
 
