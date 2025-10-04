@@ -51,6 +51,7 @@ func _process(delta):
 		state_machine.travel("izda")
 	if Input.is_action_just_pressed("P"):
 		state_machine.travel("levantarse")
+		print("p")
 		sentado=true
 	if velocity.x == 0 and velocity.y == 0 and sentado == false:
 		state_machine.travel("idle")
