@@ -10,6 +10,7 @@ var a = 0
 var b = 0
 var scale_factor = 1.635
 
+var tiempo = 0
 
 @onready var camera_2d: Camera2D = $"../Camera2D"
 
@@ -59,20 +60,27 @@ var parallax = ParallaxBackground.new()
 var layer = ParallaxLayer.new()
 
 func _process(delta):
-	
-	pass
+	if activateDelta:
+		tiempo += delta
+	if tiempo > 0.5:
+		tiempo = 0
+		activateDelta = false
 	
 @onready var rich_text_label: RichTextLabel = $"../CanvasLayer/RichTextLabel"
 
-	
+var activateDelta = false 
 
 func _input(event):
 	# Mouse in viewport coordinates.
-
+	rich_text_label.scale = Vector2(2,2)
+	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		activateDelta = true	
+		
+		
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and activateDelta and tiempo>1e-3:
 		position = camera_2d.get_global_mouse_position()
 		
-		rich_text_label.scale = Vector2(2,2)
 		
 		if terreno:
 			rich_text_label.text = '[outline_size={5}]Has tocado tierra[/outline_size]'
@@ -84,8 +92,26 @@ func _input(event):
 
 var terreno = true
 
-func _on_area_2d_mouse_entered() -> void:
-	terreno = true
+#func _on_area_2d_mouse_entered() -> void:
+	#terreno = true
+	#
+#func _on_area_2d_mouse_exited() -> void:
+	#terreno = false
+
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		print('Tierra \n') # Replace with function body.
 	
-func _on_area_2d_mouse_exited() -> void:
-	terreno = false
+@onready var area_raton: Area2D = $"../AreaRaton"
+
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area == area_raton:
+		terreno = true
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area == area_raton:
+		terreno = false
