@@ -14,18 +14,19 @@ var tiempo = 0
 
 @onready var camera_2d: Camera2D = $"../Camera2D"
 
+@onready var mapa_mundo: Sprite2D = $"../MapaMundo"
 
 
 func lat_lon_conversion(lon,lat):
 	
-	a = get_parent().get_node('MapaMundo').get_rect().size.x
-	b = get_parent().get_node('MapaMundo').get_rect().size.y
+	a = mapa_mundo.get_rect().size.x
+	b = mapa_mundo.get_rect().size.y
 	
 	return Vector2(a * lon/(2*PI),-log(tan(PI/4 + lat/2))*b/(2*PI))
 	
 func lat_lon_conversion_inversa(x,y):
-	a = get_parent().get_node('MapaMundo').get_rect().size.x
-	b = get_parent().get_node('MapaMundo').get_rect().size.y
+	a = mapa_mundo.get_rect().size.x
+	b = mapa_mundo.get_rect().size.y
 	
 	return Vector2(2*PI*x/a,2*atan(exp(-2*PI*y/b))-PI/2)
 
@@ -33,7 +34,7 @@ func _draw():
 	
 	
 	
-	var conversion_elipse = (40074 * get_parent().get_node('MapaMundo').get_rect().size.x) / (get_parent().get_node('MapaMundo').get_rect().size.y * 2*PI*6378) 
+	var conversion_elipse = (40074 * mapa_mundo.get_rect().size.x) / (mapa_mundo.get_rect().size.y * 2*PI*6378) 
 	
 	draw_set_transform(Vector2(0,0),0,Vector2(conversion_elipse*10,10))
 	
