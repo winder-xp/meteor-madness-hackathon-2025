@@ -10,3 +10,5 @@ var datos_asteroides: Dictionary = {'Itokawa': ['Itokawa',3.15e10,0.33,1.9e3,'si
 'Rame-127': ['Rame-127', 5.45e13, 0.872,3500,'silicates rich in iron and magnesium', 'rocky, hard and cohesive material',6,10,9, 'the nuclear interceptor']}
 
 var terreno = true
+
+var selected_asteroid_name: String = "Itokawa"
