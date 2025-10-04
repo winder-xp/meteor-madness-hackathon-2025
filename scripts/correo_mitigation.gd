@@ -51,7 +51,7 @@ var blank_options: Dictionary = {
 var current_blank_id: String = ""        # id del hueco
 
 
-# ------------- Handlers ---------------
+# ----------------------- Handlers --------------------------
 # Se llama cuando el usuario hace clic en un desplegable
 func _on_rich_meta_clicked(meta: Variant) -> void:
 	current_blank_id = meta
