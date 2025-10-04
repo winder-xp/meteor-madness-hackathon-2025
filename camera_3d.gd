@@ -20,5 +20,5 @@ func _unhandled_input(event):
 		rotation_degrees = Vector3(pitch, 0, 0)
 
 func _process(delta):
-	global_position= bone_attachment_3d.global_position+Vector3(0,0.4,0)
-	position.z=position.z-0.6
+	global_position= bone_attachment_3d.global_position+Vector3(0,0.3,0)
+	position.z=position.z-0.75

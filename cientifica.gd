@@ -5,7 +5,7 @@ extends CharacterBody3D
 @onready var state_machine = animation_tree.get("parameters/playback") as AnimationNodeStateMachinePlayback
 
 
-
+var sentado = false
 @export var dios: float = 3
 @export var sensitivity: float = 0.2
 var yaw := 0.0
@@ -50,6 +50,7 @@ func _process(delta):
 	if Input.is_action_pressed("keyA"):
 		state_machine.travel("izda")
 	if Input.is_action_just_pressed("P"):
-		state_machine.travel("levatarse")
-	if velocity.x == 0 and velocity.y == 0:
+		state_machine.travel("levantarse")
+		sentado=true
+	if velocity.x == 0 and velocity.y == 0 and sentado == false:
 		state_machine.travel("idle")
