@@ -1,10 +1,47 @@
-[gd_scene load_steps=8 format=3 uid="uid://ftjl8t0ip5pd"]
+[gd_scene load_steps=10 format=3 uid="uid://ftjl8t0ip5pd"]
 
+[ext_resource type="Texture2D" uid="uid://3l3ll54skj5q" path="res://assets/Mercator_Projection.svg" id="2_atgyb"]
 [ext_resource type="Texture2D" uid="uid://bucx4t7q12he2" path="res://assets/Mercator_projection_Square.png" id="2_nrd35"]
 [ext_resource type="Script" uid="uid://dlxpt4kgi4d2" path="res://scripts/MapaMundo.gd" id="2_tfnl5"]
 [ext_resource type="Script" uid="uid://qbkvf36oq1v7" path="res://scripts/punto.gd" id="3_nrd35"]
 [ext_resource type="Script" uid="uid://dvsyx8p0cjqng" path="res://scripts/camara del mapa.gd" id="4_nrd35"]
 [ext_resource type="Script" uid="uid://kkblxnig0b4v" path="res://scripts/area_raton.gd" id="5_atgyb"]
+
+[sub_resource type="GDScript" id="GDScript_k7lwh"]
+script/source = "extends Sprite2D
+
+# Configurable Variables
+var SVGPath:String = \"res://assets/Mercator_Projection.svg\" # Path to SVG File to be used
+var Scale:float = 5 # Size Multiplier (Increasing this makes the final image bigger)
+
+# Buffer Variables
+var DevelopmentResolution:Vector2 # Original resolution (auto-detected on _ready()); typically this is 1152x648
+var ActiveResolution:Vector2 # Buffer to store the last resolution used for scaling, it is needed to check whether or not the window size has changed
+var SVGBuffer:PackedByteArray # A buffer for storing the SVG
+var Bitmap:Image = Image.new() # Bitmap for SVG->Bitmap conversion
+
+func _ready() -> void:
+	DevelopmentResolution = get_window().content_scale_size # Detect Original Resolution
+	ActiveResolution = get_window().size # Initialize Active Resolution Variable
+	SVGBuffer = FileAccess.get_file_as_bytes(SVGPath) # Load SVG to buffer
+	update_scale()  # Load SVG and apply initial scaling
+	anchor_bottom() # Position the sprite at the bottom of the window.
+
+func _process(delta: float) -> void:
+	if Vector2i(ActiveResolution) != get_window().size: # If the window size has changed
+		position.x /=ActiveResolution.x / DevelopmentResolution.x # Unscale X Position using the X scaling of the last resolution (needed for the anchor X position scaling logic)
+		ActiveResolution = get_window().size # Update Active Resolution
+		update_scale() # Rescale SVG
+		anchor_bottom() # Update sprite position based on new screenresolution
+
+func update_scale(desired_scale: float = ActiveResolution.y / DevelopmentResolution.y) -> void: # Accepts scale parameter, defaults to scaling based on difference between development resolution and currently active resolution.
+	Bitmap.load_svg_from_buffer(SVGBuffer, desired_scale * Scale) # Scale SVG and convert from buffer to bitmap
+	texture = ImageTexture.create_from_image(Bitmap) # Apply the bitmap as a texture
+
+func anchor_bottom() -> void: 
+	position.y = ActiveResolution.y * 0.5 - texture.get_height() * 0.5 # Calculates the coordinate for the bottom of the screen offset by the height of the bitmap
+	position.x *= ActiveResolution.x / DevelopmentResolution.x # Scale X Position according to X window scaling
+"
 
 [sub_resource type="GDScript" id="GDScript_nrd35"]
 script/source = "extends RichTextLabel
@@ -44,6 +81,12 @@ polygon = PackedVector2Array(-1028, 713, -971, 740, -902, 706, -846, 683, -743, 
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("4_nrd35")
+
+[node name="mapamundo_vector" type="Sprite2D" parent="."]
+position = Vector2(-8.999975, -81.25)
+scale = Vector2(0.2590799, 0.25921375)
+texture = ExtResource("2_atgyb")
+script = SubResource("GDScript_k7lwh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

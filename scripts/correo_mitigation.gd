@@ -1,6 +1,7 @@
 extends Control
 
 # Referencias a los nodos hijos del nodo de Control (interfaz grafica)
+@onready var flecha: TextureRect = $"flecha roja send"
 @onready var rich: RichTextLabel = $correo
 @onready var from: RichTextLabel = $from
 @onready var forr: RichTextLabel = $for
@@ -13,33 +14,34 @@ extends Control
 @onready var email: Button = $email
 @onready var send: Button = $send
 
-# EL BOTÓN DE ENVIAR ES UN BOTÓN QUE TE PASA A LA SIGUIENTE ESCENA, CUANDO YA ESTÉ LA INFO
-# COMPLETADA (HABRÁ QUE INCLUIR ALGO QUE COMPUEBE QUE TODOS LOS CAMPOS, EL MAPA Y LA ESTRATEGIA
-# SE HAN MARCADO Y SI NO SE HAN HECHO SE MOSGRARÁ UN MENSJAE POR PANTALLA QUE LO DIGA
 
-# ANIMAR EL TEXTO DEL CORREO PARA QUE SE VAYA ESCRIBIENDO POCO A POCO
+var asteroide_elegido := 'Rame-127'   #CAMBIAR ----------------------------------------
+var datos := []
+var text := ''
+
+
+
+# ANIMAR EL TEXTO DEL CORREO PARA QUE SE VAYA ESCRIBIENDO POCO A POCO ----------------------------
 
 # Texto del correo con el desplegable en [url=id]_____[/url]
 var from_email: String = '  [font_size=14]From[/font_size]     [color=#545454]archives@jpl.nasa.gov[/color]'
-var for_email: String = '   [font_size=14]For[/font_size]      [color=#545454]obs@cfa.harvard.edu[/color]'
+var for_email: String = '    [font_size=14]To[/font_size]      [color=#545454]obs@cfa.harvard.edu[/color]'
 var asunto_correo: String = '    Subject:  [color=#3b3b3b]R.E: IMMINENT CATASTROPHE[/color]'
-var text: String = """Oh no, this can’t be true… it is unbelievable!
 
-The situation is extremely serious and could have catastrophic consequences for humanity. I am deeply concerned and hope we proceed with speed, precision, and efficiency in avoiding this calamity.
 
-Here is a summary of our current situation:
-	
-The recently discovered asteroid --------, with a mass of ------- kg and a diameter of ------ m poses an enormous threat to our planet. It has an approximate density of ----- kg/m^3 and is primarily composed of --------------, a very ------(descripcion del material, porosidad, dureza…)----- material. From now, the time until the impact is about ------years ----------- months ---------- days.
+# FALTA METER LOS OTROS DOS ASTEROIDES -------------------------------
 
-Considering all this data, I believe that the most effective mitigation strategy in this case would be [b][url=b1]_________[/url][/b].
+# Bucle que dependiendo del asteroide que haya elegido el usuario coge sus datos del script Global
+func texto_que_mostrar() ->void:
+	if asteroide_elegido == 'Itokawa':
+		datos = Global.datos_asteroides['Itokawa']
+		print(datos)
+	elif asteroide_elegido == 'Bennu':
+		datos = Global.datos_asteroides['Bennu']
+	elif asteroide_elegido == 'Rame-127':
+		datos = Global.datos_asteroides['Rame-127']
+		
 
-I recommend that we begin immediate planning and coordination to implement this strategy, every passing minute increases the risk of devastating consequences. 
-
-The fate of millions depends on us; failure is not an option.
-
-Jet Propulsion Laboratory
-
-"""
 
 # Opciones para el desplegable (estrategias de mitigación)
 var blank_options: Dictionary = {
@@ -47,7 +49,6 @@ var blank_options: Dictionary = {
 
 # Información proporcionada por el usuario
 var current_blank_id: String = ""        # id del hueco
-var selections: Dictionary = {}           # guarda las selecciones hechas { "b1":"manzana", ... }
 
 
 # ------------- Handlers ---------------
@@ -73,8 +74,9 @@ func _on_popup_id_pressed(id_popup_opcion: int) -> void:
 	# Reemplaza el hueco por la opción del popup seleccionada por el usuario
 	_apply_selection_to_blank(current_blank_id, mitigation_strategy)
 	# Guarda la selección para referirse a ella en el futuro
-	selections[current_blank_id] = mitigation_strategy
-	current_blank_id = ""
+	Global.selections[current_blank_id] = mitigation_strategy
+	current_blank_id = ''
+
 
 
 # Reemplazo sólo la primera aparición exacta del placeholder por la selección
@@ -89,8 +91,11 @@ func _apply_selection_to_blank(blank_id: String, selection: String) -> void:
 
 	# Actualizo la etiqueta para que lo muestre en pantalla
 	rich.bbcode_text = text
-
-
+	
+	# Muestro la fecha señalando enviar
+	flecha.visible = true
+	
+	
 # Camabiar a las pestañas de Google con más info de las estrategias de mitigación [HACER]
 func _on_kin_pressed() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/info_kinetic_impact.tscn")
@@ -108,12 +113,32 @@ func _on_email_pressed() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/correo_mitigation.tscn")
 
 func _on_send_pressed() -> void:
-	get_tree().call_deferred("change_scene_to_file", "res://scenes/correo_mitigation.tscn")     # CAMBIAR A LA SIGUIENTE ESCENA
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/post_correo_mitigacion.tscn")     # CAMBIAR A LA SIGUIENTE ESCENA
 
 
 
 func _ready() -> void:
 	popup.hide()
+	flecha.visible = false	
+	# Dependiendo del asteroide que haya elegido el usuario, asigno los datos y escribo el correo correspondiente
+	texto_que_mostrar()
+	
+	text = """Oh no, this can’t be true… it is unbelievable!
+
+The situation is extremely serious and could have catastrophic consequences for humanity. I am deeply concerned and hope we proceed with speed, precision, and efficiency in avoiding this calamity.
+
+Here is a [u]summary of our current situation[/u]:	
+The recently discovered asteroid %s, with a mass of %s kg and a diameter of %s km poses an enormous threat to our planet. It has an approximate density of %s kg/m^3 and is primarily composed of %s, a very %s. From now, the time until the impact is about %s years %s months %s days.
+
+Considering all this data, I believe that the most effective mitigation strategy in this case is [b][url=b1]_________[/url][/b].
+
+I recommend that we begin immediate planning and coordination to implement this strategy, every passing minute increases the risk of devastating consequences. 
+
+The fate of millions depends on us; failure is not an option.
+
+Jet Propulsion Laboratory
+""" %[datos[0], datos[1], datos[2],datos[3],datos[4], datos[5], datos[6], datos[7], datos[8]]
+	
 	# Activo BBcode para escribir 
 	rich.bbcode_enabled = true
 	from.bbcode_enabled = true
@@ -124,7 +149,7 @@ func _ready() -> void:
 	from.bbcode_text = from_email
 	forr.bbcode_text = for_email
 	asunto.bbcode_text = asunto_correo
-
+	
 	# Activo que reciba eventos del ratón
 	rich.mouse_filter = Control.MOUSE_FILTER_STOP
 
@@ -137,7 +162,7 @@ func _ready() -> void:
 	nuc_inter.pressed.connect(_on_nuclear_pressed)
 	email.pressed.connect(_on_email_pressed)
 	send.pressed.connect(_on_send_pressed)
-
+	
 	# Cerrar el popup cuando el usuario elija la estrategia de mitigación
 	popup.clear()
 	popup.hide_on_item_selection = true

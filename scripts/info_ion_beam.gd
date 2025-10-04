@@ -51,13 +51,16 @@ trajectory is altered.
 
 •	However, as with other non-impact methods, [color=#248215]the effect is not instantaneous[/color]. The asteroid’s motion shifts gradually in response 
 to the applied force, meaning this approach would only be viable if there is enough lead time between the detection of the 
-asteroid and a potential collision with Earth.
+asteroid and a potential collision with Earth, a minimum of 20 years
 
 
 
 [color=#248215][b]For comparison[/b][/color], the ion beam shepherd can deflect a typical 200-meter asteroid given a 20-year lead time, resulting in more than 
 an order of magnitude of mass savings compared to the gravity tractor, with the difference increasing the smaller the asteroid 
 diameter.
+
+However, this technology is still in its infancy and will need many more years before it becomes a realistic option. Experiments and further testing would be 
+necessary before it could be used.
 
 All in all, the ion beam shepherd offers a precise and efficient method for asteroid deflection, allowing controlled trajectory 
 changes with reduced spacecraft mass, though it requires long lead times to achieve significant results.

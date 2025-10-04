@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgqhwt2bg4lng"]
+
+[ext_resource type="Script" uid="uid://b4evb01pihi4f" path="res://scripts/post_correo_mitigacion.gd" id="1_ds5kw"]
+[ext_resource type="VideoStream" uid="uid://cn8vkla3awsgw" path="res://assets/video-asteroide-3_1.ogv" id="2_ds5kw"]
+
+[node name="post correo mitigacion" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ds5kw")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 1212.0
+offset_bottom = 693.0
+stream = ExtResource("2_ds5kw")
+autoplay = true

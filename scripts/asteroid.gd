@@ -13,6 +13,9 @@ enum Asteroids {
 }
 
 signal parameters_ready
+@onready var tierra = $"../../Tierra"
+
+var relative_velocity = 0.0
 
 ## Nombre del asteroide (se toman sus datos)
 @export var asteroid_id: Asteroids
@@ -40,6 +43,7 @@ var omega: float	#velocidad angular
 var Omega: float	#ángulo ascending node
 var i: float		#ángulo con la eclíptica
 var time = 0.0
+
 
 ## Color de la bola
 @export_color_no_alpha var asteroid_test_color: Color
@@ -106,11 +110,13 @@ func _ready():
 		omega = 2*PI/period
 		Omega = 358.6173858501047 * DEGREES
 		i = 8.67167565580244 * DEGREES
+		
 	
 	emit_signal("parameters_ready")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	relative_velocity = ((linear_velocity - tierra.linear_velocity)*SUN_TO_METERS).length()
 	time += delta
 	var theta = omega * time
 	
