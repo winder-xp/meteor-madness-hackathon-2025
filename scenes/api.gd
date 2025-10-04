@@ -1,52 +1,51 @@
 extends Node
 
-var http_request
-var resultado_api = []  # Aquí guardaremos los valores que recibamos
+# Señal que se emitirá cuando lleguen los datos
+signal datos_recibidos(radio: float, terremoto: float, onda: float)
+
+var http_request : HTTPRequest
+
+# Variables internas (opcional, pero puedes tenerlas también)
+var radio : float = 0.0
+var terremoto : float = 0.0
+var onda : float = 0.0
 
 func _ready():
+	# Crear nodo HTTPRequest y conectarlo
 	http_request = HTTPRequest.new()
 	add_child(http_request)
-	http_request.connect("request_completed", self, "_on_request_completed")
-	
+	http_request.request_completed.connect(_on_request_completed)
 
-# Función para enviar datos a la API con variables que recibimos como argumentos
-func enviar_datos_a_api(lat, lon,diametro, densidad, velocidad, tierra= true):
-	var url = "https://127.0.0.1.8000/meteorito"
-	var datos = {
-		"lat": lat,
-		"lon": lon,
-		"diametro": diametro,
-		'densidad': densidad,
-		'velocidad': velocidad,
-		'tierra': tierra}
-	var json_data = JSON.stringify(datos)
-	
-	
-	var headers = ["Content-Type: application/json"]
-	
-	var error = http_request.request(url, headers, false, HTTPClient.METHOD_POST, json_data)
+# Función para llamar a la API con parámetros dinámicos
+func llamar_api(lat: float, lon: float, diametro: float, densidad: float, velocidad: float, tierra: bool):
+	var url_base = "http://127.0.0.1:8000/meteorito"
+	var query = "?lat=%f&lon=%f&diametro=%f&densidad=%f&velocidad=%f&tierra=%s" % [
+		lat, lon, diametro, densidad, velocidad, str(tierra).to_lower()
+	]
+	var url = url_base + query
+	print("Llamando a: ", url)
+
+	var error = http_request.request(url)
 	if error != OK:
-		print("Error al hacer la solicitud:", error)
+		push_error("Error en la petición: " + str(error))
 
-# Función que recibe la respuesta de la API
-func _on_request_completed(result, response_code, headers, body):
-	if response_code == 200:
-		var response_text = body.get_string_from_utf8()
-		var respuesta_json = parse_json(response_text)
+# Callback cuando llega la respuesta
+func _on_request_completed(_result, _response_code, _headers, body):
+	var response_text = body.get_string_from_utf8()
+	
+	var json = JSON.new()
+	var parse_error = json.parse(response_text)
+
+	if parse_error == OK:
+		var respuesta = json.get_data()
 		
-		if typeof(respuesta_json) == TYPE_ARRAY:
-			resultado_api = respuesta_json
-			print("Datos recibidos:", resultado_api)
-			
-			# Aquí puedes llamar a otra función para usar esos datos en el programa
-			usar_datos(resultado_api)
-		else:
-			print("Respuesta no es una lista.")
+		# Guardar en variables
+		radio = float(respuesta["radio"])
+		terremoto = float(respuesta["terremoto"])
+		onda = float(respuesta["onda"])
+		
+		# Emitir señal con los datos
+		emit_signal("datos_recibidos", radio, terremoto, onda)
+		print("✅ Datos recibidos y señal emitida")
 	else:
-		print("Error en la respuesta:", response_code)
-
-# Ejemplo de función que usa los datos recibidos
-func usar_datos(datos):
-	for i in range(datos.size()):
-		print("Valor ", i, ": ", datos[i])
-		# Aquí puedes hacer lo que necesites con esos datos en tu programa
+		push_error("Error al parsear JSON")
