@@ -16,3 +16,11 @@ offset_right = 1208.0
 offset_bottom = 678.0
 stream = ExtResource("2_wa6ao")
 autoplay = true
+
+[node name="ia" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1037.0
+offset_top = 608.0
+offset_right = 1184.0
+offset_bottom = 675.0
+theme_override_colors/default_color = Color(0.26657534, 0.26657513, 0.26657513, 1)

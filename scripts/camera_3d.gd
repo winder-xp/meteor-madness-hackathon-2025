@@ -159,3 +159,7 @@ func _on_sun_collider_input_event(camera, event, event_position, normal, shape_i
 	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
 		camera_look_at_object = sun_mesh
 		btn_asteroid_select.disabled = true
+
+func _on_btn_asteroid_select_pressed():
+	Global.selected_asteroid_name = camera_look_at_object.Asteroids.keys()[camera_look_at_object.asteroid_id]
+	print(Global.selected_asteroid_name)
