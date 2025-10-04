@@ -6,10 +6,11 @@ extends Control
 @onready var terre : TextureRect = $"ScrollContainer/Control/noticia terremoto"
 @onready var tsuna : TextureRect = $"ScrollContainer/Control/tsunami ciudad"
 
-
+# Variables que me tienen que llegar
 var asteroide := 'Itokawa'
 var sitio_de_impacto := false
 
+# Textos 
 var titulo := '_______________________________________________________________________
                                             [b][font_size=20]ECHO DAILY[/font_size][/b]'
 var linea := '________________________________________________________________________'
