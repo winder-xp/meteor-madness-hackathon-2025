@@ -6,7 +6,7 @@ extends Sprite2D
 #var x = (lon + PI) / (2*PI) * a
 #var y = -(1 - log(PI/4 + lat/2)/PI) * (b/2)
 func _ready():
-	z_index = 0
+	z_index = -1
 	#get_parent().get_node('punto').position = Vector2(x,y)
 	#print(x)
 	#print(y)
