@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv1nuqkgxbe6m"]
+
+[ext_resource type="Script" uid="uid://c6c3x2617ocl6" path="res://scripts/pre_impacto.gd" id="2_2d7vm"]
+[ext_resource type="VideoStream" uid="uid://bni5k0e1dvff5" path="res://assets/VIDEO FINAL IMPACTO.ogv" id="2_wa6ao"]
+
+[node name="despues respuesta programa" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 122.0
+offset_bottom = 47.0
+script = ExtResource("2_2d7vm")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 1208.0
+offset_bottom = 678.0
+stream = ExtResource("2_wa6ao")
+autoplay = true
+
+[node name="ia" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1037.0
+offset_top = 608.0
+offset_right = 1184.0
+offset_bottom = 675.0
+theme_override_colors/default_color = Color(0.26657534, 0.26657513, 0.26657513, 1)

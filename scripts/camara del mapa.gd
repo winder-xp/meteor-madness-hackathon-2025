@@ -2,9 +2,9 @@ extends Camera2D
 
 # Configuración de zoom
 ## Velocidad del zoom de la cámara
-@export var zoom_speed := 0.1
-var min_zoom := 0.6
-var max_zoom := 4.0
+@export var zoom_speed := 1
+var min_zoom := 0.1
+var max_zoom := 10
 ## Lo 'fácil' que es hacer zoom (menos = más suave, más = menos suave)
 @export var zoom_smooth := 8.0
 
@@ -40,7 +40,7 @@ func _unhandled_input(event):
 
 	# Arrastre con botón izquierdo
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
+		if event.button_index == MOUSE_BUTTON_RIGHT:
 			dragging = event.pressed
 			if dragging:
 				last_mouse_pos = event.position
@@ -49,8 +49,8 @@ func _process(delta):
 	var viewport_size := Vector2(1152,648)
 	var half_viewport := viewport_size / 2 / zoom
 	# Tamaño del mapa
-	var map_width = get_parent().get_node('MapaMundo').get_rect().size.x
-	var map_height = get_parent().get_node('MapaMundo').get_rect().size.y
+	var map_width = get_parent().get_node('MapaMundo').get_rect().size.x*get_parent().get_node('MapaMundo').scale.x
+	var map_height = get_parent().get_node('MapaMundo').get_rect().size.y*get_parent().get_node('MapaMundo').scale.y
 	var limit_left = -map_width/2 + half_viewport.x
 	var limit_right = map_width/2 - half_viewport.x
 	var limit_top = -map_height/2 + half_viewport.y

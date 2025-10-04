@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://csggg2inenlej"]
+
+[ext_resource type="Script" uid="uid://wkqmjibm8a8o" path="res://scripts/noticia.gd" id="1_l18rq"]
+[ext_resource type="Texture2D" uid="uid://do036eon5uwa5" path="res://assets/vintage-newspaper-print.jpg" id="1_rcpqw"]
+[ext_resource type="Texture2D" uid="uid://kp8ye48wicxc" path="res://assets/fondo noticia 2.png" id="3_l18rq"]
+[ext_resource type="Texture2D" uid="uid://cg0o2pk30ydoy" path="res://assets/noticia_terremoto.jpg" id="4_t62lx"]
+[ext_resource type="Texture2D" uid="uid://0lf1ri1eyfgm" path="res://assets/tsunami_ciudad_destrozada.jpg" id="5_87ig8"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l18rq")
+
+[node name="fondo noticias" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1317.0
+offset_bottom = 856.0
+texture = ExtResource("1_rcpqw")
+
+[node name="noticia" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 308.0
+offset_top = 2.0
+offset_right = 861.0
+offset_bottom = 1564.0
+texture = ExtResource("3_l18rq")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = -51.0
+offset_top = -27.0
+offset_right = 1319.0
+offset_bottom = 2281.0
+
+[node name="Control" type="Control" parent="ScrollContainer"]
+custom_minimum_size = Vector2(2000, 4000)
+layout_mode = 2
+
+[node name="linea" type="RichTextLabel" parent="ScrollContainer/Control"]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 76.0
+offset_right = 891.0
+offset_bottom = 146.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+
+[node name="nombre periodico" type="RichTextLabel" parent="ScrollContainer/Control"]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 43.0
+offset_right = 889.0
+offset_bottom = 115.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+
+[node name="noticia periodico" type="RichTextLabel" parent="ScrollContainer/Control"]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 110.0
+offset_right = 891.0
+offset_bottom = 1890.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+
+[node name="noticia terremoto" type="TextureRect" parent="ScrollContainer/Control"]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 1631.0
+offset_right = 804.0
+offset_bottom = 1837.0
+texture = ExtResource("4_t62lx")
+
+[node name="tsunami ciudad" type="TextureRect" parent="ScrollContainer/Control"]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 1165.0
+offset_right = 804.0
+offset_bottom = 1375.0
+texture = ExtResource("5_87ig8")

@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://crr0wfeitjm8l"]
+
+[ext_resource type="Script" uid="uid://dj35hbmcgo7kc" path="res://scenes/texto_respuesta_erronea.gd" id="1_qwhdu"]
+[ext_resource type="Texture2D" uid="uid://cibrrfwpvhlt6" path="res://assets/fondo revelacion respuesta correcta.png" id="2_dibi4"]
+[ext_resource type="Texture2D" uid="uid://ovdsl1do2cjl" path="res://assets/recuadro rojo.png" id="3_qwhdu"]
+
+[node name="revelacion_respuesta_erronea" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1160.0
+offset_bottom = 658.0
+script = ExtResource("1_qwhdu")
+
+[node name="fondo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 650.0
+texture = ExtResource("2_dibi4")
+
+[node name="recuadro rojo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 117.0
+offset_right = 1040.0
+offset_bottom = 525.0
+texture = ExtResource("3_qwhdu")
+
+[node name="texto respuesta erronea" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 147.0
+offset_right = 1018.0
+offset_bottom = 510.0
+theme_override_colors/default_color = Color(0, 0.10980392, 0, 1)
+
+[node name="impact consequences" type="Button" parent="."]
+layout_mode = 0
+offset_left = 817.0
+offset_top = 473.0
+offset_right = 1011.0
+offset_bottom = 504.0
+theme_override_font_sizes/font_size = 14
+text = "See impact consequences"

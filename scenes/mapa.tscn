@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://ftjl8t0ip5pd"]
+[gd_scene load_steps=8 format=3 uid="uid://ftjl8t0ip5pd"]
 
 [ext_resource type="Texture2D" uid="uid://bucx4t7q12he2" path="res://assets/Mercator_projection_Square.png" id="2_nrd35"]
 [ext_resource type="Script" uid="uid://dlxpt4kgi4d2" path="res://scripts/MapaMundo.gd" id="2_tfnl5"]
 [ext_resource type="Script" uid="uid://qbkvf36oq1v7" path="res://scripts/punto.gd" id="3_nrd35"]
 [ext_resource type="Script" uid="uid://dvsyx8p0cjqng" path="res://scripts/camara del mapa.gd" id="4_nrd35"]
+[ext_resource type="Script" uid="uid://kkblxnig0b4v" path="res://scripts/area_raton.gd" id="5_atgyb"]
+
+[sub_resource type="GDScript" id="GDScript_nrd35"]
+script/source = "extends RichTextLabel
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k7lwh"]
 
 [node name="Mapa" type="Node2D"]
 
@@ -12,8 +19,53 @@ script = ExtResource("3_nrd35")
 
 [node name="MapaMundo" type="Sprite2D" parent="."]
 physics_interpolation_mode = 1
+position = Vector2(-7, 53)
+scale = Vector2(33.97, 33.97)
 texture = ExtResource("2_nrd35")
 script = ExtResource("2_tfnl5")
 
+[node name="Area2D" type="Area2D" parent="MapaMundo"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MapaMundo/Area2D"]
+position = Vector2(2, 2)
+polygon = PackedVector2Array(-105, -75, -102, -147, -39, -223, 59, -228, 161, -185, 215, -138, 235, -67, 253, -56, 284, -67, 282, -63, 230, 83, 172, 196, 102, 209, 64, 90, 73, 20, -75, -23)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="MapaMundo/Area2D"]
+position = Vector2(-2.0458984, 7)
+scale = Vector2(0.99781305, 1)
+polygon = PackedVector2Array(-43, -232, -53, -283, -2, -287, -28, -322, -61, -345, -43, -406, -22, -421, 5, -378, 48, -384, 27, -417, 54, -503, 95, -560, 144, -589, 196, -569, 220, -546, 251, -554, 305, -573, 284, -628, 348, -694, 399, -725, 385, -680, 335, -651, 321, -612, 372, -575, 387, -624, 471, -657, 551, -712, 545, -754, 512, -828, 555, -832, 574, -780, 604, -768, 596, -729, 654, -713, 662, -667, 715, -663, 759, -721, 834, -700, 878, -675, 900, -626, 861, -616, 896, -597, 982, -584, 1025, -538, 1013, -467, 951, -441, 925, -393, 908, -339, 888, -333, 876, -373, 902, -433, 856, -430, 802, -421, 777, -390, 819, -390, 822, -321, 828, -282, 819, -244, 774, -210, 742, -167, 694, -136, 700, -96, 740, -59, 765, -8, 802, -5, 865, -5, 851, 27, 828, 49, 819, 78, 854, 101, 876, 175, 868, 218, 848, 243, 831, 269, 785, 226, 740, 212, 668, 215, 631, 164, 657, 95, 705, 95, 603, 49, 560, -2, 528, -62, 523, -127, 468, -116, 460, -50, 417, -45, 394, -139, 343, -167, 343, -106, 295, -72, 232, -79, 170, -166, 155, -202, 203, -210, 143, -227, 157, -262, 226, -259, 186, -304, 128, -222, 52, -319, 115, -256, 80, -222, 87, -253, 58, -243, 38, -276, -17, -233)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="MapaMundo/Area2D"]
+polygon = PackedVector2Array(49, -772, 109, -821, 155, -801, 274, -818, 343, -858, 377, -821, 323, -787, 277, -818, 160, -804, 146, -761, 140, -712, 118, -744, 112, -718, 83, -684, 69, -741)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="MapaMundo/Area2D"]
+position = Vector2(-0.1003418, 39.068604)
+scale = Vector2(1.0000604, 1.0244592)
+polygon = PackedVector2Array(-1028, 713, -971, 740, -902, 706, -846, 683, -743, 637, -621, 626, -564, 592, -447, 599, -418, 432, -432, 330, -415, 84, -465, -37, -733, -171, -747, -463, -912, -380, -963, -480, -879, -584, -628, -735, -574, -747, -530, -868, -450, -878, -182, -994, -60, -789, -140, -526, -223, -417, -290, -509, -357, -726, -449, -710, -415, -576, -361, -505, -319, -346, -369, -317, -436, -242, -465, -179, -478, -121, -327, -102, -221, 64, -311, 213, -369, 280, -378, 410, -321, 557, -329, 630, -249, 706, -185, 694, -109, 626, -10, 573, 92, 554, 176, 523, 336, 508, 392, 527, 484, 523, 643, 489, 795, 535, 886, 546, 955, 576, 955, 288, 970, 208, 1019, 231, 955, 284, 962, 580, 936, 656, 920, 732, 1004, 725, 1038, 785, 1034, 1017, -1020, 1017)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("4_nrd35")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 65.0
+offset_top = 82.0
+offset_right = 311.0
+offset_bottom = 265.0
+bbcode_enabled = true
+script = SubResource("GDScript_nrd35")
+metadata/_edit_use_anchors_ = true
+
+[node name="AreaRaton" type="Area2D" parent="."]
+script = ExtResource("5_atgyb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaRaton"]
+shape = SubResource("CircleShape2D_k7lwh")
+
+[connection signal="area_entered" from="MapaMundo/Area2D" to="punto" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="MapaMundo/Area2D" to="punto" method="_on_area_2d_area_exited"]
+[connection signal="input_event" from="MapaMundo/Area2D" to="punto" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="MapaMundo/Area2D" to="punto" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_entered" from="MapaMundo/Area2D" to="CanvasLayer/RichTextLabel" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="MapaMundo/Area2D" to="punto" method="_on_area_2d_mouse_exited"]

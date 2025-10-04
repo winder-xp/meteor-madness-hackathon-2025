@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://jn15c28gmuh7"]
+
+[ext_resource type="Script" uid="uid://bda7v5mygwi0m" path="res://scripts/resp_corr.gd" id="1_6vgms"]
+[ext_resource type="Texture2D" uid="uid://cibrrfwpvhlt6" path="res://assets/fondo revelacion respuesta correcta.png" id="2_k6pu2"]
+[ext_resource type="Texture2D" uid="uid://ow4kibcnxknt" path="res://assets/recuadro verde (2).png" id="3_c5jew"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vgms"]
+bg_color = Color(0.73939323, 0, 0.18367073, 1)
+
+[node name="revelacion_respuesta_correcta" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1160.0
+offset_bottom = 658.0
+script = ExtResource("1_6vgms")
+
+[node name="fondo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 650.0
+texture = ExtResource("2_k6pu2")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 117.0
+offset_right = 1040.0
+offset_bottom = 555.0
+texture = ExtResource("3_c5jew")
+
+[node name="texto respuesta correcta" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 142.0
+offset_right = 1018.0
+offset_bottom = 524.0
+theme_override_colors/default_color = Color(0, 0.10980392, 0, 1)
+
+[node name="what would have happened" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 648.0
+offset_top = 486.0
+offset_right = 856.0
+offset_bottom = 537.0
+
+[node name="que hubiera pasado sí" type="Button" parent="."]
+layout_mode = 0
+offset_left = 870.0
+offset_top = 494.0
+offset_right = 998.0
+offset_bottom = 525.0
+theme_override_colors/font_color = Color(0.99116415, 0.99116427, 0.99116415, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_6vgms")
+text = "Simulate impact"

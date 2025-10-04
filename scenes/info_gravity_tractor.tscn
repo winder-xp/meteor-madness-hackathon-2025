@@ -1,0 +1,191 @@
+[gd_scene load_steps=13 format=3 uid="uid://bftqcrx45e7bw"]
+
+[ext_resource type="Script" uid="uid://cvbait7mgngk7" path="res://scripts/info_gravity_tractor.gd" id="1_6q4mu"]
+[ext_resource type="Texture2D" uid="uid://c6tlqe1lsdo52" path="res://assets/CORREO_gravity.jpg" id="2_6q4mu"]
+[ext_resource type="Texture2D" uid="uid://gfe3fiekry2e" path="res://assets/fondo blanco.png" id="2_i3u4r"]
+[ext_resource type="Texture2D" uid="uid://ymctg4adov88" path="res://assets/beige.png" id="3_g2h0n"]
+[ext_resource type="Texture2D" uid="uid://b58atysj11uw2" path="res://assets/titulo_(gravity_tractor).png" id="5_dx8qu"]
+[ext_resource type="Texture2D" uid="uid://bw1rdqgxem66c" path="res://assets/animacion1 gravity tractor/FRAME1.png" id="6_wr05a"]
+[ext_resource type="Texture2D" uid="uid://c1ovmibnnx5yu" path="res://assets/animacion1 gravity tractor/FRAME2.png" id="7_472xk"]
+[ext_resource type="Texture2D" uid="uid://4sninxcmbjye" path="res://assets/animacion1 gravity tractor/FRAME3.png" id="8_eyj0f"]
+[ext_resource type="Texture2D" uid="uid://bm8ngbeo50js3" path="res://assets/animacion1 gravity tractor/FRAME4.png" id="9_0ptes"]
+[ext_resource type="Texture2D" uid="uid://4jb0s2ci20vb" path="res://assets/animacion1 gravity tractor/FRAME5.png" id="10_t1nmg"]
+[ext_resource type="Texture2D" uid="uid://cswtoelrox1ca" path="res://assets/animacion1 gravity tractor/FRAME6.png" id="11_0lgrc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8pygu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wr05a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_472xk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_eyj0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0ptes")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_t1nmg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_0lgrc")
+}],
+"loop": true,
+"name": &"kinetic_impact_animation",
+"speed": 1.0
+}]
+
+[node name="Gravity tractor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6q4mu")
+
+[node name="fondo2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 635.0
+offset_right = 1153.0
+offset_bottom = 1283.0
+texture = ExtResource("2_i3u4r")
+
+[node name="fondo3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1283.0
+offset_right = 1155.0
+offset_bottom = 1931.0
+texture = ExtResource("2_i3u4r")
+
+[node name="fondo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+texture = ExtResource("2_6q4mu")
+
+[node name="atenuacion_del_blanco" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.24313726)
+layout_mode = 0
+offset_left = -11.0
+offset_top = 1301.0
+offset_right = 1152.0
+offset_bottom = 1963.0
+texture = ExtResource("3_g2h0n")
+
+[node name="atenuacion_del_blanco3" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.24313726)
+layout_mode = 0
+offset_left = -2.0
+offset_top = 657.0
+offset_right = 1161.0
+offset_bottom = 1319.0
+texture = ExtResource("3_g2h0n")
+
+[node name="atenuacion_del_blanco2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.24313726)
+layout_mode = 0
+offset_left = -12.0
+offset_top = -3.0
+offset_right = 1151.0
+offset_bottom = 659.0
+texture = ExtResource("3_g2h0n")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 1267.0
+offset_bottom = 1953.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="Contenedor" type="Control" parent="ScrollContainer"]
+custom_minimum_size = Vector2(1309, 3000)
+layout_mode = 2
+
+[node name="titulo_(gravity_tractor)" type="TextureRect" parent="ScrollContainer/Contenedor"]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 21.0
+offset_right = 893.0
+offset_bottom = 90.0
+texture = ExtResource("5_dx8qu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScrollContainer/Contenedor"]
+position = Vector2(930.1285, 203.24367)
+scale = Vector2(0.49633604, 0.5139209)
+sprite_frames = SubResource("SpriteFrames_8pygu")
+animation = &"kinetic_impact_animation"
+autoplay = "kinetic_impact_animation"
+frame_progress = 0.56206113
+
+[node name="info" type="RichTextLabel" parent="ScrollContainer/Contenedor"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 75.0
+offset_right = 1074.0
+offset_bottom = 1875.0
+theme_override_colors/default_color = Color(0.18717614, 0.18717614, 0.18717614, 1)
+bbcode_enabled = true
+text = "
+"
+autowrap_mode = 0
+
+[node name="kinetic_impactor" type="Button" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 202.0
+offset_top = -1.0
+offset_right = 336.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 13
+text = "kinetic impactor"
+flat = true
+
+[node name="gravity_tractor" type="Button" parent="."]
+modulate = Color(0.16078432, 0.16078432, 0.16078432, 1)
+layout_mode = 0
+offset_left = 375.0
+offset_top = -1.0
+offset_right = 477.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 13
+text = "gravity tractor"
+flat = true
+
+[node name="ion_beam" type="Button" parent="."]
+modulate = Color(0.16078432, 0.16078432, 0.16078432, 1)
+layout_mode = 0
+offset_left = 534.0
+offset_top = 2.0
+offset_right = 640.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 13
+text = "ion beam "
+flat = true
+
+[node name="nuclear_interceptor" type="Button" parent="."]
+modulate = Color(0.16078432, 0.16078432, 0.16078432, 1)
+layout_mode = 0
+offset_left = 677.0
+offset_top = 2.0
+offset_right = 810.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 13
+text = "nuclear interceptor"
+flat = true
+
+[node name="email" type="Button" parent="."]
+modulate = Color(0.16078432, 0.16078432, 0.16078432, 1)
+layout_mode = 0
+offset_left = 65.0
+offset_top = 2.0
+offset_right = 161.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 13
+text = "Email"
+flat = true

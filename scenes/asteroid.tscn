@@ -20,12 +20,24 @@ emission_energy_multiplier = 11.25
 
 [node name="Asteroid" type="RigidBody3D"]
 gravity_scale = 0.0
+sleeping = true
+freeze = true
 script = ExtResource("1_akfqu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(12.555, 0, 0, 0, 12.555, 0, 0, 0, 12.555, 0, 0, 0)
 shape = SubResource("SphereShape3D_0md28")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(16.495, 0, 0, 0, 16.495, 0, 0, 0, 16.495, 0, 0, 0)
+transform = Transform3D(3.745, 0, 0, 0, 3.745, 0, 0, 0, 3.745, 0, 0, 0)
 mesh = SubResource("SphereMesh_akfqu")
 surface_material_override/0 = SubResource("StandardMaterial3D_t4se3")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.9076495, 0)
+pixel_size = 0.001
+billboard = 1
+double_sided = false
+fixed_size = true
+text = "test
+"
