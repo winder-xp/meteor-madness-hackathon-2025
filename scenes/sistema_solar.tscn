@@ -59,7 +59,7 @@ environment = SubResource("Environment_pdnvj")
 [node name="MovableCamera3D" parent="." instance=ExtResource("7_fwocp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.2856946)
 camera_lookat = Vector3(0, 0, 215.032)
-radius = 0.002
+radius = 0.5
 is_on_earth = true
 zoom_sensitivity = 0.01
 test_movement = false
@@ -137,11 +137,11 @@ light_color = Color(1, 0.7490196, 0.5647059, 1)
 light_energy = 9.077
 
 [node name="HSlider" type="HSlider" parent="."]
-offset_left = 105.0
-offset_top = 17.0
-offset_right = 969.0
-offset_bottom = 33.0
-tooltip_text = "Cómo de rápido se ve la simulación (en segundos)"
+offset_left = 147.0
+offset_top = 18.0
+offset_right = 1011.0
+offset_bottom = 34.0
+tooltip_text = "How fast the simulation runs  (in seconds)"
 min_value = -31557600.0
 max_value = 31557600.0
 value = 1.0
@@ -153,19 +153,29 @@ offset_left = 894.0
 offset_top = -5.0
 offset_right = 980.5625
 offset_bottom = 26.0
-tooltip_text = "Cómo de rápido se ve la simulación (en segundos)"
+tooltip_text = "How fast the simulation runs  (in seconds)"
 min_value = -31557600.0
 max_value = 31557600.0
 value = 1.0
 
 [node name="DateText" type="RichTextLabel" parent="."]
-offset_left = 460.0
-offset_top = 36.0
-offset_right = 671.0
-offset_bottom = 83.0
+offset_left = 502.0
+offset_top = 37.0
+offset_right = 713.0
+offset_bottom = 84.0
 text = "2025-09-26 23:03:12"
 scroll_active = false
 script = ExtResource("11_1o4lj")
+
+[node name="btn_asteroid_select" type="Button" parent="."]
+offset_left = 487.0
+offset_top = 579.0
+offset_right = 691.0
+offset_bottom = 613.4215
+tooltip_text = "Select this asteroid to visualize the consequences of its impact"
+disabled = true
+text = "Choose this asteroid
+"
 
 [connection signal="input_event" from="sol final/sun_collider" to="MovableCamera3D" method="_on_sun_collider_input_event"]
 [connection signal="input_event" from="Tierra/earth_collider" to="MovableCamera3D" method="_on_earth_collider_input_event"]

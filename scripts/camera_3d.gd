@@ -8,6 +8,8 @@ extends Camera3D
 @onready var dinkinesh = $"../AsteroidSet/Dinkinesh"
 @onready var bennu = $"../AsteroidSet/Bennu"
 @onready var itokawa = $"../AsteroidSet/Itokawa"
+@onready var btn_asteroid_select = $"../btn_asteroid_select"
+
 
 ## La posición del objeto en el que la cámara va a centrarse
 @export var camera_lookat: Vector3 = Vector3.ZERO
@@ -126,27 +128,34 @@ func _process(delta):
 func _on_ryugu_input_event(camera, event, event_position, normal, shape_idx):
 	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
 		camera_look_at_object = ryugu
+		btn_asteroid_select.disabled = false
 
 func _on_itokawa_input_event(camera, event, event_position, normal, shape_idx):
 	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
 		camera_look_at_object = itokawa
+		btn_asteroid_select.disabled = false
 
 func _on_bennu_input_event(camera, event, event_position, normal, shape_idx):
 	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
 		camera_look_at_object = bennu
+		btn_asteroid_select.disabled = false
 
 func _on_dinkinesh_input_event(camera, event, event_position, normal, shape_idx):
 	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
 		camera_look_at_object = dinkinesh
+		btn_asteroid_select.disabled = false
 
 func _on_dp_107_input_event(camera, event, event_position, normal, shape_idx):
 	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
 		camera_look_at_object = a_2000_dp_107
+		btn_asteroid_select.disabled = false
 
 func _on_earth_collider_input_event(camera, event, event_position, normal, shape_idx):
 	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
 		camera_look_at_object = earth_mesh
+		btn_asteroid_select.disabled = true
 
 func _on_sun_collider_input_event(camera, event, event_position, normal, shape_idx):
 	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
 		camera_look_at_object = sun_mesh
+		btn_asteroid_select.disabled = true
