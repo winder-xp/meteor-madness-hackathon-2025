@@ -53,7 +53,7 @@ the amount by which the asteroid’s trajectory is modified.
 
 •	However, unlike with other deflection methods like the kinetic impactor, [color=#c73232][u]the result is not instantaneous[/u][/color]. It would take a certain 
 amount of time for the asteroid to start shifting its movement due to the gravitational force exerted by the spacecraft, so this 
-approach would only be viable if there is enough time between the detection of the asteroid and a potential collision with Earth. 
+approach would only be viable if there is enough time between the detection of the asteroid and a potential collision with Earth, a minimum of 15 years
 
 •	Another drawback of this method is that [color=#c73232][u]extremely precise navigation control[/u][/color] would be needed, since in order for the spacecraft 
 to exert a measurable gravitational force on the asteroid, the distance between them must be minimized, and therefore the risk of 
