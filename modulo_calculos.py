@@ -7,6 +7,8 @@ problema de la colisión del meteorito.
 #Imports
 ###
 import numpy as np
+import requests
+import math
 #import matplotlib.pyplot as plt
 
 
@@ -631,6 +633,36 @@ def seismomagnitud(energia, distancia=0):
         
     return max(Meff,0)
 
+def escaladoonda(dequiv):
+    '''
+    Esta función normaliza los datos de la onda expansiva
+
+    Parameters
+    ----------
+    dequiv : float
+        Dinstancia equivalente de la onda expansiva a la onda de un kT TnT
+        en m.
+
+    Returns
+    -------
+    TYPE
+    escala : float
+        Valor en la escala
+
+    '''
+    assert dequiv>=0, 'La distancia equivalente debe ser positiva'
+    
+    cotas =[126,133,149,155,229,251, 389,411,502,549,1160]
+    if dequiv>cotas[-1]:
+        return len(cotas)+1
+    else:
+        for i in range(len(cotas)):
+            if dequiv<=cotas[i]:
+                return i+1 
+                break
+            
+#print(escaladoonda(1162))
+    
 def equidistkt(energia, distancia= 0):
     '''
     Calcula la distancia equivalente de la onda expansiva de un KT de TNT
@@ -653,7 +685,7 @@ def equidistkt(energia, distancia= 0):
     
     return d
 
-def meteorito(diametro, densidad,velocidad,densidadsuelo, theta = np.pi/2):
+def meteoritoprint(diametro, densidad,velocidad,densidadsuelo, theta = np.pi/2, tierra= True):
     '''
     Esta función calcula todo lo necesario de los meteoritos
 
@@ -669,6 +701,8 @@ def meteorito(diametro, densidad,velocidad,densidadsuelo, theta = np.pi/2):
         Densidad del suelo en kg/m^3.
     theta : float, optional
         Ángulo en rad. The default is np.pi/2.
+    tierra : bool, optional
+        Si cae en agua, este valor es False
 
     Returns
     -------
@@ -699,7 +733,7 @@ def meteorito(diametro, densidad,velocidad,densidadsuelo, theta = np.pi/2):
             print('El meteorito llega al suelo a una velocidad de %f m/s'%(vimpact))
             diametrorestos = diametrometeo(densidad, diametro, velocidad, zest =hestallido, factor = factord)
             
-            cratert = diametrocratertrans(densidad, densidadsuelo, diametrorestos, vimpact)
+            cratert = diametrocratertrans(densidad, densidadsuelo, diametrorestos, vimpact, agua = not tierra)
             
             craterf = diametrofinalcrater(cratert)
             print('El diámetro final del crater es de %f m'%(craterf))
@@ -710,7 +744,7 @@ def meteorito(diametro, densidad,velocidad,densidadsuelo, theta = np.pi/2):
         vimpact = velocidadmeteoini(0, diametro, densidad, velocidad, theta)
         print('El meteorito llega al suelo a una velocidad de %f m/s'%(vimpact))
         
-        cratert = diametrocratertrans(densidad, densidadsuelo, diametro, vimpact)
+        cratert = diametrocratertrans(densidad, densidadsuelo, diametro, vimpact, agua = not tierra)
         
         craterf = diametrofinalcrater(cratert)
         
@@ -726,17 +760,139 @@ def meteorito(diametro, densidad,velocidad,densidadsuelo, theta = np.pi/2):
         terremotos.append(terremoto)
     
     dists = []
-    for i in [0,100,500, 1000, 5000, 10000,100000]:
+    for i in [diametro,100,500, 1000, 5000, 10000,100000]:
         dist = equidistkt(energia, np.abs(i-rf))
         print('A %i m respecto a la vertical del estallido, es equivalente a estar a %f m de una explosión de 1kT de TNT'%(i,dist))
         
         dists.append(dist)
-    
-    return craterf, terremotos, dists
+    print(dists[0])
+    return craterf, math.ceil(terremotos[0]), escaladoonda(dists[0])
         
+def meteorito(diametro, densidad,velocidad,densidadsuelo, theta = np.pi/2, tierra= True):
+    '''
+    Esta función calcula todo lo necesario de los meteoritos
+
+    Parameters
+    ----------
+    diametro : float
+        Diametro del meteorito en m
+    densidad : float
+        Densidad del meteorito en kg/m^3
+    velocidad : float
+        Velocidad de entrada m/s.
+    densidadsuelo : float
+        Densidad del suelo en kg/m^3.
+    theta : float, optional
+        Ángulo en rad. The default is np.pi/2.
+    tierra : bool, optional
+        Si cae en agua, este valor es False
+
+    Returns
+    -------
+    craterf : float
+        Diametro del crater final en m.
+    terremotos : float
+        Magnitud de los terremotos a 0m, 100km, 1000km.
+    dists : float
+        Distancias equivalentes a una explosion de 1kT TnT para 0m, 100km, 1000km.
+
+    '''
+    
+    hestallido = alturaestallido(densidad, diametro, velocidad, theta)
+    
+    if hestallido >0:
+        #print('El meteorito se parte en cachos a %f m'%(hestallido))
         
+        factord = factordedispersion(densidad, diametro, velocidad, theta, zest = hestallido)
+        hdesi = alturadesintegracion(hestallido, factord)
+        
+        if hdesi>0:
+            #print('El meteorito se desintegra completamente a %f m'%(hdesi))
+            craterf = 0 
+            rf = hdesi
+        else:
+            #print('El meteorito no se desintegra en la atmosfera')
+            vimpact = vsuelonodesi(densidad, diametro, velocidad, theta, zest=hestallido, factor = factord)
+            #print('El meteorito llega al suelo a una velocidad de %f m/s'%(vimpact))
+            diametrorestos = diametrometeo(densidad, diametro, velocidad, zest =hestallido, factor = factord)
+            
+            cratert = diametrocratertrans(densidad, densidadsuelo, diametrorestos, vimpact, agua = not tierra)
+            
+            craterf = diametrofinalcrater(cratert)
+            #print('El diámetro final del crater es de %f m'%(craterf))
+            rf = 0
+            
+    else:
+        #print('El meteorito cae sin fracturarse')
+        vimpact = velocidadmeteoini(0, diametro, densidad, velocidad, theta)
+        #print('El meteorito llega al suelo a una velocidad de %f m/s'%(vimpact))
+        
+        cratert = diametrocratertrans(densidad, densidadsuelo, diametro, vimpact, agua = not tierra)
+        
+        craterf = diametrofinalcrater(cratert)
+        
+        #print('El diámetro final del crater es de %f m'%(craterf))
+        rf = 0
+    energia = einicial(densidad, diametro, velocidad)
+    terremotos = []
+    for i in [0,100e3,1000e3]:
+        if rf>0:
+            break
+        terremoto = seismomagnitud(energia, i)
+        #print('A %i m, el terremoto es de magnitud %f'%(i,terremoto))
+        terremotos.append(terremoto)
     
+    dists = []
+    for i in [diametro,100,500, 1000, 5000, 10000,100000]:
+        dist = equidistkt(energia, np.abs(i-rf))
+        #print('A %i m respecto a la vertical del estallido, es equivalente a estar a %f m de una explosión de 1kT de TNT'%(i,dist))
+        
+        dists.append(dist)
+    #print(dists[0])
+    return craterf, math.ceil(terremotos[0]), escaladoonda(dists[0])
+
+
+def densidadsuelo(lat,lon):
+    '''
+    Esta función calcula la densidad del suelo dado una latitud y una longitud
     
+
+    Parameters
+    ----------
+    lat : float
+        Latitud.
+    lon : float
+        Longitud.
+
+    Returns
+    -------
+    denst : float
+        Densidad en kg/m^3.
+
+    '''
+    
+    url = "https://rest.isric.org/soilgrids/v2.0/properties/query"
+    
+    params = {
+        "lon": lon,      # longitud
+        "lat": lat,      # latitud
+        "property": "bdod",  # densidad aparente
+        "depth": "100-200cm",    # capa de profundidad
+    }
+    try:
+        resp = requests.get(url, params=params).json()
+
+        denst = resp['properties']['layers'][0]['depths'][0]['values']['mean']
+    
+    except Exception as e:
+        denst = None
+        print('fallo de API: ', e)
+    if denst == None:
+        denst = 2400    #Asumimos que es hormigón
+    else:
+        denst *=10
+    
+    return denst
     
         
     
