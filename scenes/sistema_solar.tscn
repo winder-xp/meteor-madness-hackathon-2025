@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxhhwgjn62vs7"]
+[gd_scene load_steps=21 format=3 uid="uid://cxhhwgjn62vs7"]
 
 [ext_resource type="PackedScene" uid="uid://co5mwyhwg3m4x" path="res://scenes/sol_final.tscn" id="1_awk3h"]
 [ext_resource type="Script" uid="uid://cre1fybf4yjct" path="res://scripts/cuerpo de apoyo para la camara.gd" id="3_j4hda"]
@@ -6,6 +6,13 @@
 [ext_resource type="Script" uid="uid://jmlfrra6bemu" path="res://scripts/camara zoom unicamente.gd" id="4_n82ve"]
 [ext_resource type="Texture2D" uid="uid://bmy6d5k0sn62g" path="res://assets/2k_earth_daymap.jpg" id="5_n82ve"]
 [ext_resource type="Texture2D" uid="uid://8gd2t4wp02kp" path="res://assets/2k_earth_clouds.jpg" id="6_gstne"]
+[ext_resource type="PackedScene" uid="uid://bye6kva20bbor" path="res://scenes/movable_camera_3d.tscn" id="7_fwocp"]
+[ext_resource type="Script" uid="uid://cnocrqhhlna0w" path="res://scripts/tierra.gd" id="8_2kqfg"]
+[ext_resource type="PackedScene" uid="uid://b3decofh4d3lq" path="res://scenes/asteroid.tscn" id="8_7ly8i"]
+[ext_resource type="Script" uid="uid://d0nmge2kcehsa" path="res://scripts/engine_time_scale_slider.gd" id="10_x88eu"]
+[ext_resource type="Script" uid="uid://c07kbwlg6e437" path="res://scripts/date_text.gd" id="11_1o4lj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1o4lj"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_awk3h"]
 panorama = ExtResource("3_pdnvj")
@@ -24,6 +31,8 @@ transparency = 1
 albedo_color = Color(1, 1, 1, 0)
 
 [sub_resource type="SphereMesh" id="SphereMesh_hp45p"]
+radius = 0.009
+height = 0.018
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ks0l7"]
 albedo_texture = ExtResource("5_n82ve")
@@ -32,24 +41,139 @@ emission = Color(0, 0, 0.133333, 1)
 emission_energy_multiplier = 1.1
 emission_texture = ExtResource("6_gstne")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_x88eu"]
+
 [node name="Node3D" type="Node3D"]
 
 [node name="sol final" parent="." instance=ExtResource("1_awk3h")]
 
+[node name="sun_collider" type="StaticBody3D" parent="sol final"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sol final/sun_collider"]
+transform = Transform3D(18.83, 0, 0, 0, 18.83, 0, 0, 0, 18.83, 0, 0, 0)
+shape = SubResource("SphereShape3D_1o4lj")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pdnvj")
 
+[node name="MovableCamera3D" parent="." instance=ExtResource("7_fwocp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.2856946)
+camera_lookat = Vector3(0, 0, 215.032)
+radius = 0.002
+is_on_earth = true
+zoom_sensitivity = 0.01
+test_movement = false
+
 [node name="cuerpo de apoyo de camara" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0219157, 0, 0)
+visible = false
 mesh = SubResource("SphereMesh_n82ve")
 surface_material_override/0 = SubResource("StandardMaterial3D_j4hda")
 script = ExtResource("3_j4hda")
 
 [node name="Camera3D" type="Camera3D" parent="cuerpo de apoyo de camara"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.023168, 0.0302959, 3.03442)
+visible = false
 script = ExtResource("4_n82ve")
 
 [node name="Tierra" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.0164)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 215.032)
 mesh = SubResource("SphereMesh_hp45p")
 surface_material_override/0 = SubResource("StandardMaterial3D_ks0l7")
+script = ExtResource("8_2kqfg")
+
+[node name="Label3D" type="Label3D" parent="Tierra"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01854454, 0)
+pixel_size = 0.001
+billboard = 1
+fixed_size = true
+text = "Earth"
+
+[node name="earth_collider" type="StaticBody3D" parent="Tierra"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tierra/earth_collider"]
+transform = Transform3D(12.6, 0, 0, 0, 12.6, 0, 0, 0, 12.6, 0, 0, 0)
+shape = SubResource("SphereShape3D_x88eu")
+
+[node name="AsteroidSet" type="Node3D" parent="."]
+
+[node name="Ryugu" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.91547, 0, 259.82587)
+freeze_mode = 1
+asteroid_id = 3
+asteroid_test_color = Color(0, 0.8573281, 0.49052733, 1)
+is_on_solar_scene = true
+
+[node name="2000Dp107" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.91547, 0, 259.82587)
+freeze_mode = 1
+asteroid_id = 4
+asteroid_test_color = Color(0.33522558, 0.50360644, 0.9999812, 1)
+is_on_solar_scene = true
+
+[node name="Dinkinesh" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.91547, 0, 259.82587)
+freeze_mode = 1
+asteroid_id = 2
+asteroid_test_color = Color(0.85130346, 0.71048594, 0, 1)
+is_on_solar_scene = true
+
+[node name="Bennu" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.91547, 0, 259.82587)
+freeze_mode = 1
+asteroid_id = 1
+asteroid_test_color = Color(0, 0.7264807, 0.78313535, 1)
+is_on_solar_scene = true
+
+[node name="Itokawa" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.957733, 0, 129.91293)
+freeze_mode = 1
+asteroid_test_color = Color(0.85148835, 2.5990605e-05, 0.60378706, 1)
+is_on_solar_scene = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 0.03644705, 1.2592318)
+light_color = Color(1, 0.7490196, 0.5647059, 1)
+light_energy = 9.077
+
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = 105.0
+offset_top = 17.0
+offset_right = 969.0
+offset_bottom = 33.0
+tooltip_text = "Cómo de rápido se ve la simulación (en segundos)"
+min_value = -31557600.0
+max_value = 31557600.0
+value = 1.0
+script = ExtResource("10_x88eu")
+
+[node name="SpinBox" type="SpinBox" parent="HSlider"]
+layout_mode = 0
+offset_left = 894.0
+offset_top = -5.0
+offset_right = 980.5625
+offset_bottom = 26.0
+tooltip_text = "Cómo de rápido se ve la simulación (en segundos)"
+min_value = -31557600.0
+max_value = 31557600.0
+value = 1.0
+
+[node name="DateText" type="RichTextLabel" parent="."]
+offset_left = 460.0
+offset_top = 36.0
+offset_right = 671.0
+offset_bottom = 83.0
+text = "2025-09-26 23:03:12"
+scroll_active = false
+script = ExtResource("11_1o4lj")
+
+[connection signal="input_event" from="sol final/sun_collider" to="MovableCamera3D" method="_on_sun_collider_input_event"]
+[connection signal="input_event" from="Tierra/earth_collider" to="MovableCamera3D" method="_on_earth_collider_input_event"]
+[connection signal="input_event" from="AsteroidSet/Ryugu" to="MovableCamera3D" method="_on_ryugu_input_event"]
+[connection signal="input_event" from="AsteroidSet/2000Dp107" to="MovableCamera3D" method="_on_dp_107_input_event"]
+[connection signal="input_event" from="AsteroidSet/Dinkinesh" to="MovableCamera3D" method="_on_dinkinesh_input_event"]
+[connection signal="input_event" from="AsteroidSet/Bennu" to="MovableCamera3D" method="_on_bennu_input_event"]
+[connection signal="input_event" from="AsteroidSet/Itokawa" to="MovableCamera3D" method="_on_itokawa_input_event"]
+[connection signal="parameters_ready" from="AsteroidSet/Itokawa" to="sol final" method="_on_asteroid_2_parameters_ready"]
+[connection signal="value_changed" from="HSlider" to="HSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="HSlider/SpinBox" to="HSlider" method="_on_spin_box_value_changed"]
