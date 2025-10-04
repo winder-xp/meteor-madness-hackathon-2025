@@ -49,9 +49,14 @@ func _process(delta):
 		state_machine.travel("atras")
 	if Input.is_action_pressed("keyA"):
 		state_machine.travel("izda")
-	if Input.is_action_just_pressed("P"):
-		state_machine.travel("levantarse")
+	if Input.is_action_pressed("keyD"):
+		state_machine.travel("derecha")
+	if Input.is_action_just_pressed("P") and sentado==false:
+		state_machine.travel("sentarse")
 		print("p")
-		sentado=true
-	if velocity.x == 0 and velocity.y == 0 and sentado == false:
+		sentado = true 
+	elif Input.is_action_just_pressed("P"): 
+		state_machine.travel("levantarse")
+		sentado = false 
+	elif  velocity.x==0 and velocity.y== 0 and sentado == false:
 		state_machine.travel("idle")
