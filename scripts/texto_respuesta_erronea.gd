@@ -3,7 +3,7 @@ extends Control
 @onready var richi: RichTextLabel = $"texto respuesta erronea"
 @onready var impact: Button = $"impact consequences"
 
-var asteroide := 'Rame-127'   # CAMBIAR, DATO DEL USUARIO --------------------------------------------
+var asteroide := Global.selected_asteroid_name 
 var texto := ''
 
 # Un texto  para cada uno de los asteroides y cada una de las respuestas incorrectas

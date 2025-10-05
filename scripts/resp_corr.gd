@@ -4,7 +4,7 @@ extends Control
 @onready var what: RichTextLabel = $"what would have happened"
 @onready var boton: Button = $"que hubiera pasado sí"
 
-var asteroide := 'Rame-127'   # CAMBIAR, DATO DEL USUARIO --------------------------------------------
+var asteroide := Global.selected_asteroid_name 
 var text := ''
 
 

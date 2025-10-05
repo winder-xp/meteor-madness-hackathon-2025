@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://cnocrqhhlna0w" path="res://scripts/tierra.gd" id="8_2kqfg"]
 [ext_resource type="PackedScene" uid="uid://b3decofh4d3lq" path="res://scenes/asteroid.tscn" id="8_7ly8i"]
 [ext_resource type="Script" uid="uid://d0nmge2kcehsa" path="res://scripts/engine_time_scale_slider.gd" id="10_x88eu"]
-[ext_resource type="Script" uid="uid://c07kbwlg6e437" path="res://scripts/date_text.gd" id="11_1o4lj"]
+[ext_resource type="Script" path="res://scripts/date_text.gd" id="11_1o4lj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1o4lj"]
 
@@ -187,3 +187,4 @@ text = "Choose this asteroid
 [connection signal="parameters_ready" from="AsteroidSet/Itokawa" to="sol final" method="_on_asteroid_2_parameters_ready"]
 [connection signal="value_changed" from="HSlider" to="HSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="HSlider/SpinBox" to="HSlider" method="_on_spin_box_value_changed"]
+[connection signal="pressed" from="btn_asteroid_select" to="MovableCamera3D" method="_on_btn_asteroid_select_pressed"]
