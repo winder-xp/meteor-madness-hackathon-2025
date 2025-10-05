@@ -2,16 +2,16 @@ extends Camera2D
 
 # Configuración de zoom
 ## Velocidad del zoom de la cámara
-@export var zoom_speed := 1
-var min_zoom := 0.1
+@export var zoom_speed := 0.07
+var min_zoom := 0.02
 var max_zoom := 10
 ## Lo 'fácil' que es hacer zoom (menos = más suave, más = menos suave)
-@export var zoom_smooth := 8.0
+@export var zoom_smooth := 5.0
 
 # Configuración de pan
 # He aumentado el pan_smooth porque se siente mejor así
 ## Lo 'fácil' que es arrastrar la cámara (menos = más suave, más = menos suave)
-@export var pan_smooth := 50.0
+@export var pan_smooth := 45.0
 var dragging := false
 var last_mouse_pos := Vector2()
 

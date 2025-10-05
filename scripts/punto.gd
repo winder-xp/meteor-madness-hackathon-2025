@@ -1,13 +1,15 @@
 extends Node2D
 
+@onready var get_api: Control = $"../GetApi"
+
  #Zona peligro maximo
 #var radio_naranja = 15 #Zona peligro
 #var radio_amarillo = 25 #Donde se rompen cristales
 
 var METROS_PIXELES = 0
 
-var lon = 133.775136 * 2*PI / 360
-var lat = 80 * 2*PI / 360
+var lon1 = 133.775136 * 2*PI / 360
+var lat1 = 80 * 2*PI / 360
 var a = 0
 var b = 0
 var scale_factor = 1.635
@@ -34,19 +36,18 @@ func lat_lon_conversion_inversa(x,y):
 	
 	return Vector2(2*PI*x/a,2*atan(exp(-2*PI*y/b))-PI/2)
 
-var radio_rojo = 0.0
+var radio_rojo = 697.8
 
 func _draw():
 	
 	#var conversion_elipse = (40074 * mapa_mundo.get_rect().size.x) / (mapa_mundo.get_rect().size.y * 2*PI*6378) 
-	#var conversion_elipse=1
+	var conversion_elipse=1
 	
 	#draw_set_transform(Vector2(0,0),0,Vector2(conversion_elipse*1,1))
 	
 	#draw_circle(Vector2(0,0),radio_amarillo,Color(Color.ORANGE,0.45))
 	#draw_circle(Vector2(0,0),radio_naranja,Color(Color.ORANGE_RED,0.5))
 	draw_circle(Vector2(0,0),radio_rojo,Color(Color.RED,0.55))
-	
 
 func _ready():
 	
@@ -54,7 +55,7 @@ func _ready():
 	
 	METROS_PIXELES = mapa_mundo.get_rect().size.x*mapa_mundo.scale.x/(2*PI*6378000)
 	
-	position = lat_lon_conversion(lon,lat)
+	position = lat_lon_conversion(lon1,lat1)
 
 	add_child(parallax)
 	layer.motion_scale = Vector2(0, 0)  # no se mueve ni con la cámara ni con zoom
@@ -71,9 +72,8 @@ var parallax = ParallaxBackground.new()
 var layer = ParallaxLayer.new()
 
 func _process(delta):
-	radio_rojo = 400000*METROS_PIXELES
+	radio_rojo = radioapi*METROS_PIXELES*10
 	queue_redraw()
-	print(str(radio_rojo) + "    " + str(radio_rojo/METROS_PIXELES))
 	if activateDelta:
 		tiempo += delta
 	if tiempo > 0.5:
@@ -96,6 +96,10 @@ func _input(event):
 		
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and activateDelta and tiempo>1e-3:
 		position = camera_2d.get_global_mouse_position()
+		var x = lat_lon_conversion_inversa(camera_2d.get_global_mouse_position().x,0).x
+		var y = lat_lon_conversion_inversa(0,camera_2d.get_global_mouse_position().y).y
+		
+		get_api.llamar_api(x*180/PI,y*180/PI,3353,9000,2000,true)
 		
 		
 		if terreno:
@@ -104,7 +108,7 @@ func _input(event):
 			rich_text_label.text = '[outline_size={5}]Has tocado mar[/outline_size]'
 	#if event.is_action_pressed("keyQ"):
 		#scale_factor += 0.01
-		#print(scale_factor)f
+		#print(scale_factor)
 
 var terreno = true
 
@@ -117,7 +121,7 @@ var terreno = true
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		print('Tierra \n') # Replace with function body.
+		print('Tierra \n') # Replace with function body.0
 	
 @onready var area_raton: Area2D = $"../AreaRaton"
 
@@ -133,3 +137,14 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area == area_raton:
 		terreno = false
 		Global.terreno = terreno
+
+var radioapi = 0
+var scale_terremoto = 0
+var scale_onda = 0
+
+func _on_get_api_datos_recibidos(radio: float, terremoto: float, onda: float) -> void:
+	radioapi = get_api.radio
+	scale_terremoto = get_api.terremoto
+	scale_onda = get_api.onda()
+	
+	print(radioapi)

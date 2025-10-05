@@ -15,7 +15,7 @@ extends Control
 @onready var send: Button = $send
 
 
-var asteroide_elegido := 'Rame-127'   #CAMBIAR ----------------------------------------
+var asteroide_elegido := Global.selected_asteroid_name  
 var datos := []
 var text := ''
 
@@ -51,7 +51,7 @@ var blank_options: Dictionary = {
 var current_blank_id: String = ""        # id del hueco
 
 
-# ------------- Handlers ---------------
+# ----------------------- Handlers --------------------------
 # Se llama cuando el usuario hace clic en un desplegable
 func _on_rich_meta_clicked(meta: Variant) -> void:
 	current_blank_id = meta
@@ -113,7 +113,10 @@ func _on_email_pressed() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/correo_mitigation.tscn")
 
 func _on_send_pressed() -> void:
-	get_tree().call_deferred("change_scene_to_file", "res://scenes/post_correo_mitigacion.tscn")     # CAMBIAR A LA SIGUIENTE ESCENA
+	if Global.selections.size()==0:
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/correo_mitigacion.tscn") 
+	else:
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/post_correo_mitigacion.tscn")     # CAMBIAR A LA SIGUIENTE ESCENA
 
 
 

@@ -32,31 +32,26 @@ zoom_sensitivity = 2.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83939, 19.1735, -206.54552)
 mass = 98.637
 asteroid_test_color = Color(7.70092e-07, 0.7754892, 0.88404083, 1)
-distance = 1000.0
 
 [node name="Asteroid4" parent="AsteroidSet" instance=ExtResource("2_j8ivh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.16169, 10.2966, 123.862946)
 mass = 98.637
 asteroid_test_color = Color(0, 0.7881297, 0.38470423, 1)
-distance = 1000.0
 
 [node name="Asteroid3" parent="AsteroidSet" instance=ExtResource("2_j8ivh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07025, 5.14828, 115.19957)
 mass = 98.637
 asteroid_test_color = Color(0.7935396, 0.6148786, 0, 1)
-distance = 1000.0
 
 [node name="Asteroid2" parent="AsteroidSet" instance=ExtResource("2_j8ivh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.822618, 160.79688, -11.0508)
 mass = 4.635
 asteroid_test_color = Color(0.9999998, 0.37945828, 0.15573582, 1)
-distance = 1000.0
 
 [node name="Asteroid" parent="AsteroidSet" instance=ExtResource("2_j8ivh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.332333, -0.025781155, -0.5678048)
 mass = 1000.0
 asteroid_test_color = Color(0.9814921, 7.2196126e-05, 0.7456549, 1)
-distance = 1000.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.60827667, 0.7937251, 0, -0.7937251, 0.60827667, 0, 0, 0)

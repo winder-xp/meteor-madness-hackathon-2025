@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://brikyj6jv7fmk"]
+
+[ext_resource type="Script" uid="uid://vpyfu5glx8o" path="res://ordenador/escena/control.gd" id="1_7xmua"]
+[ext_resource type="Texture2D" uid="uid://dma24qntbil2e" path="res://ordenador/windows_foto.jpg" id="1_tx6vw"]
+[ext_resource type="Texture2D" uid="uid://dlhad77alimhr" path="res://ordenador/1366_2000.png" id="2_iv3dl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uqqt3"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7xmua")
+
+[node name="WindowsFoto" type="Sprite2D" parent="."]
+position = Vector2(576, 323.99997)
+scale = Vector2(0.6, 0.54)
+texture = ExtResource("1_tx6vw")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 60.0
+offset_right = 1411.0
+offset_bottom = 1193.0
+scale = Vector2(0.05, 0.05)
+vertical = true
+
+[node name="TextureRect" type="TextureRect" parent="BoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_iv3dl")
+
+[node name="Label" type="Label" parent="BoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 230
+text = "correo"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 42.0
+offset_top = 53.0
+offset_right = 116.0
+offset_bottom = 127.0
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uqqt3")
