@@ -139,7 +139,12 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		Global.terreno = terreno
 
 var radioapi = 0
+var scale_terremoto = 0
+var scale_onda = 0
 
 func _on_get_api_datos_recibidos(radio: float, terremoto: float, onda: float) -> void:
 	radioapi = get_api.radio
+	scale_terremoto = get_api.terremoto
+	scale_onda = get_api.onda()
+	
 	print(radioapi)
