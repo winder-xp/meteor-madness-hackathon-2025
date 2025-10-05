@@ -97,7 +97,7 @@ shape = SubResource("SphereShape3D_x88eu")
 
 [node name="AsteroidSet" type="Node3D" parent="."]
 
-[node name="Ryugu" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
+[node name="Rame127" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.91547, 0, 259.82587)
 freeze_mode = 1
 asteroid_id = 3
@@ -106,15 +106,19 @@ is_on_solar_scene = true
 
 [node name="2000Dp107" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.91547, 0, 259.82587)
+visible = false
 freeze_mode = 1
 asteroid_id = 4
+label_active = false
 asteroid_test_color = Color(0.33522558, 0.50360644, 0.9999812, 1)
 is_on_solar_scene = true
 
 [node name="Dinkinesh" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.91547, 0, 259.82587)
+visible = false
 freeze_mode = 1
 asteroid_id = 2
+label_active = false
 asteroid_test_color = Color(0.85130346, 0.71048594, 0, 1)
 is_on_solar_scene = true
 
@@ -179,7 +183,7 @@ text = "Choose this asteroid
 
 [connection signal="input_event" from="sol final/sun_collider" to="MovableCamera3D" method="_on_sun_collider_input_event"]
 [connection signal="input_event" from="Tierra/earth_collider" to="MovableCamera3D" method="_on_earth_collider_input_event"]
-[connection signal="input_event" from="AsteroidSet/Ryugu" to="MovableCamera3D" method="_on_ryugu_input_event"]
+[connection signal="input_event" from="AsteroidSet/Rame127" to="MovableCamera3D" method="_on_ryugu_input_event"]
 [connection signal="input_event" from="AsteroidSet/2000Dp107" to="MovableCamera3D" method="_on_dp_107_input_event"]
 [connection signal="input_event" from="AsteroidSet/Dinkinesh" to="MovableCamera3D" method="_on_dinkinesh_input_event"]
 [connection signal="input_event" from="AsteroidSet/Bennu" to="MovableCamera3D" method="_on_bennu_input_event"]
@@ -187,3 +191,4 @@ text = "Choose this asteroid
 [connection signal="parameters_ready" from="AsteroidSet/Itokawa" to="sol final" method="_on_asteroid_2_parameters_ready"]
 [connection signal="value_changed" from="HSlider" to="HSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="HSlider/SpinBox" to="HSlider" method="_on_spin_box_value_changed"]
+[connection signal="pressed" from="btn_asteroid_select" to="MovableCamera3D" method="_on_btn_asteroid_select_pressed"]

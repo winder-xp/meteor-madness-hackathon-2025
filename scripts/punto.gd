@@ -34,20 +34,19 @@ func lat_lon_conversion_inversa(x,y):
 	
 	return Vector2(2*PI*x/a,2*atan(exp(-2*PI*y/b))-PI/2)
 
-var radio_rojo = 400:
-		set(value):
-			radio_rojo = value*METROS_PIXELES
+var radio_rojo = 0.0
 
 func _draw():
 	
 	#var conversion_elipse = (40074 * mapa_mundo.get_rect().size.x) / (mapa_mundo.get_rect().size.y * 2*PI*6378) 
-	var conversion_elipse=1
+	#var conversion_elipse=1
 	
 	#draw_set_transform(Vector2(0,0),0,Vector2(conversion_elipse*1,1))
 	
 	#draw_circle(Vector2(0,0),radio_amarillo,Color(Color.ORANGE,0.45))
 	#draw_circle(Vector2(0,0),radio_naranja,Color(Color.ORANGE_RED,0.5))
 	draw_circle(Vector2(0,0),radio_rojo,Color(Color.RED,0.55))
+	
 
 func _ready():
 	
@@ -72,6 +71,9 @@ var parallax = ParallaxBackground.new()
 var layer = ParallaxLayer.new()
 
 func _process(delta):
+	radio_rojo = 400000*METROS_PIXELES
+	queue_redraw()
+	print(str(radio_rojo) + "    " + str(radio_rojo/METROS_PIXELES))
 	if activateDelta:
 		tiempo += delta
 	if tiempo > 0.5:
@@ -102,7 +104,7 @@ func _input(event):
 			rich_text_label.text = '[outline_size={5}]Has tocado mar[/outline_size]'
 	#if event.is_action_pressed("keyQ"):
 		#scale_factor += 0.01
-		#print(scale_factor)
+		#print(scale_factor)f
 
 var terreno = true
 

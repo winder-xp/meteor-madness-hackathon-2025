@@ -9,4 +9,9 @@ var datos_asteroides: Dictionary = {'Itokawa': ['Itokawa',3.15e10,0.33,1.9e3,'si
 'Bennu': ['Bennu',7.33e10,0.48,1.19e3,'hydrated materials and organic compounds that easily reacts with other molecules, mainly carbonaceous','porus and heterogeneous material',15,6,27,'the gravity tractor'], 
 'Rame-127': ['Rame-127', 5.45e13, 0.872,3500,'silicates rich in iron and magnesium', 'rocky, hard and cohesive material',6,10,9, 'the nuclear interceptor']}
 
+# true significa que ha caido en tierra, false que ha caido en agua
 var terreno = true
+
+var selected_asteroid_name: String = "Itokawa"
+
+var asteroid_velocity: float = 0.0
