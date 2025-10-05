@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ftjl8t0ip5pd"]
+[gd_scene load_steps=9 format=3 uid="uid://ftjl8t0ip5pd"]
 
 [ext_resource type="Texture2D" uid="uid://d28ejtsgf4llb" path="res://assets/untitled-0.jpg" id="2_atgyb"]
 [ext_resource type="Script" uid="uid://dlxpt4kgi4d2" path="res://scripts/MapaMundo.gd" id="2_tfnl5"]
 [ext_resource type="Script" uid="uid://qbkvf36oq1v7" path="res://scripts/punto.gd" id="3_nrd35"]
 [ext_resource type="Script" uid="uid://dvsyx8p0cjqng" path="res://scripts/camara del mapa.gd" id="4_nrd35"]
 [ext_resource type="Script" uid="uid://kkblxnig0b4v" path="res://scripts/area_raton.gd" id="5_atgyb"]
+[ext_resource type="Script" uid="uid://b414ypttuxf64" path="res://scenes/api.gd" id="6_k7lwh"]
 
 [sub_resource type="GDScript" id="GDScript_nrd35"]
 script/source = "extends RichTextLabel
@@ -52,9 +53,19 @@ script = ExtResource("5_atgyb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaRaton"]
 shape = SubResource("CircleShape2D_k7lwh")
 
+[node name="GetApi" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_k7lwh")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="GetApi"]
+
 [connection signal="area_entered" from="MapaMundo/Area2D" to="punto" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="MapaMundo/Area2D" to="punto" method="_on_area_2d_area_exited"]
 [connection signal="input_event" from="MapaMundo/Area2D" to="punto" method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="MapaMundo/Area2D" to="punto" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_entered" from="MapaMundo/Area2D" to="CanvasLayer/RichTextLabel" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="MapaMundo/Area2D" to="punto" method="_on_area_2d_mouse_exited"]
+[connection signal="datos_recibidos" from="GetApi" to="punto" method="_on_get_api_datos_recibidos"]

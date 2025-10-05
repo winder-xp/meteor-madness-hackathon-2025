@@ -2,6 +2,7 @@ extends Node
 
 # Señal que se emitirá cuando lleguen los datos
 signal datos_recibidos(radio: float, terremoto: float, onda: float)
+"res://scenes/"
 
 var http_request : HTTPRequest
 
