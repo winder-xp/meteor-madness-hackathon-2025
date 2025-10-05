@@ -3,7 +3,7 @@ extends Camera3D
 @onready var sun_mesh: MeshInstance3D = $"../sol final"
 @onready var slider: HSlider = $"../HSlider"
 
-@onready var ryugu = $"../AsteroidSet/Ryugu"
+@onready var rame_127 = $"../AsteroidSet/Rame127"
 @onready var a_2000_dp_107 = $"../AsteroidSet/2000Dp107"
 @onready var dinkinesh = $"../AsteroidSet/Dinkinesh"
 @onready var bennu = $"../AsteroidSet/Bennu"
@@ -127,7 +127,7 @@ func _process(delta):
 
 func _on_ryugu_input_event(camera, event, event_position, normal, shape_idx):
 	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
-		camera_look_at_object = ryugu
+		camera_look_at_object = rame_127
 		btn_asteroid_select.disabled = false
 
 func _on_itokawa_input_event(camera, event, event_position, normal, shape_idx):
@@ -162,4 +162,10 @@ func _on_sun_collider_input_event(camera, event, event_position, normal, shape_i
 
 func _on_btn_asteroid_select_pressed():
 	Global.selected_asteroid_name = camera_look_at_object.Asteroids.keys()[camera_look_at_object.asteroid_id]
+	Global.asteroid_velocity = camera_look_at_object.relative_velocity
 	print(Global.selected_asteroid_name)
+
+func _on_rame_127_input_event(camera, event, event_position, normal, shape_idx):
+	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
+		camera_look_at_object = rame_127
+		btn_asteroid_select.disabled = false

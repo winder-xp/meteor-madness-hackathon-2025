@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://cxhhwgjn62vs7"]
 
 [ext_resource type="PackedScene" uid="uid://co5mwyhwg3m4x" path="res://scenes/sol_final.tscn" id="1_awk3h"]
-[ext_resource type="Script" uid="uid://cre1fybf4yjct" path="res://scripts/cuerpo de apoyo para la camara.gd" id="3_j4hda"]
+[ext_resource type="Script" path="res://scripts/cuerpo de apoyo para la camara.gd" id="3_j4hda"]
 [ext_resource type="Texture2D" uid="uid://cuy8erxw1ii1p" path="res://assets/2k_stars.jpg" id="3_pdnvj"]
 [ext_resource type="Script" uid="uid://jmlfrra6bemu" path="res://scripts/camara zoom unicamente.gd" id="4_n82ve"]
 [ext_resource type="Texture2D" uid="uid://bmy6d5k0sn62g" path="res://assets/2k_earth_daymap.jpg" id="5_n82ve"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://cnocrqhhlna0w" path="res://scripts/tierra.gd" id="8_2kqfg"]
 [ext_resource type="PackedScene" uid="uid://b3decofh4d3lq" path="res://scenes/asteroid.tscn" id="8_7ly8i"]
 [ext_resource type="Script" uid="uid://d0nmge2kcehsa" path="res://scripts/engine_time_scale_slider.gd" id="10_x88eu"]
-[ext_resource type="Script" path="res://scripts/date_text.gd" id="11_1o4lj"]
+[ext_resource type="Script" uid="uid://c07kbwlg6e437" path="res://scripts/date_text.gd" id="11_1o4lj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1o4lj"]
 
@@ -97,7 +97,7 @@ shape = SubResource("SphereShape3D_x88eu")
 
 [node name="AsteroidSet" type="Node3D" parent="."]
 
-[node name="Ryugu" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
+[node name="Rame127" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.91547, 0, 259.82587)
 freeze_mode = 1
 asteroid_id = 3
@@ -106,15 +106,19 @@ is_on_solar_scene = true
 
 [node name="2000Dp107" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.91547, 0, 259.82587)
+visible = false
 freeze_mode = 1
 asteroid_id = 4
+label_active = false
 asteroid_test_color = Color(0.33522558, 0.50360644, 0.9999812, 1)
 is_on_solar_scene = true
 
 [node name="Dinkinesh" parent="AsteroidSet" instance=ExtResource("8_7ly8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.91547, 0, 259.82587)
+visible = false
 freeze_mode = 1
 asteroid_id = 2
+label_active = false
 asteroid_test_color = Color(0.85130346, 0.71048594, 0, 1)
 is_on_solar_scene = true
 
@@ -179,7 +183,8 @@ text = "Choose this asteroid
 
 [connection signal="input_event" from="sol final/sun_collider" to="MovableCamera3D" method="_on_sun_collider_input_event"]
 [connection signal="input_event" from="Tierra/earth_collider" to="MovableCamera3D" method="_on_earth_collider_input_event"]
-[connection signal="input_event" from="AsteroidSet/Ryugu" to="MovableCamera3D" method="_on_ryugu_input_event"]
+[connection signal="input_event" from="AsteroidSet/Rame127" to="MovableCamera3D" method="_on_ryugu_input_event"]
+[connection signal="input_event" from="AsteroidSet/Rame127" to="MovableCamera3D" method="_on_rame_127_input_event"]
 [connection signal="input_event" from="AsteroidSet/2000Dp107" to="MovableCamera3D" method="_on_dp_107_input_event"]
 [connection signal="input_event" from="AsteroidSet/Dinkinesh" to="MovableCamera3D" method="_on_dinkinesh_input_event"]
 [connection signal="input_event" from="AsteroidSet/Bennu" to="MovableCamera3D" method="_on_bennu_input_event"]

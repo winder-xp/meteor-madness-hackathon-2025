@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dagxkrcv0upmv"]
 
 [ext_resource type="PackedScene" uid="uid://djxhklrccvua4" path="res://recursos3d/vintage_office_interior_scene.glb" id="1_li3bk"]
-[ext_resource type="Script" uid="uid://dptrg53aonld3" path="res://camera_3d.gd" id="2_s82km"]
+[ext_resource type="Script" uid="uid://dptrg53aonld3" path="res://escenarios_3d_edgar/camera_3d.gd" id="2_s82km"]
 
 [node name="Node3D" type="Node3D"]
 

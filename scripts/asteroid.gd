@@ -8,7 +8,7 @@ enum Asteroids {
 	Itokawa,
 	Bennu,
 	Dinkinesh,
-	Ryugu,
+	Rame127,
 	_2000_DP107,
 }
 
@@ -19,6 +19,8 @@ var relative_velocity = 0.0
 
 ## Nombre del asteroide (se toman sus datos)
 @export var asteroid_id: Asteroids
+
+@export var label_active = true
 
 ## Número de puntos de la elipse dibujada
 @export var num_orbit_points: int = 1000
@@ -64,8 +66,11 @@ func _ready():
 	'''
 	Propiedades del asteroide según el tipo
 	'''
-	get_node("Label3D").text = str(Asteroids.keys()[asteroid_id])
-	get_node("Label3D").modulate = asteroid_test_color
+	if label_active:
+		get_node("Label3D").text = str(Asteroids.keys()[asteroid_id])
+		get_node("Label3D").modulate = asteroid_test_color
+	else: 
+		get_node("Label3D").text = ""
 	if asteroid_id == Asteroids.Itokawa:
 		e = 0.2801500981413037
 		a = 1.324135178668783 * UA_TO_SUN
@@ -84,7 +89,7 @@ func _ready():
 		Omega = 2.06086619569642 * DEGREES
 		i = 6.03494377024794 * DEGREES
 	
-	if asteroid_id == Asteroids.Ryugu:
+	if asteroid_id == Asteroids.Rame127:
 		e = 0.1910626231558206
 		a = 1.190921090916117 * UA_TO_SUN
 		b = a*sqrt(1-e**2)

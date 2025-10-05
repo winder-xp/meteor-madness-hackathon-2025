@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d22t5sa231tja"]
 
 [ext_resource type="PackedScene" uid="uid://djxhklrccvua4" path="res://recursos3d/vintage_office_interior_scene.glb" id="1_l4n7d"]
-[ext_resource type="Script" uid="uid://dptrg53aonld3" path="res://camera_3d.gd" id="2_ablop"]
+[ext_resource type="Script" uid="uid://dptrg53aonld3" path="res://escenarios_3d_edgar/camera_3d.gd" id="2_ablop"]
 
 [node name="Sketchfab_Scene" instance=ExtResource("1_l4n7d")]
 
