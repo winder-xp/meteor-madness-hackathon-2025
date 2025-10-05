@@ -15,12 +15,13 @@ run/main_scene="uid://d4ddh0ykygtu3"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
-[gui]
-
-theme/custom="uid://bxth2uel6whdr"
 [autoload]
 
 Global="*res://Global.gd"
+
+[gui]
+
+theme/custom="uid://bxth2uel6whdr"
 
 [input]
 
