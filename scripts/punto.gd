@@ -3,8 +3,8 @@ extends Node2D
 @onready var get_api: Control = $"../GetApi"
 
  #Zona peligro maximo
-#var radio_naranja = 15 #Zona peligro
-#var radio_amarillo = 25 #Donde se rompen cristales
+var radio_terremoto = 15 #Zona peligro
+var radio_onda = 25 #Donde se rompen cristales
 
 var METROS_PIXELES = 0
 
@@ -45,9 +45,9 @@ func _draw():
 	
 	#draw_set_transform(Vector2(0,0),0,Vector2(conversion_elipse*1,1))
 	
-	#draw_circle(Vector2(0,0),radio_amarillo,Color(Color.ORANGE,0.45))
-	#draw_circle(Vector2(0,0),radio_naranja,Color(Color.ORANGE_RED,0.5))
-	draw_circle(Vector2(0,0),radio_rojo,Color(Color.RED,0.55))
+	draw_circle(Vector2(0,0),radio_onda,Color(0,255,255/11*scale_onda))
+	draw_circle(Vector2(0,0),radio_terremoto,Color(255,0,255/11*(scale_terremoto)))
+	draw_circle(Vector2(0,0),radio_rojo,Color(Color.BLACK))
 
 func _ready():
 	
@@ -62,8 +62,9 @@ func _ready():
 	parallax.add_child(layer)
 	layer.add_child(rich_text_label)
 	
-	rich_text_label.z_index = 1
+	rich_text_label.z_index = 2
 	
+	texture_rect.visible = false
 
 	
 	
@@ -73,6 +74,8 @@ var layer = ParallaxLayer.new()
 
 func _process(delta):
 	radio_rojo = radioapi*METROS_PIXELES*10
+	radio_terremoto = radio_rojo*1.6
+	radio_onda = radio_rojo * 2.6
 	queue_redraw()
 	if activateDelta:
 		tiempo += delta
@@ -81,8 +84,13 @@ func _process(delta):
 		activateDelta = false
 	emit_signal("is_tierra", terreno)
 	
+@onready var rich_text_label: RichTextLabel = $"../CanvasLayer/TextureRect/RichTextLabel"
 	
-@onready var rich_text_label: RichTextLabel = $"../CanvasLayer/RichTextLabel"
+@onready var texture_rect: TextureRect = $"../CanvasLayer/TextureRect"
+
+
+
+
 
 var activateDelta = false 
 
@@ -102,10 +110,6 @@ func _input(event):
 		get_api.llamar_api(x*180/PI,y*180/PI,3353,9000,2000,true)
 		
 		
-		if terreno:
-			rich_text_label.text = '[outline_size={5}]Has tocado tierra[/outline_size]'
-		else:
-			rich_text_label.text = '[outline_size={5}]Has tocado mar[/outline_size]'
 	#if event.is_action_pressed("keyQ"):
 		#scale_factor += 0.01
 		#print(scale_factor)
@@ -145,6 +149,9 @@ var scale_onda = 0
 func _on_get_api_datos_recibidos(radio: float, terremoto: float, onda: float) -> void:
 	radioapi = get_api.radio
 	scale_terremoto = get_api.terremoto
-	scale_onda = get_api.onda()
+	scale_onda = get_api.onda
 	
-	print(radioapi)
+	texture_rect.visible = true
+	
+	rich_text_label.text = '[outline_size={5}]BREAKING NEWS[/outline_size]'
+	
