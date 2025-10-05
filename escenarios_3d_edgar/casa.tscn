@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c33ann42gxq5t" path="res://suelo/WoodFloor008_2K-JPG/WoodFloor008_2K-JPG_NormalGL.jpg" id="3_2xirv"]
 [ext_resource type="Texture2D" uid="uid://2bfvde2svdas" path="res://suelo/WoodFloor008_2K-JPG/WoodFloor008_2K-JPG_Roughness.jpg" id="3_pnlk0"]
 [ext_resource type="Texture2D" uid="uid://b72sv7n3bkqy5" path="res://pared/Plaster001_2K-JPG/Plaster001_2K-JPG_Color.jpg" id="5_ld3ao"]
-[ext_resource type="Script" uid="uid://dptrg53aonld3" path="res://camera_3d.gd" id="5_uh6m2"]
+[ext_resource type="Script" uid="uid://dptrg53aonld3" path="res://escenarios_3d_edgar/camera_3d.gd" id="5_uh6m2"]
 [ext_resource type="Texture2D" uid="uid://cao4pu000hsjb" path="res://pared/Plaster001_2K-JPG/Plaster001_2K-JPG_Roughness.jpg" id="6_dw3ss"]
 [ext_resource type="Texture2D" uid="uid://dpvacyi24w5qb" path="res://pared/Plaster001_2K-JPG/Plaster001_2K-JPG_Displacement.jpg" id="6_wwc0f"]
 [ext_resource type="Texture2D" uid="uid://lu3oodjdnbpx" path="res://pared/Plaster001_2K-JPG/Plaster001_2K-JPG_NormalGL.jpg" id="7_uh6m2"]

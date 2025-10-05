@@ -10,7 +10,11 @@
 [ext_resource type="Script" uid="uid://cnocrqhhlna0w" path="res://scripts/tierra.gd" id="8_2kqfg"]
 [ext_resource type="PackedScene" uid="uid://b3decofh4d3lq" path="res://scenes/asteroid.tscn" id="8_7ly8i"]
 [ext_resource type="Script" uid="uid://d0nmge2kcehsa" path="res://scripts/engine_time_scale_slider.gd" id="10_x88eu"]
+<<<<<<< HEAD
 [ext_resource type="Script" path="res://scripts/date_text.gd" id="11_1o4lj"]
+=======
+[ext_resource type="Script" uid="uid://c07kbwlg6e437" path="res://scripts/date_text.gd" id="11_1o4lj"]
+>>>>>>> pruebas-con-godot
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1o4lj"]
 
@@ -59,7 +63,11 @@ environment = SubResource("Environment_pdnvj")
 [node name="MovableCamera3D" parent="." instance=ExtResource("7_fwocp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.2856946)
 camera_lookat = Vector3(0, 0, 215.032)
+<<<<<<< HEAD
 radius = 0.5
+=======
+radius = 0.002
+>>>>>>> pruebas-con-godot
 is_on_earth = true
 zoom_sensitivity = 0.01
 test_movement = false
@@ -137,11 +145,19 @@ light_color = Color(1, 0.7490196, 0.5647059, 1)
 light_energy = 9.077
 
 [node name="HSlider" type="HSlider" parent="."]
+<<<<<<< HEAD
 offset_left = 147.0
 offset_top = 18.0
 offset_right = 1011.0
 offset_bottom = 34.0
 tooltip_text = "How fast the simulation runs  (in seconds)"
+=======
+offset_left = 105.0
+offset_top = 17.0
+offset_right = 969.0
+offset_bottom = 33.0
+tooltip_text = "Cómo de rápido se ve la simulación (en segundos)"
+>>>>>>> pruebas-con-godot
 min_value = -31557600.0
 max_value = 31557600.0
 value = 1.0
@@ -153,20 +169,32 @@ offset_left = 894.0
 offset_top = -5.0
 offset_right = 980.5625
 offset_bottom = 26.0
+<<<<<<< HEAD
 tooltip_text = "How fast the simulation runs  (in seconds)"
+=======
+tooltip_text = "Cómo de rápido se ve la simulación (en segundos)"
+>>>>>>> pruebas-con-godot
 min_value = -31557600.0
 max_value = 31557600.0
 value = 1.0
 
 [node name="DateText" type="RichTextLabel" parent="."]
+<<<<<<< HEAD
 offset_left = 502.0
 offset_top = 37.0
 offset_right = 713.0
 offset_bottom = 84.0
+=======
+offset_left = 460.0
+offset_top = 36.0
+offset_right = 671.0
+offset_bottom = 83.0
+>>>>>>> pruebas-con-godot
 text = "2025-09-26 23:03:12"
 scroll_active = false
 script = ExtResource("11_1o4lj")
 
+<<<<<<< HEAD
 [node name="btn_asteroid_select" type="Button" parent="."]
 offset_left = 487.0
 offset_top = 579.0
@@ -177,6 +205,8 @@ disabled = true
 text = "Choose this asteroid
 "
 
+=======
+>>>>>>> pruebas-con-godot
 [connection signal="input_event" from="sol final/sun_collider" to="MovableCamera3D" method="_on_sun_collider_input_event"]
 [connection signal="input_event" from="Tierra/earth_collider" to="MovableCamera3D" method="_on_earth_collider_input_event"]
 [connection signal="input_event" from="AsteroidSet/Ryugu" to="MovableCamera3D" method="_on_ryugu_input_event"]
@@ -187,4 +217,7 @@ text = "Choose this asteroid
 [connection signal="parameters_ready" from="AsteroidSet/Itokawa" to="sol final" method="_on_asteroid_2_parameters_ready"]
 [connection signal="value_changed" from="HSlider" to="HSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="HSlider/SpinBox" to="HSlider" method="_on_spin_box_value_changed"]
+<<<<<<< HEAD
 [connection signal="pressed" from="btn_asteroid_select" to="MovableCamera3D" method="_on_btn_asteroid_select_pressed"]
+=======
+>>>>>>> pruebas-con-godot
