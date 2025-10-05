@@ -164,3 +164,8 @@ func _on_btn_asteroid_select_pressed():
 	Global.selected_asteroid_name = camera_look_at_object.Asteroids.keys()[camera_look_at_object.asteroid_id]
 	Global.asteroid_velocity = camera_look_at_object.relative_velocity
 	print(Global.selected_asteroid_name)
+
+func _on_rame_127_input_event(camera, event, event_position, normal, shape_idx):
+	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
+		camera_look_at_object = rame_127
+		btn_asteroid_select.disabled = false
