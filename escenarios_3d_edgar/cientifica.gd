@@ -58,5 +58,5 @@ func _process(delta):
 	elif Input.is_action_just_pressed("P"): 
 		state_machine.travel("levantarse")
 		sentado = false 
-	elif  velocity.x==0 and velocity.y== 0 and sentado == false:
+	elif  velocity.x==0 and velocity.z== 0 and sentado == false:
 		state_machine.travel("idle")
